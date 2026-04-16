@@ -1,0 +1,82 @@
+.textarea{
+    grid-area: textarea;
+    grid-row: 1/span 3;
+    grid-column: 1/2;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    background-color: #f4e3b2;
+    border:3px dashed #74070e;
+    outline:none;
+}
+.attachmedia{
+    grid-area: mediabutton;
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+.upload{
+    grid-area: upload;
+    grid-row: 4/5;
+    grid-column: 2/3;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    background-color:#74070e;
+}
+.form{
+    display: grid;
+    height:100%
+
+}
+.div{
+    height:71.65%; 
+    background-color: #f4e3b2;
+    font-family:Georgia, 'Times New Roman', Times, serif
+    
+}
+.dropdowndiv{
+    grid-area: filterdropdownparent;
+    grid-row: 1/2;
+    grid-column:2/3;
+    text-align: center;
+    align-self: end;
+    position:relative;
+    border:3px dashed #45462a;
+}
+.dropdownlist{
+    position: absolute;
+    display:none;
+    flex-direction: column;
+    width:25vw;
+    top:37%;
+    right:11%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.dropdowndiv:hover ~ .dropdownlist{
+    display:flex;
+    height: auto;
+}
+.dropdownlist:hover{
+    display: flex;
+    width:25vw;
+    height: auto;
+}
+.medialabel{
+    position:relative;
+    top:44%;
+    left:41%;
+    border:3px dashed #45462a;
+    
+}
+.dropdownbutton{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border:1px dashed #74070e;
+    background-color: #f4e3b2;
+}
+.dropdownbutton:hover{
+    background-color: #ccbe95;
+}
+.dropdownbutton:active{
+    background-color: #f4e3b2;
+}
+
+
+   

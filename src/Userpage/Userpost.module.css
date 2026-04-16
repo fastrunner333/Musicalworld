@@ -1,0 +1,53 @@
+.post{
+     position: relative;
+    left:32%;
+    top:2%;
+    height:96%;
+    width:67%;
+    background-color:#f4e3b2;
+    overflow:scroll;
+}
+.userpostnomedia{
+    border: 6px dashed #74070e;
+    display:flex;
+    flex-direction: column;
+}
+.userpostimage{
+    border: 6px dashed #74070e;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userpostaudio{
+    border: 6px dashed #74070e;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userpostvideo{
+    border: 6px dashed #74070e;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user{
+    color: #74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 800;
+    align-self: baseline;
+}
+.title{
+    color: #74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    align-self: baseline;
+}
+.img{
+    height: 25vh;
+    width: fit-content;
+}
+
+.video{
+    height: 25vh;
+    width: fit-content;
+}

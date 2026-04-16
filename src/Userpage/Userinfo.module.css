@@ -1,0 +1,38 @@
+.userinfo{
+    flex-grow: 9;
+    background-color: #f4e3b2;
+    height: 5.7%;
+}
+.flexiblebox{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    width:20%;
+    height:40%;
+    align-items: flex-start;
+    justify-content: space-around;
+    
+}
+
+
+.name{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:#74070e;
+    font-size: medium;
+}
+.changepass{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: #f4e3b2;
+    color:#74070e;
+    outline: none;
+    border: 3px dashed #74070e;
+    font-size: medium;
+}
+.profilepicbutton{
+    display: none;
+}
+.profilepiclab{
+    border: 3px dashed #74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+}

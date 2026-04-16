@@ -1,0 +1,26 @@
+.filter{
+    position: relative;
+    left:1%;
+    top:2%;
+    height:96%;
+    width:30%;
+    background-color: #74070e;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 5px dotted  #f4e3b2;
+}
+.button{
+    height:6vh;
+    width:10vw;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:medium;
+    background-color: #45462a;
+    color:#f4e3b2;
+}
+.img{
+    height:6vh;
+    width:6vh;  
+}

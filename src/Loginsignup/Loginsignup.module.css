@@ -1,0 +1,72 @@
+.header{
+    background-color:#74070e;
+    border: 10px  #f4e3b2;
+    border-style: dotted;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color:#f4e3b2;
+    font-weight: 700;
+    height:18vh;
+    overflow: hidden;
+    font-family:Georgia, 'Times New Roman', Times, serif
+    
+}
+.flex{
+    display:flex;
+    background-color: #f4e3b2;
+    flex-direction: column;
+    height:80%;
+    justify-content: space-around;
+}
+.username{
+    display:inline;
+    position: relative;
+    margin-left:7%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    
+}
+.password{
+    display:inline;
+    position: relative;
+    margin-left:7%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.buttons{
+    display:inline;
+    position: relative;
+    margin-left:7%;
+    
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.signupbutton{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:medium;
+    background-color: #45462a;
+    color:#f4e3b2;
+    height:4vh;
+    width: 10vw;
+    
+}
+.loginbutton{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:medium;
+    background-color: #45462a;
+    color:#f4e3b2;
+    height:4vh;
+    width: 10vw;
+}
+.userinput{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline:none;
+    background-color: #74070e;
+    color:#f4e3b2;
+    border: 3px dashed #f4e3b2;
+}
+.passinput{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline:none;
+    background-color: #74070e;
+    color:#f4e3b2;
+    border: 3px dashed #f4e3b2;
+}
