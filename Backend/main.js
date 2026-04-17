@@ -224,7 +224,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
     else{
         cloudinary.uploader.upload_stream({
                 folder:"userpict",
-                public_id:`${req.query.username}userpic`,
+                public_id:`${req.query.username}userpic${Date.now()}`,
                 resource_type:"image"
             },(err, res)=>{
                 if(err){
