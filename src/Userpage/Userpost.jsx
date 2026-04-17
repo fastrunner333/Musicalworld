@@ -16,7 +16,7 @@ export function Userpost(){
            .then(res=>{
                 return res.json()})
            .then((data)=>{
-                console.log("inside then")
+                console.log(data.data)
                if(data.data!=[] && userToken){
                        const newdata = data.data.map((post)=>{
                                             if(post.username != userToken){
