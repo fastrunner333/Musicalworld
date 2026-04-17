@@ -16,7 +16,6 @@ export function ProtectedRoute({children}){
                 navigate("/")
             }
             else{
-                console.log("security check failed")
                 return res.text()
             }
                 

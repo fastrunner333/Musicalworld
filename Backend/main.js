@@ -47,7 +47,7 @@ app.post("/check",(req, res)=>{
             return cookie.split("=")
         })
         const jwtsubarr = cookiearr.findIndex((subarr)=>(subarr.includes("jwt")))
-        let jwtsubarrindex = jwtsubarr == -1 ? res.status(401).send() : cookiearr[jwtsubarr].indexOf("jwt")
+        let jwtsubarrindex = jwtsubarr == -1 ? res.status(400).send() : cookiearr[jwtsubarr].indexOf("jwt")
         ++jwtsubarrindex
         const jtwcookie = cookiearr[jwtsubarr][jwtsubarrindex]
         try{
@@ -60,7 +60,7 @@ app.post("/check",(req, res)=>{
         }
     }
     else{
-        res.status(401)
+        res.status(402)
     }
     return res.send()
 })
