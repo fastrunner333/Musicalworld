@@ -22,9 +22,10 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
+            return children
         })
         
-    return children
+    
        
     
 }
