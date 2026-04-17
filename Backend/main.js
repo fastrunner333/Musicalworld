@@ -9,7 +9,7 @@ import path from "path"
 import { fileURLToPath } from "url"
 import cors from "cors"
 const app = express()
-import {cloudinary} from "cloudinary"
+import cloudinary from "cloudinary"
 mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
