@@ -252,7 +252,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
 
 
 //uploading post
-const date = Date.now()
+
 const uploadpoststorage = multer.memoryStorage()
 
 const uploadfilter = (req,file,cb)=>{
@@ -273,6 +273,7 @@ const uploadpost = multer({
  })
 
 app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
+    const date = Date.now()
     const username = req.query.username
     let mediatype = null
     const musictype = req.body.musictype
