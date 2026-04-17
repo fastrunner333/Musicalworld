@@ -20,14 +20,16 @@ export function Userpost(){
                if(data.data!=[] && userToken){
                        const newdata = data.data.map((post)=>{
                                             if(post.username != userToken){
+                                                console.log("other user removed")
                                                 return 
                                             }
                                             else if(post.username == userToken){
+                                                console.log("added to new data")
                                                 return post
                                             }
                                        })
                        setresult(newdata.map((post, index)=>{  
-                                                        
+                                                        console.log("this is inside new data",post)
                                                            if(!post.mediatype){
                                                            return  <div key={index} className={styles.userpostnomedia}>
                                                                    <div className={styles.title}>{post.posttitle}</div>
