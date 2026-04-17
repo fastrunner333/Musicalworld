@@ -240,7 +240,7 @@ const uploadpoststorage = multer.diskStorage({
     }
 })
 
-const uploadfilter = (req,file,cb)=>{
+/* const uploadfilter = (req,file,cb)=>{
     console.log(file.mimetype)
     const type = file.mimetype
     if(type === "image/png"|| type==="image/jpeg" || type === "video/mp4" || type === "audio/mp4" || type === "audio/x-m4a" || type === "audio/mpeg"){
@@ -251,10 +251,10 @@ const uploadfilter = (req,file,cb)=>{
         return cb(new Error("Incorrect file type"),false)
     }
 }
-
+ */
 const uploadpost = multer({
                         storage:uploadpoststorage,
-                        fileFilter:uploadfilter,
+                        //fileFilter:uploadfilter,
  })
 
 app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
