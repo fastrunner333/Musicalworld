@@ -197,15 +197,7 @@ app.post("/changepass",async (req,res)=>{
 
 //changepic
 
-const userpicstore = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,"userpics/")
-    },
-    filename:(req,file,cb)=>{
-        const username = req.query.username
-        cb(null,username+"userpic"+path.extname(file.originalname))
-    },
-})
+const userpicstore = multer.memoryStorage()
 
 const userpicfilter = (req,file,cb)=>{
     console.log(req.file)
@@ -224,23 +216,31 @@ const uploaduserpic = multer({
                     })
 
 app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
-    console.log(req.file)
-    res.send("ok")
+    const username = req.query.username
+    if(!res.file){
+        res.status(400).send()
+    }
+    else{
+        cloudinary.uploader.upload_stream({
+                folder:"userpict",
+                public_id:`${username}userpic`,
+                resource_type:"image"
+            },(err, res)=>{
+                if(err){
+                    console.log(err)
+                    return res.status(500).send()
+                }
+                res.status(200).send()
+            }
+        ).end(req.file.buffer)    
+    }
 })
 
 
 
 //uploading post
 const date = Date.now()
-const uploadpoststorage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,"mediauploads/")
-    },
-    filename:(req,file,cb)=>{
-        const username = req.query.username
-        cb(null,username+"-"+date+path.extname(file.originalname))
-    }
-})
+const uploadpoststorage = multer.memoryStorage()
 
 const uploadfilter = (req,file,cb)=>{
     console.log(file.mimetype)
