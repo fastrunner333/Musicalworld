@@ -9,7 +9,7 @@ import path from "path"
 import { fileURLToPath } from "url"
 import cors from "cors"
 const app = express()
-import cloudinary from "cloudinary"
+import {v2 as cloudinary} from "cloudinary"
 mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
@@ -230,16 +230,23 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
                 return  req.file.username
             } 
             const imagebase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`
-            const result = await cloudinary.uploader.upload(imagebase64,{
+            const upstream = cloudinary.v2.uploader.upload_stream({
                 folder:"userpict",
                 public_id:`userpicthisisauniquenamesopleasedontchangeit`,
                 resource_type:"image",
                 overwrite:true,
                 use_filename:false,
                 unique_filename:false
+            },(err, result)=> {
+                if(err){
+                    console.log("upload stream error")
+                    res.status(500).send()
+                }
+                console.log("pic upload done")
+                res.status(200).send()
             })
-            console.log("pic upload done")
-            res.status(200).send()
+            upstream.end(req.file.buffer)
+            
     }
     catch(error){
             console.log("Here is the error")
