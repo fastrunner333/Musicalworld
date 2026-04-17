@@ -18,7 +18,7 @@ export function Userpost(){
            .then((data)=>{
                 console.log(data.data)
                if(data.data!=[] && userToken){
-                       const newdata = data.data.map((post)=>{
+                       /* const newdata = data.data.map((post)=>{
                                             if(post.username != userToken){
                                                 console.log("other user removed")
                                                 return 
@@ -27,7 +27,17 @@ export function Userpost(){
                                                 console.log("added to new data")
                                                 return post
                                             }
-                                       })
+                                       }) */
+                        const newdata = data.data.flatMap(post =>{
+                            if(post.username != userToken){
+                                console.log("other user removed")
+                                return []
+                            }
+                            else if(post.username == userToken){
+                                console.log("added to new data")
+                                return post
+                            }
+                        })
                        setresult(newdata.map((post, index)=>{  
                                                         console.log("this is inside new data",post)
                                                            if(!post.mediatype){
