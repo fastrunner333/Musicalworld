@@ -26,7 +26,7 @@ export function Upload(){
             uploadformdata.append("musictype", musictype)
             uploadformdata.append("mediafile", file)
 
-            fetch(`http://localhost:8000/upload?username=${userToken}`,{
+            fetch(`https://musicalworld.onrender.com/upload?username=${userToken}`,{
                 method:"POST",
                 body:uploadformdata,
             })

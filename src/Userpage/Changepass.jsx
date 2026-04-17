@@ -15,7 +15,7 @@ export function Changepass(){
         e.preventDefault()
         if(newPass && confirmPass != ""){
             if(newPass === confirmPass){
-                fetch("http://localhost:8000/changepass",{
+                fetch("https://musicalworld.onrender.com/changepass",{
                     method:"POST",
                     credentials:"include",
                     headers:{"Content-Type":"application/json"},

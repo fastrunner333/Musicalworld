@@ -25,7 +25,7 @@ export function Loginsignup(){
         const submitter = e.nativeEvent.submitter.value
         e.preventDefault()
         if(submitter=="signup"){
-            await fetch("http://localhost:8000/signin",{
+            await fetch("https://musicalworld.onrender.com/signin",{
                     method:"POST",
                     credentials:"include",
                     headers:{
@@ -49,7 +49,7 @@ export function Loginsignup(){
           } 
 
         if(submitter=="login"){
-            await fetch("http://localhost:8000/Login",{
+            await fetch("https://musicalworld.onrender.com/Login",{
                     method:"POST",
                     credentials:"include",
                     headers:{

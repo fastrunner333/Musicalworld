@@ -16,7 +16,7 @@ export function Userinfo(){
         const imageformdata = new FormData()
         imageformdata.append("userpic",picture)
         imageformdata.append("username", userToken)
-        fetch(`http://localhost:8000/changepic?username=${userToken}`,{
+        fetch(`https://musicalworld.onrender.com/changepic?username=${userToken}`,{
                 method:"POST",
                 body:imageformdata
         })

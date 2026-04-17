@@ -6,10 +6,13 @@ import {User} from "./Schema/Userschema.js"
 import {useruploads} from "./Schema/Uploadschema.js"
 import multer from "multer"
 import path from "path"
+import { fileURLToPath } from "url"
 const app = express()
 mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
+const filename = fileURLToPath(import.meta.url)
+const dir = path.dirname(file)
 
 app.listen(PORT,()=>{})
 
@@ -30,9 +33,9 @@ app.use(express.urlencoded())
 
 
 //public folders
-app.use("/userprofileimages",express.static("userpics"))
-app.use("/mediauploads",express.static("mediauploads"))
-app.use("/assets",express.static("assets"))
+app.use("/userprofileimages",express.static(path.join(dir,"userpics")))
+app.use("/mediauploads",express.static(path.join(dir,"mediauploads")))
+app.use("/assets",express.static(path.join(dir,"assets")))
 
 
 //httpcookiecheck
