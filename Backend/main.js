@@ -208,6 +208,7 @@ const userpicstore = multer.diskStorage({
 })
 
 const userpicfilter = (req,file,cb)=>{
+    console.log(req.file)
     console.log(file.mimetype)
     if(file.mimetype==="image/png"){
         return cb(null,true)
@@ -223,6 +224,7 @@ const uploaduserpic = multer({
                     })
 
 app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
+    console.log(req.file)
     res.send("ok")
 })
 
