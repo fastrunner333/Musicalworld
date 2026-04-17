@@ -313,8 +313,9 @@ app.get("/getpost",async(req,res)=>{
 //global error middleware
 
 app.use((err, req, res, next)=>{
+     console.log(err)
     if(err === "Error: Incorrect file type"){
-         console.log(err)
+        
         res.status(406).send()
     }
     next()
