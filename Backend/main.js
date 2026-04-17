@@ -232,7 +232,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
             const imagebase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`
             const result = await cloudinary.uploader.upload(imagebase64,{
                 folder:"userpict",
-                public_id:`${username}userpic`,
+                public_id:`userpicthisisauniquenamesopleasedontchangeit`,
                 resource_type:"image",
                 overwrite:true,
                 use_filename:false,
