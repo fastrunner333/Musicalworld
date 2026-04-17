@@ -9,6 +9,7 @@ export function Userpost(){
        const {userToken} = useContext(USER)
        
        useEffect(()=>{
+            console.log(userToken)
            fetch(`https://musicalworld.onrender.com/getpost?type=all`,{
                method:"GET"
            })
