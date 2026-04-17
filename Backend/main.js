@@ -1,6 +1,6 @@
 import "dotenv/config"
 import express from "express"
-import mongoose, { overwriteMiddlewareArguments } from "mongoose"
+import mongoose from "mongoose"
 import jwt from "jsonwebtoken"
 import {User} from "./Schema/Userschema.js"
 import {useruploads} from "./Schema/Uploadschema.js"
