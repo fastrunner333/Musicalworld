@@ -216,8 +216,8 @@ const uploaduserpic = multer({
                     })
 
 app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
-    const username = req.query.username
-    const filename = username+"userpic"
+    console.log(req.query.username)
+    console.log(req.file)
     if(!req.file){
         res.status(400).send()
     }
@@ -226,11 +226,12 @@ app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
                 folder:"userpict",
                 public_id:`${req.query.username}userpic${Date.now()}`,
                 resource_type:"image"
-            },(err, res)=>{
+            },(err, result)=>{
                 if(err){
                     console.log(err)
                     return res.status(500).send()
                 }
+                console.log(result)
                 res.status(200).send()
             }
         ).end(req.file.buffer)    
