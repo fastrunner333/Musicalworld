@@ -223,6 +223,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
     }
     else{
         console.log("config", cloudinary.config())
+        try{
         cloudinary.uploader.upload_stream({
                 public_id:`${req.query.username}userpic${Date.now()}`,
                 resource_type:"image"
@@ -236,6 +237,10 @@ app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
             }
         ).end(req.file.buffer)    
     }
+    catch(error){
+            console.log("Here is the error",err)
+    }
+}
 })
 
 
