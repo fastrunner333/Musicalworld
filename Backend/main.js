@@ -47,7 +47,7 @@ app.post("/check",(req, res)=>{
             return cookie.split("=")
         })
         const jwtsubarr = cookiearr.findIndex((subarr)=>(subarr.includes("jwt")))
-        let jwtsubarrindex = jwtsubarr == -1 ? res.status(400).send() : cookiearr[jwtsubarr].indexOf("jwt")
+        let jwtsubarrindex = jwtsubarr == -1 ? res.status(401).send() : cookiearr[jwtsubarr].indexOf("jwt")
         ++jwtsubarrindex
         const jtwcookie = cookiearr[jwtsubarr][jwtsubarrindex]
         try{
@@ -60,7 +60,7 @@ app.post("/check",(req, res)=>{
         }
     }
     else{
-        res.status(402)
+        res.status(401)
     }
     return res.send()
 })
@@ -85,8 +85,8 @@ app.post("/signin",(req, res)=>{
                 
                 res.cookie("jwt",accessToken,{
                     httpOnly : true,
-                    sameSite : "lax",
-                    secure:"false",
+                    sameSite : "None",
+                    secure:"true",
                     path:"/",
                     maxAge:1000*60*30
                     }
@@ -122,8 +122,8 @@ app.post("/Login",async(req, res)=>{
                 const accessToken = jwt.sign(user.username, process.env.ACCCESS_TOKEN_SECRET)
                  res.cookie("jwt",accessToken,{
                     httpOnly : true,
-                    sameSite : "lax",
-                    secure:"false",
+                    sameSite : "None",
+                    secure:"true",
                     path:"/",
                     maxAge:1000*60*30
                     }
