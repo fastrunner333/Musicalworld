@@ -207,7 +207,7 @@ const userpicstore = multer.diskStorage({
     },
 })
 
-const userpicfilter = (req,file,cb)=>{
+/* const userpicfilter = (req,file,cb)=>{
     console.log(req.file)
     console.log(file.mimetype)
     if(file.mimetype==="image/png"){
@@ -216,11 +216,11 @@ const userpicfilter = (req,file,cb)=>{
     else{
         return cb(new Error("Incorrect file type"),false)
     }
-}
+} */
 
 const uploaduserpic = multer({
                         storage:userpicstore,
-                        fileFilter:userpicfilter,
+                        //fileFilter:userpicfilter,
                     })
 
 app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
@@ -242,7 +242,7 @@ const uploadpoststorage = multer.diskStorage({
     }
 })
 
-const uploadfilter = (req,file,cb)=>{
+/* const uploadfilter = (req,file,cb)=>{
     console.log(file.mimetype)
     const type = file.mimetype
     if(type === "image/png"|| type==="image/jpeg" || type === "video/mp4" || type === "audio/mp4" || type === "audio/x-m4a" || type === "audio/mpeg"){
@@ -253,10 +253,10 @@ const uploadfilter = (req,file,cb)=>{
         return cb(new Error("Incorrect file type"),false)
     }
 }
-
+ */
 const uploadpost = multer({
                         storage:uploadpoststorage,
-                        fileFilter:uploadfilter,
+                        //fileFilter:uploadfilter,
  })
 
 app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
