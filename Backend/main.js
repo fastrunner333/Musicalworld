@@ -86,7 +86,7 @@ app.post("/signin",(req, res)=>{
                 res.cookie("jwt",accessToken,{
                     httpOnly : true,
                     sameSite : "None",
-                    secure:"true",
+                    secure:true,
                     path:"/",
                     maxAge:1000*60*30
                     }
@@ -123,7 +123,7 @@ app.post("/Login",async(req, res)=>{
                  res.cookie("jwt",accessToken,{
                     httpOnly : true,
                     sameSite : "None",
-                    secure:"true",
+                    secure:true,
                     path:"/",
                     maxAge:1000*60*30
                     }
