@@ -207,7 +207,7 @@ const userpicfilter = (req,file,cb)=>{
     }
     else{
         cb(new Error("Incorrect file type"),false)
-        res.status(401)
+        res.status(405)
     }
 }
 
@@ -288,7 +288,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
 
 app.use((err, req, res, next)=>{
     if(err = "Error: Incorrect file type"){
-        res.status(401).send()
+        res.status(406).send()
     }
     next()
 }) 
