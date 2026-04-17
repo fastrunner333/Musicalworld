@@ -160,11 +160,11 @@ app.post("/changepass",async (req,res)=>{
             await changepass(user, newPass)
         }
         catch(err){
-            res.status(401)
+            res.status(403)
         }
     }
     else{
-        res.status(401)
+        res.status(402)
     }
     
     async function changepass(user, newPass){
@@ -199,7 +199,7 @@ const userpicfilter = (req,file,cb)=>{
     }
     else{
         cb(new Error("Incorrect file type"),false)
-        res.status(403)
+        res.status(401)
     }
 }
 
