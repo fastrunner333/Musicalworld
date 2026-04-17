@@ -13,8 +13,10 @@ export function Userpost(){
            fetch(`https://musicalworld.onrender.com/getpost?type=all`,{
                method:"GET"
            })
-           .then(res=>res.json())
+           .then(res=>{
+                return res.json()})
            .then((data)=>{
+                console.log("inside then")
                if(data.data!=[] && userToken){
                        const newdata = data.data.map((post)=>{
                                             if(post.username != userToken){
@@ -68,7 +70,7 @@ export function Userpost(){
                            }  
                        })
                .catch(err=>console.log(err))
-               },[])        
+               },[userToken])        
       
        
        
