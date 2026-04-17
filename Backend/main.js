@@ -229,10 +229,9 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
             function getusername(){
                 return  req.file.username
             } 
-            const imagebase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`
             const upstream = cloudinary.uploader.upload_stream({
                 folder:"userpict",
-                public_id:`userpicthisisauniquenamesopleasedontchangeit`,
+                public_id:`${username}userpic`,
                 resource_type:"image",
                 overwrite:true,
                 use_filename:false,
@@ -288,9 +287,36 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
     if(req.file){
         mediatype = path.extname(req.file.originalname)  
         const reqmedialink = "mediauploads/"+req.file.filename
+        const mime = req.file.mimetype
+        let type
+        if(mime === "image/png"|| mime==="image/jpeg"){
+            type="image"
+        }
+        else if(mime === "video/mp4" || mime === "audio/mp4" || mime === "audio/x-m4a" || mime === "audio/mpeg"){
+            type="video"
+        }
         try{
             await useruploads.create({username:username, musictype:musictype, uploaddate:date, posttitle:title, mediatype:mediatype, medialink:reqmedialink})
-            res.status(200).send()
+            const username = await getusername()
+            function getusername(){
+                return  req.file.username
+            } 
+            const upstream = cloudinary.uploader.upload_stream({
+                folder:"useruploads",
+                public_id:`${username}-${date}`,
+                resource_type:"image",
+                overwrite:true,
+                use_filename:false,
+                unique_filename:false
+            },(err, result)=> {
+                if(err){
+                    console.log("upload stream error")
+                    res.status(500).send()
+                }
+                console.log("pic upload done")
+                res.status(200).send()
+            })
+            upstream.end(req.file.buffer)
             return
         }
         catch(err){
