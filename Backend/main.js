@@ -297,7 +297,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
 
 app.use((err, req, res, next)=>{
     if(err = "Error: Incorrect file type"){
-         console.log("this error is by global")
+         console.log(err)
         res.status(406).send()
     }
     next()
