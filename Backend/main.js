@@ -215,7 +215,7 @@ const uploaduserpic = multer({
                         fileFilter:userpicfilter,
                     })
 
-app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
+app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
     console.log(req.query.username)
     console.log(req.file)
     if(!req.file){
@@ -224,7 +224,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
     else{
         console.log("config", cloudinary.config())
         try{
-        cloudinary.uploader.upload(req.file.path,{
+        const result = await cloudinary.uploader.upload(req.file.path,{
                 folder:"userpict",
                 public_id:`${req.query.username}userpic${Date.now()}`,
                 resource_type:"image"
