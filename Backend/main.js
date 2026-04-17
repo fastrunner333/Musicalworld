@@ -22,7 +22,6 @@ cloudinary.v2.config({
     api_secret:process.env.CLOUD_API_SECRET
 })
 
-app.listen(PORT,()=>{})
 
 //cors
 app.use(cors({
@@ -211,12 +210,10 @@ const userpicstore = multer.diskStorage({
 const userpicfilter = (req,file,cb)=>{
     console.log(file.mimetype)
     if(file.mimetype==="image/png"){
-        cb(null,true)
+        return cb(null,true)
     }
     else{
-        cb(new Error("Incorrect file type"),false)
-        console.log("this error is for user pic and not by global")
-        res.status(405)
+        return cb(new Error("Incorrect file type"),false)
     }
 }
 
@@ -247,11 +244,11 @@ const uploadfilter = (req,file,cb)=>{
     console.log(file.mimetype)
     const type = file.mimetype
     if(type === "image/png"|| type==="image/jpeg" || type === "video/mp4" || type === "audio/mp4" || type === "audio/x-m4a" || type === "audio/mpeg"){
-        cb(null, true)
+       return cb(null, true)
     }
     else{
         console.log("this error is for upload and not by global")
-        cb(new Error("Incorrect file type"),false)
+        return cb(new Error("Incorrect file type"),false)
     }
 }
 
@@ -295,15 +292,6 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
 
 })
 
-//global error middleware
-
-app.use((err, req, res, next)=>{
-    if(err = "Error: Incorrect file type"){
-         console.log(err)
-        res.status(406).send()
-    }
-    next()
-}) 
 
 //send posts data to frontend
 
@@ -319,3 +307,15 @@ app.get("/getpost",async(req,res)=>{
         res.status(200).json({data:alldata})
     }
 })
+
+//global error middleware
+
+app.use((err, req, res, next)=>{
+    if(err = "Error: Incorrect file type"){
+         console.log(err)
+        res.status(406).send()
+    }
+    next()
+}) 
+
+app.listen(PORT,()=>{})
