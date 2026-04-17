@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8000
 const filename = fileURLToPath(import.meta.url)
 const dir = path.dirname(filename)
 //cloudinary config
-cloudinary.v2.config({
+cloudinary.config({
     cloud_name:process.env.CLOUD_CLOUD_NAME,
     api_key:process.env.CLOUD_API_KEY,
     api_secret:process.env.CLOUD_API_SECRET
