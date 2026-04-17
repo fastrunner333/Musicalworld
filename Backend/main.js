@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
 const filename = fileURLToPath(import.meta.url)
-const dir = path.dirname(file)
+const dir = path.dirname(filename)
 
 app.listen(PORT,()=>{})
 
