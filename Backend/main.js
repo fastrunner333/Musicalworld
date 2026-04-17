@@ -238,7 +238,8 @@ app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
         ).end(req.file.buffer)    
     }
     catch(error){
-            console.log("Here is the error",err)
+            console.log("Here is the error")
+            console.log(error)
     }
 }
 })
