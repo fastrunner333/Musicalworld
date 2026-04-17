@@ -199,7 +199,7 @@ const userpicfilter = (req,file,cb)=>{
     }
     else{
         cb(new Error("Incorrect file type"),false)
-        res.status(401)
+        res.status(403)
     }
 }
 
