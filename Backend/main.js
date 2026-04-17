@@ -1,6 +1,6 @@
 import "dotenv/config"
 import express from "express"
-import mongoose from "mongoose"
+import mongoose, { overwriteMiddlewareArguments } from "mongoose"
 import jwt from "jsonwebtoken"
 import {User} from "./Schema/Userschema.js"
 import {useruploads} from "./Schema/Uploadschema.js"
@@ -224,18 +224,15 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
     else{
         console.log("config", cloudinary.config())
         try{
-        const result = await cloudinary.uploader.upload_stream({
-                public_id:`${req.query.username}userpic${Date.now()}`,
-                resource_type:"image"
-            },(err, result)=>{
-                if(err){
-                    console.log(err)
-                    return res.status(500).send()
-                }
-                console.log(result)
-                res.status(200).send()
-            }
-        ).end(req.file.buffer)    
+            const imagebase64 = `data:${req.file.mimetype};base64${req.file.buffer.toString("base64")}`
+            const result = await cloudinary.uploader.upload(imagebase64,{
+                folder:"userpict",
+                public_id:`${req.query.username}userpic`,
+                resource_type:"image",
+                overwrite:true
+            })
+            console.log("pic upload done")
+            res.status(200).send()
     }
     catch(error){
             console.log("Here is the error")
