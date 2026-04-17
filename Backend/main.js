@@ -230,7 +230,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
                 return  req.file.username
             } 
             const imagebase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`
-            const upstream = cloudinary.v2.uploader.upload_stream({
+            const upstream = cloudinary.uploader.upload_stream({
                 folder:"userpict",
                 public_id:`userpicthisisauniquenamesopleasedontchangeit`,
                 resource_type:"image",
