@@ -234,7 +234,9 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
                 folder:"userpict",
                 public_id:`${username}userpic`,
                 resource_type:"image",
-                overwrite:true
+                overwrite:true,
+                use_filename:false,
+                unique_filename:false
             })
             console.log("pic upload done")
             res.status(200).send()
