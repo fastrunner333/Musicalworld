@@ -1,15 +1,17 @@
+import "dotenv/config"
 import express from "express"
 import mongoose from "mongoose"
 import jwt from "jsonwebtoken"
 import {User} from "./Schema/Userschema.js"
 import {useruploads} from "./Schema/Uploadschema.js"
-import "dotenv/config"
 import multer from "multer"
 import path from "path"
 const app = express()
-mongoose.connect("mongodb://127.0.0.1:27017/Musicalworld")
+mongoose.connect(process.env.MONGO_URL)
 
-app.listen(8000,()=>{})
+const PORT = process.env.PORT || 8000
+
+app.listen(PORT,()=>{})
 
 //headers
 app.use((req, res, next)=>{

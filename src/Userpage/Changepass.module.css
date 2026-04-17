@@ -1,6 +1,6 @@
 .passwordform{
     flex-grow:.25;
-    background:blue;
+    background:#f4e3b2;
     display:flex;
     flex-direction:column;
     width:50%;
@@ -13,4 +13,28 @@
 .text{
     display: flex;
     justify-content: space-between;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    color:#74070e;
+}
+.newpass{
+    outline:none;
+    border: 3px dashed #45462a;
+    background:#f4e3b2;
+    color:#45462a;
+}
+.confpass{
+    outline:none;
+    border: 3px dashed #45462a;
+    background:#f4e3b2;
+    color:#45462a;
+}
+.button{
+    outline:none;
+    border: 3px dashed #45462a;
+    background:#f4e3b2;
+    color:#45462a; 
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
 }

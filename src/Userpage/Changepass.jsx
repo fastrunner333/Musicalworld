@@ -48,13 +48,13 @@ export function Changepass(){
             <form className={styles.passwordform} onSubmit={buttonclick}>
                 <div className={styles.text}>
                     <label htmlFor="new">New Password</label>
-                    <input type={"text"} id="new" value={newPass} onChange={(e)=>{setnewPass(e.target.value)}}></input>
+                    <input className={styles.newpass} type={"text"} id="new" value={newPass} onChange={(e)=>{setnewPass(e.target.value)}}></input>
                 </div>
                 <div className={styles.text}>
                     <label htmlFor="confirm">Confirm Password</label>
-                    <input type={"text"} id="confirm" value={confirmPass} onChange={(e)=>{setconfirmPass(e.target.value)}}></input>
+                    <input className={styles.confpass} type={"text"} id="confirm" value={confirmPass} onChange={(e)=>{setconfirmPass(e.target.value)}}></input>
                 </div>
-                <button type="submit">Update Password</button>
+                <button className={styles.button} type="submit">Update Password</button>
             </form>
             <Footer/>
         </div>
