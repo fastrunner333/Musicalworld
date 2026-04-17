@@ -7,6 +7,7 @@ import {useruploads} from "./Schema/Uploadschema.js"
 import multer from "multer"
 import path from "path"
 import { fileURLToPath } from "url"
+import cors from "cors"
 const app = express()
 mongoose.connect(process.env.MONGO_URL)
 
@@ -16,8 +17,15 @@ const dir = path.dirname(filename)
 
 app.listen(PORT,()=>{})
 
+//cors
+app.use(cors({
+    origin:"https://musicalworld-1.onrender.com",
+    credentials:true,
+    method:["POST","GET","OPTIONS","PUT","DELETE"],
+    allowedHeaders:["Content-type","Autorization"],
+}))
 //headers
-app.use((req, res, next)=>{
+/* app.use((req, res, next)=>{
     res.setHeader("Access-Control-Allow-Origin","https://musicalworld-1.onrender.com");
     res.setHeader("Access-Control-Allow-Headers","Content-Type");
     res.setHeader("Access-Control-Allow-Methods","POST,GET");
@@ -26,7 +34,7 @@ app.use((req, res, next)=>{
         return res.sendStatus(200)
     }
     next()
-})
+}) */
 
 app.use(express.json({extended:true}))
 app.use(express.urlencoded())
@@ -152,7 +160,7 @@ app.post("/changepass",async (req,res)=>{
             return cookie.split("=")
         })
         const jwtsubarr = cookiearr.findIndex((subarr)=>(subarr.includes("jwt")))
-        let jwtsubarrindex = jwtsubarr == -1 ? res.status(401).send() : cookiearr[jwtsubarr].indexOf("jwt")
+        let jwtsubarrindex = jwtsubarr == -1 ? res.status(409).send() : cookiearr[jwtsubarr].indexOf("jwt")
         ++jwtsubarrindex
         const jtwcookie = cookiearr[jwtsubarr][jwtsubarrindex]
         try{
