@@ -224,8 +224,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
     else{
         console.log("config", cloudinary.config())
         try{
-        const result = await cloudinary.uploader.upload(req.file.path,{
-                folder:"userpict",
+        const result = await cloudinary.uploader.upload_stream({
                 public_id:`${req.query.username}userpic${Date.now()}`,
                 resource_type:"image"
             },(err, result)=>{
@@ -236,7 +235,7 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
                 console.log(result)
                 res.status(200).send()
             }
-        )  
+        ).end(req.file.buffer)    
     }
     catch(error){
             console.log("Here is the error")
