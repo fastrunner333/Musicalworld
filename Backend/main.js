@@ -275,13 +275,12 @@ const uploadpost = multer({
 app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
     const date = Date.now()
     const username = req.query.username
-    let mediatype = null
     const musictype = req.body.musictype
     const title = req.body.title
     
 
     if(req.file){
-        mediatype = path.extname(req.file.originalname)  
+        const mediatype = path.extname(req.file.originalname)  
         const reqmedialink = "mediauploads/"+req.file.filename
         const mime = req.file.mimetype
         let type
