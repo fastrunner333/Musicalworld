@@ -68,7 +68,7 @@ export function Userpost(){
                            }  
                        })
                .catch(err=>console.log(err))
-               },[userToken])        
+               },[])        
       
        
        
