@@ -218,16 +218,21 @@ const uploaduserpic = multer({
 app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
     console.log(req.query.username)
     console.log(req.file)
+    const a = await req.file.username
     if(!req.file){
         res.status(400).send()
     }
     else{
         console.log("config", cloudinary.config())
         try{
+            const username = await getusername()
+            function getusername(){
+                return  req.file.username
+            } 
             const imagebase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`
             const result = await cloudinary.uploader.upload(imagebase64,{
                 folder:"userpict",
-                public_id:`${req.query.username}userpic`,
+                public_id:`${username}userpic`,
                 resource_type:"image",
                 overwrite:true
             })
