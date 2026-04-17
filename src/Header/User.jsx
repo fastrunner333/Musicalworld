@@ -9,7 +9,7 @@ export function User(){
     return(
         <div style={{display:"flex", width:"17%"}}>
             
-            <img style={{width:"7vw",height:"stretch",maxHeight:"7vh",maxWidth:"5vw"}} alt="Image"src={"https://musicalworld.onrender.com/userprofileimages/"+userToken+"userpic.png"} />
+            <img style={{width:"7vw",height:"stretch",maxHeight:"7vh",maxWidth:"5vw"}} alt="Image"src={"https://res.cloudinary.com/dg9zjuhjn/image/upload/"+userToken+"userpic.png"} />
             <button style={{alignSelf:"center",border:"none",color:"#f4e3b2",backgroundColor:"#45462a",fontFamily:"Georgia, 'Times New Roman', Times, serif",fontSize:"large"}} onClick={()=>navigate("/userinfo")}>{userToken}</button>
         </div>
     )
