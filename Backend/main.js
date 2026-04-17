@@ -9,11 +9,18 @@ import path from "path"
 import { fileURLToPath } from "url"
 import cors from "cors"
 const app = express()
+import {cloudinary} from "cloudinary"
 mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
 const filename = fileURLToPath(import.meta.url)
 const dir = path.dirname(filename)
+//cloudinary config
+cloudinary.v2.config({
+    cloud_name:process.env.CLOUD_CLOUD_NAME,
+    api_key:process.env.CLOUD_API_KEY,
+    api_secret:process.env.CLOUD_API_SECRET
+})
 
 app.listen(PORT,()=>{})
 
@@ -207,6 +214,7 @@ const userpicfilter = (req,file,cb)=>{
     }
     else{
         cb(new Error("Incorrect file type"),false)
+        console.log("this error is for user pic and not by global")
         res.status(405)
     }
 }
@@ -240,6 +248,7 @@ const uploadfilter = (req,file,cb)=>{
         cb(null, true)
     }
     else{
+        console.log("this error is for upload and not by global")
         cb(new Error("Incorrect file type"),false)
     }
 }
@@ -288,6 +297,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
 
 app.use((err, req, res, next)=>{
     if(err = "Error: Incorrect file type"){
+         console.log("this error is by global")
         res.status(406).send()
     }
     next()
