@@ -217,7 +217,7 @@ const uploaduserpic = multer({
 
 app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
     const username = req.query.username
-    if(!res.file){
+    if(!req.file){
         res.status(400).send()
     }
     else{
