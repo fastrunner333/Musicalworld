@@ -216,19 +216,14 @@ const uploaduserpic = multer({
                     })
 
 app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
-    console.log(req.query.username)
-    console.log(req.file)
-    const a = await req.file.username
+    const username = req.query.username
+    console.log(username)
     if(!req.file){
         res.status(400).send()
     }
     else{
         console.log("config", cloudinary.config())
         try{
-            const username = await getusername()
-            function getusername(){
-                return  req.file.username
-            } 
             const upstream = cloudinary.uploader.upload_stream({
                 folder:"userpict",
                 public_id:`${username}userpic`,
