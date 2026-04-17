@@ -209,6 +209,7 @@ const userpicstore = multer.diskStorage({
 })
 
 const userpicfilter = (req,file,cb)=>{
+    console.log(file.mimetype)
     if(file.mimetype==="image/png"){
         cb(null,true)
     }
@@ -243,6 +244,7 @@ const uploadpoststorage = multer.diskStorage({
 })
 
 const uploadfilter = (req,file,cb)=>{
+    console.log(file.mimetype)
     const type = file.mimetype
     if(type === "image/png"|| type==="image/jpeg" || type === "video/mp4" || type === "audio/mp4" || type === "audio/x-m4a" || type === "audio/mpeg"){
         cb(null, true)
