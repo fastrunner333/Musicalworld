@@ -217,13 +217,14 @@ const uploaduserpic = multer({
 
 app.post("/changepic",uploaduserpic.single("userpic"),(req,res)=>{
     const username = req.query.username
+    const filename = username+"userpic"
     if(!req.file){
         res.status(400).send()
     }
     else{
         cloudinary.uploader.upload_stream({
                 folder:"userpict",
-                public_id:`${username}userpic`,
+                public_id:`${req.query.username}userpic`,
                 resource_type:"image"
             },(err, res)=>{
                 if(err){
