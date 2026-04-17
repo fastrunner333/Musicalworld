@@ -292,14 +292,10 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
         }
         try{
             await useruploads.create({username:username, musictype:musictype, uploaddate:date, posttitle:title, mediatype:mediatype, medialink:reqmedialink})
-            const username = await getusername()
-            function getusername(){
-                return  req.file.username
-            } 
             const upstream = cloudinary.uploader.upload_stream({
                 folder:"useruploads",
                 public_id:`${username}-${date}`,
-                resource_type:"image",
+                resource_type:type,
                 overwrite:true,
                 use_filename:false,
                 unique_filename:false
