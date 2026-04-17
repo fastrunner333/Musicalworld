@@ -18,7 +18,7 @@ app.listen(PORT,()=>{})
 
 //headers
 app.use((req, res, next)=>{
-    res.setHeader("Access-Control-Allow-Origin","http://localhost:5173");
+    res.setHeader("Access-Control-Allow-Origin","https://musicalworld-1.onrender.com");
     res.setHeader("Access-Control-Allow-Headers","Content-Type");
     res.setHeader("Access-Control-Allow-Methods","POST,GET");
     res.setHeader("Access-Control-Allow-Credentials","true")
