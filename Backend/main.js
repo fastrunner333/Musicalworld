@@ -10,6 +10,7 @@ import { fileURLToPath } from "url"
 import cors from "cors"
 const app = express()
 import {v2 as cloudinary} from "cloudinary"
+import bcrypt from "bcrypt"
 mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
@@ -85,18 +86,22 @@ app.post("/signin",(req, res)=>{
 
     try{
         const body = req.body
-        async function Signin(){
-
+        console.log(req.body)
+        if(body.username != "" && body.password!=""){
             const user = await User.findOne({username:body.username})
-
+            console.log(req.body)
+            console.log("running")
             if(user){
                 return res.status(402).send()
             }
             else{
-
-                await User.create({username:body.username, password:body.password})
-                const accessToken = jwt.sign(body.username, process.env.ACCCESS_TOKEN_SECRET)
-                
+                const saltrounds = 10
+                const plainpass = body.password
+                const hash = bcrypt.hashSync(plainpass, saltrounds)
+                const result = await User.create({username:body.username, password:hash})
+               const accessToken = jwt.sign(body.username, process.env.ACCCESS_TOKEN_SECRET)
+                    console.log(mongoose.connection.host)
+                    console.log(mongoose.connection.name)
                 res.cookie("jwt",accessToken,{
                     httpOnly : true,
                     sameSite : "None",
@@ -108,49 +113,58 @@ app.post("/signin",(req, res)=>{
                 return res.status(200).send()
             }
         }
-        Signin() 
+        else{
+            return res.status(401).send()
+        }
     }
     catch(err){
-        console.log(err)
+        return console.log(err)
+        
     }
-
-    return
 })
 
 //login
 app.post("/Login",async(req, res)=>{
 
     const body = req.body
-    
-    async function login(){
-        try{
-            const user = await User.findOne({username:body.username})
-
-            if(!user){
-                return res.status(403).send()
-            }
-            else if(body.password != user.password){
-                return res.status(401).send()
-            }
-            else{
-                const accessToken = jwt.sign(user.username, process.env.ACCCESS_TOKEN_SECRET)
-                 res.cookie("jwt",accessToken,{
-                    httpOnly : true,
-                    sameSite : "None",
-                    secure:true,
-                    path:"/",
-                    maxAge:1000*60*30
+    if(body.username != "" && body.password!=""){
+            try{
+                const user = await User.findOne({username:body.username})
+                if(user){
+                    const passcomare = await bcrypt.compare(body.password,user.password)
+                    if(passcomare === false){
+                        return res.status(401).send()
                     }
-                )
-                return res.status(200).send()
+                    else if(passcomare === true){
+                        const accessToken = jwt.sign(user.username, process.env.ACCCESS_TOKEN_SECRET)
+                         res.cookie("jwt",accessToken,{
+                            httpOnly : true,
+                            sameSite : "None",
+                            secure:true,
+                            path:"/",
+                            maxAge:1000*60*30
+                            }
+                        )
+                        return res.status(200).send()
+                    }
+                    else{
+                        return res.status(500).send()
+                    }
+                }
+                else{
+                    return res.status(403).send()
+                }    
             }
-
-        }
-        catch(err){
-            console.log(err)
-        }
+            catch(err){
+                console.log(err)
+                return res.status(500).send()
+            }
+        
     }
-    login()
+    else{
+        return res.status(401).send()
+    }
+    
 
     return
 })

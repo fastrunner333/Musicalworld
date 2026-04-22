@@ -41,9 +41,9 @@
 }
 .signupbutton{
     font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size:medium;
-    background-color: #45462a;
-    color:#f4e3b2;
+    font-size:small;
+    background-color: #484843;
+    color:#f0ecdd;
     height:4vh;
     width: 10vw;
     
@@ -69,4 +69,14 @@
     background-color: #74070e;
     color:#f4e3b2;
     border: 3px dashed #f4e3b2;
+}
+.disclamer{
+    position:absolute;
+    right:35%;
+    top: 40%;
+    height:25vh;
+    width:15vw;
+    font-size: large;
+    font-weight: bold;
+    color:red
 }
