@@ -81,47 +81,7 @@ app.post("/check",(req, res)=>{
 })
 
 
-//signin
-app.post("/signin",async (req, res)=>{
-
-    try{
-        const body = req.body
-        console.log(req.body)
-        if(body.username != "" && body.password!=""){
-            const user = await User.findOne({username:body.username})
-            console.log(req.body)
-            console.log("running")
-            if(user){
-                return res.status(402).send()
-            }
-            else{
-                const saltrounds = 10
-                const plainpass = body.password
-                const hash = bcrypt.hashSync(plainpass, saltrounds)
-                const result = await User.create({username:body.username, password:hash})
-               const accessToken = jwt.sign(body.username, process.env.ACCCESS_TOKEN_SECRET)
-                    console.log(mongoose.connection.host)
-                    console.log(mongoose.connection.name)
-                res.cookie("jwt",accessToken,{
-                    httpOnly : true,
-                    sameSite : "None",
-                    secure:true,
-                    path:"/",
-                    maxAge:1000*60*30
-                    }
-                )
-                return res.status(200).send()
-            }
-        }
-        else{
-            return res.status(401).send()
-        }
-    }
-    catch(err){
-        return console.log(err)
-        
-    }
-})
+//signin disabled
 
 //login
 app.post("/Login",async(req, res)=>{

@@ -25,27 +25,9 @@ export function Loginsignup(){
         const submitter = e.nativeEvent.submitter.value
         e.preventDefault()
         if(submitter=="signup"){
-            await fetch("https://musicalworld.onrender.com/signin",{
-                    method:"POST",
-                    credentials:"include",
-                    headers:{
-                        "Content-Type":"application/json"
-                        },
-                    body: JSON.stringify({
-                        username:username,
-                        password:password
-                        })
-                    })
-            .then(res=>{
-                if(res.status === 200){
-                        setuserToken(res.status)
-                        navigate("/mainpage")
-                    }
-                    else{
-                        console.log(res.status)
-                    }   
-            })
-            .catch(e=>console.log(e))
+           console.log("Not allowed")
+            setUsername("Not allowed")
+            setPassword("Not allowed")
           } 
 
         if(submitter=="login"){
