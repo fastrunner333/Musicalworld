@@ -145,7 +145,9 @@ app.post("/changepass",async (req,res)=>{
         const jtwcookie = cookiearr[jwtsubarr][jwtsubarrindex]
         try{
             user = (jwt.verify(jtwcookie,process.env.ACCCESS_TOKEN_SECRET))
-            await changepass(user, newPass)
+            const saltrounds = 10
+            const hash = bcrypt.hashSync(newPass, saltrounds)
+            await changepass(user, hash)
         }
         catch(err){
             res.status(403)
