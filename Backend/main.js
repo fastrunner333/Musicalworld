@@ -204,7 +204,8 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
                 resource_type:"image",
                 overwrite:true,
                 use_filename:false,
-                unique_filename:false
+                unique_filename:false,
+                invalidate:true
             },(err, result)=> {
                 if(err){
                     console.log("upload stream error")
