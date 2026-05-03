@@ -13,11 +13,18 @@ export function Userpost(){
            fetch(`https://musicalworld.onrender.com/getpost?type=all`,{
                method:"GET"
            })
-           .then(res=>{
+            .then(res=>{
                 return res.json()})
+            .then((unsorteddata)=>{
+                        let sorteddata = []
+                        if(unsorteddata.data && unsorteddata.data.length > 0){
+                            sorteddata = [...unsorteddata.data].sort((a,b)=>b.uploaddate - a.uploaddate)                                
+                        }
+                        return sorteddata
+                        }
+            )
            .then((data)=>{
-                console.log(data.data)
-               if(data.data!=[] && userToken){
+               if(data && Array.isArray(data) && userToken){
                        /* const newdata = data.data.map((post)=>{
                                             if(post.username != userToken){
                                                 console.log("other user removed")
@@ -28,7 +35,7 @@ export function Userpost(){
                                                 return post
                                             }
                                        }) */
-                        const newdata = data.data.flatMap(post =>{
+                        const newdata = data.flatMap(post =>{
                             if(post.username != userToken){
                                 console.log("other user removed")
                                 return []
