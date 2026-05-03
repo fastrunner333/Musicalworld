@@ -95,7 +95,8 @@ export function Userpost(){
        
        return(
            <div id="parent" className={styles.post}>
-           {result}
+                <div className={styles.title}>Only your posts under this</div>
+                {result}
            </div>
        )
    }
