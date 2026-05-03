@@ -1,6 +1,6 @@
 import "dotenv/config"
 import express from "express"
-import mongoose from "mongoose"
+import mongoose, { sanitizeFilter } from "mongoose"
 import jwt from "jsonwebtoken"
 import {User} from "./Schema/Userschema.js"
 import {useruploads} from "./Schema/Uploadschema.js"
@@ -11,6 +11,8 @@ import cors from "cors"
 const app = express()
 import {v2 as cloudinary} from "cloudinary"
 import bcrypt from "bcrypt"
+
+mongoose.set("sanitizeFilter",true)
 mongoose.connect(process.env.MONGO_URL)
 
 const PORT = process.env.PORT || 8000
@@ -89,9 +91,9 @@ app.post("/Login",async(req, res)=>{
     const body = req.body
     if(body.username != "" && body.password!=""){
             try{
-                const user = await User.findOne({username:body.username})
+                const user = await User.findOne({username:String(body.username)})
                 if(user){
-                    const passcomare = await bcrypt.compare(body.password,user.password)
+                    const passcomare = await bcrypt.compare(String(body.password),user.password)
                     if(passcomare === false){
                         return res.status(401).send()
                     }
@@ -131,7 +133,7 @@ app.post("/Login",async(req, res)=>{
 
 //changepass
 app.post("/changepass",async (req,res)=>{
-    const newPass = req.body.newPass
+    const newPass = String(req.body.newPass)
     const rawcookie = req.headers.cookie
     let user
 
@@ -159,7 +161,7 @@ app.post("/changepass",async (req,res)=>{
     
     async function changepass(user, newPass){
         try{
-            await User.findOneAndUpdate({username:user}, {password:newPass})
+            await User.findOneAndUpdate({username:String(user)}, {password:newPass})
             res.status(200)
         }
         catch(err){
@@ -268,7 +270,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
             type="video"
         }
         try{
-            await useruploads.create({username:username, musictype:musictype, uploaddate:date, posttitle:title, mediatype:mediatype, medialink:reqmedialink})
+            await useruploads.create({username:String(username), musictype:String(musictype), uploaddate:Number(date), posttitle:String(title), mediatype:String(mediatype), medialink:String(reqmedialink)})
             const upstream = cloudinary.uploader.upload_stream({
                 folder:"useruploads",
                 public_id:`${username}-${date}`,
@@ -294,7 +296,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
     }
     else{
         try{
-            await useruploads.create({username:username, musictype:musictype, uploaddate:date, posttitle:title})
+            await useruploads.create({username:String(username), musictype:String(musictype), uploaddate:Number(date), posttitle:String(title)})
             res.status(200).send()
             return
         }
