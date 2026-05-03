@@ -11,6 +11,7 @@ export function Post({filter}){
         })
         .then(res=>res.json())
         .then((unsorteddata)=>{
+                console.log("sorting data")
                             if(unsorteddata.data != []){
                                let sorteddata = unsorteddata.data
                                 const len = sorteddata.length
@@ -29,6 +30,7 @@ export function Post({filter}){
                             }
         )
         .then((data)=>{
+            console.log("showing data")
             if(data!=[]){
                     setresult(data.map((post, index)=>{  
 
