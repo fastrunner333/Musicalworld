@@ -11,16 +11,15 @@ export function Post({filter}){
         })
         .then(res=>res.json())
         .then((unsorteddata)=>{
-                            let sorteddata = []
                             if(unsorteddata.data != []){
-                                sorteddata = unsorteddata.data
+                               let sorteddata = unsorteddata.data
                                 const len = sorteddata.length
-                                for(let i=0;i<len-1;i++){
-                                    for(let j=0;j<len-1;j++){
-                                        if(sorteddata[j].uploaddate > sorteddata[j+1].uploaddate){
+                                for(let i=len-1;i>0;i--){
+                                    for(let j=len-1;j>0;j--){
+                                        if(sorteddata[j].uploaddate < sorteddata[j-1].uploaddate){
                                             let temp = sorteddata[j]
-                                            sorteddata[j] = sorteddata[j+1]
-                                            sorteddata[j+1] = temp
+                                            sorteddata[j] = sorteddata[j-1]
+                                            sorteddata[j-1] = temp
                                         }
                                     }
                                 }
