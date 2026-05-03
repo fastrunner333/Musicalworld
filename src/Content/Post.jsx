@@ -3,16 +3,34 @@ import styles from "./Post.module.css"
 
 export function Post({filter}){
     
-    const [result, setresult] = useState("")
-    
+    const [result, setresult] = useState([])
+   
     useEffect(()=>{
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}`,{
             method:"GET"
         })
         .then(res=>res.json())
+        .then((unsorteddata)=>{
+                            let sorteddata = []
+                            if(unsorteddata.data != []){
+                                sorteddata = unsorteddata.data
+                                const len = sorteddata.length
+                                for(let i=0;i<len-1;i++){
+                                    for(let j=0;j<len-1;j++){
+                                        if(sorteddata[j].uploaddate > sorteddata[j+1].uploaddate){
+                                            let temp = sorteddata[j]
+                                            sorteddata[j] = sorteddata[j+1]
+                                            sorteddata[j+1] = temp
+                                        }
+                                    }
+                                }
+                            }
+                            return sorteddata
+                            }
+        )
         .then((data)=>{
-            if(data.data!=[]){
-                    setresult(data.data.map((post, index)=>{  
+            if(data!=[]){
+                    setresult(data.map((post, index)=>{  
 
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
@@ -53,8 +71,9 @@ export function Post({filter}){
                                                             }
                                                             
                                                         }))
-                        }  
-                    })
+                            }  
+                    }
+            )
             .catch(err=>console.log(err))
             },[filter])        
    
