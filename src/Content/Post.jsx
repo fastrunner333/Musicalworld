@@ -17,10 +17,13 @@ export function Post({filter}){
                                 const len = sorteddata.length
                                 for(let i=0;i>len-1;i++){
                                     for(let j=0;j>len-1;j++){
+                                        console.log(sorteddata[j].uploaddate," out")
                                         if(sorteddata[j].uploaddate < sorteddata[j+1].uploaddate){
+                                            console.log(sorteddata[j].uploaddate," if top")
                                             let temp = sorteddata[j]
                                             sorteddata[j] = sorteddata[j+1]
                                             sorteddata[j+1] = temp
+                                            console.log(sorteddata[j].uploaddate," if bottom")
                                         }
                                     }
                                 }
