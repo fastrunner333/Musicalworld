@@ -12,11 +12,11 @@ export function Post({filter}){
         .then(res=>res.json())
         .then((unsorteddata)=>{
                             let sorteddata = []
-                            if(unsorteddata.data != []){
+                            if(unsorteddata.data && unsorteddata.data.length > 0){
                                 sorteddata = unsorteddata.data
                                 const len = sorteddata.length
-                                for(let i=0;i>len-1;i++){
-                                    for(let j=0;j>len-1;j++){
+                                for(let i=0;i<len-1;i++){
+                                    for(let j=0;j<len-1;j++){
                                         console.log(sorteddata[j].uploaddate," out")
                                         if(sorteddata[j].uploaddate < sorteddata[j+1].uploaddate){
                                             console.log(sorteddata[j].uploaddate," if top")
