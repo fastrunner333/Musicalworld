@@ -24,6 +24,7 @@ export function Post({filter}){
                                     }
                                 }
                             }
+                            console.log(sorteddata)
                             return sorteddata
                             }
         )
