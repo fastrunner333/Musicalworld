@@ -345,6 +345,7 @@ app.post("/dislike",async(req,res)=>{
 //likes
 
 app.post("/like",async(req,res)=>{
+    console.log("liked")
     const id = Number(req.body.id)
     const user = String(req.body.user)
     let newlikecount = 0
