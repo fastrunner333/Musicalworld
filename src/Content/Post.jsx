@@ -63,41 +63,36 @@ export function Post({filter}){
                                                         
                                                         likes = post.likes
                                                         dislikes = post.dislikes
-                                                        let buttoncss = ""
-                                                        let clicklogic = null
+                                                        let buttoncsslike = ""
+                                                        let clicklogiclike = null
+                                                        let buttoncssdislike = ""
+                                                        let clicklogicdislike = null
+                                                        
                                                         if(!post.mediatype){
-                                                            console.log(post.liked)
                                                             if(post.liked){
-                                                                buttoncss = styles.likebuttongrey
-                                                                clicklogic = null
+                                                                buttoncsslike = styles.likebuttongrey
+                                                                clicklogiclike = null
                                                             }
                                                             else{
-                                                                buttoncss = styles.likebutton
-                                                                clicklogic = sendlike
+                                                                buttoncsslike = styles.likebutton
+                                                                clicklogiclike = sendlike
                                                             }
-                                                            console.log(buttoncss)
-                                                            console.log(clicklogic)
-                                                            console.log(post.disliked)
-                                                            
-                                    
                                                             if(post.disliked){
-                                                                buttoncss = styles.dislikebuttongrey
-                                                                clicklogic = null
+                                                                buttoncssdislike = styles.dislikebuttongrey
+                                                                clicklogicdislike = null
                                                             }
                                                             else{
-                                                                buttoncss = styles.dislikebutton
-                                                                clicklogic = senddislike
+                                                                buttoncssdislike = styles.dislikebutton
+                                                                clicklogicdislike = senddislike
                                                             }
-                                                             console.log(buttoncss)
-                                                            console.log(clicklogic)
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
 
-                                                                    <button data-id={post._id} className={buttoncss} onClick={sendlike}></button>
+                                                                    <button data-id={post._id} className={buttoncsslike} onClick={clicklogiclike}></button>
                                                                     <span className={styles.count}>{likes}</span>
 
-                                                                    <button data-id={post._id} className={buttoncss} onClick={senddislike}></button>
+                                                                    <button data-id={post._id} className={buttoncssdislike} onClick={clicklogicdislike}></button>
                                                                     <span className={styles.count}>{dislikes}</span>
 
                                                                 </div>
