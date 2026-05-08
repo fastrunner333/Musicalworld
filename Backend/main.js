@@ -315,8 +315,19 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
 app.get("/getpost",async(req,res)=>{
     
     const posttype = req.query.type
+    const user = req.query.user
     if(posttype === "all"){
         const alldata = await useruploads.find().lean()
+        const user = await User.findOne({username:user})
+        const userlikes = user.likes
+        const userdislikes = user.dislikes
+        alldata.map((obj)=>{
+           const liked = userlikes.includes(obj._id)
+           const disliked = userdislikes.includes(obj._id)
+           obj.liked = liked
+           obj.disliked = disliked
+           
+        })
         res.status(200).json({data:alldata})
     }
     if(posttype !== "all"){
@@ -338,7 +349,9 @@ app.post("/dislike",async(req,res)=>{
     newdislikecount = olddislikecount.dislikes + 1
     console.log(newdislikecount)
     await useruploads.findByIdAndUpdate(id, {dislikes:Number(newdislikecount)})
-    await User.findOneAndUpdate({username:user},{dislikes:id})
+    const user = await User.findOne(({username:user}))
+    const dislikes = user.dislikes + " " + id
+    await User.findOneAndUpdate({username:user},{dislikes:dislikes})
     res.status(200).json({msg:disliked})
 
 })
@@ -361,7 +374,9 @@ app.post("/like",async(req,res)=>{
     newlikecount = olddatacount + 1
     console.log(newlikecount)
     await useruploads.findByIdAndUpdate(id, {likes:Number(newlikecount)})
-    await User.findOneAndUpdate({username:user},{likes:id})
+    const user = await User.findOne(({username:user}))
+    const likes = user.likes + " " + id
+    await User.findOneAndUpdate({username:user},{likes:likes})
     res.status(200).json({msg:"liked"})
 
 })

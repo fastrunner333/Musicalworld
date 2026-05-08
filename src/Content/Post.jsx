@@ -7,10 +7,10 @@ import {USER} from "../Context/Usercontext"
 export function Post({filter}){
     
     const [result, setresult] = useState([])
-    const [likes, setlikes] = useState(0)
-    const [dislikes, setdislikes] =useState(0)
     const {userToken} = useContext(USER)
-    let updater=0
+    let updater = 0
+    let likes = 0
+    let dislikes = 0 
 
     const senddislike = (e)=>{
             const id = e.currentTarget.dataset.id
@@ -43,7 +43,7 @@ export function Post({filter}){
     }
    
     useEffect(()=>{
-        fetch(`https://musicalworld.onrender.com/getpost?type=${filter}`,{
+        fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
             method:"GET"
         })
         .then(res=>res.json())
@@ -61,17 +61,36 @@ export function Post({filter}){
             if(data!=[]){
                     setresult(data.map((post, index)=>{  
                                                         
-                                                        setdislikes(post.dislikes)
-                                                        setlikes(post.likes)
+                                                        likes = post.likes
+                                                        dislikes = post.dislikes
+                                                        let buttoncss = ""
+                                                        let clicklogic = null
                                                         if(!post.mediatype){
+                                                            if(post.liked){
+                                                                buttoncss = styles.likebuttongrey
+                                                                clicklogic = null
+                                                            }
+                                                            else{
+                                                                buttoncss = styles.likebutton
+                                                                clicklogic = sendlike
+                                                            }
+
+                                                            if(post.disliked){
+                                                                buttoncss = styles.dislikebuttongrey
+                                                                clicklogic = null
+                                                            }
+                                                            else{
+                                                                buttoncss = styles.dislikebutton
+                                                                clicklogic = senddislike
+                                                            }
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
 
-                                                                    <button data-id={post._id} className={styles.likebutton} onClick={sendlike}></button>
+                                                                    <button data-id={post._id} className={buttoncss} onClick={sendlike}></button>
                                                                     <span className={styles.count}>{likes}</span>
 
-                                                                    <button data-id={post._id} className={styles.dislikebutton} onClick={senddislike}></button>
+                                                                    <button data-id={post._id} className={buttoncss} onClick={senddislike}></button>
                                                                     <span className={styles.count}>{dislikes}</span>
 
                                                                 </div>
@@ -115,7 +134,7 @@ export function Post({filter}){
                     }
             )
             .catch(err=>console.log(err))
-            },[filter, likes, dislikes])        
+            },[filter])        
    
     
     

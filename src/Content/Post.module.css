@@ -132,4 +132,27 @@
     height:5vh;
     width:3vw; 
     border: 0px;
+}.likebuttongrey{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-color: #74070e;
+    height:5vh;
+    width:3vw;
+    border: 0px;
+    filter:grayscale(100%);
+}
+.dislikebuttongrey{
+    background-image: url("https://musicalworld.onrender.com/assets/dislike.png");
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #74070e;
+    height:5vh;
+    width:3vw;
+    border: 0px;
+    filter:grayscale(100%);
 }
