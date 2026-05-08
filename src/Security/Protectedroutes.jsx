@@ -25,7 +25,7 @@ export function ProtectedRoute({children}){
             setuserToken(data)
         })
         
-    return Mainpage
+    return children
        
     
 }
