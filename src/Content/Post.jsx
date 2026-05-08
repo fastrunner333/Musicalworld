@@ -87,9 +87,10 @@ export function Post({filter}){
         .then((data)=>{
             if(data!=[]){
                     setresult(data.map((post, index)=>{  
+                                                        
                                                         setlikes(post.likes)
                                                         setdislikes(post.dislikes)
-                                                        
+                    console.log("l,",likes,"d", dislikes, "post . after this  l", post.likes,"d", post.dislikes)
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
