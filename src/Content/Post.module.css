@@ -62,6 +62,7 @@
 
 }
 .handimage{
+    display: inline-block;
     height:5vh;
     width:3vw;
 }
