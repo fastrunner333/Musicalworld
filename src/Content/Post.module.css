@@ -65,3 +65,7 @@
     height:5vh;
     width:3vw;
 }
+.hiddenbuttton{
+    display:none;
+    color:#74070e;
+}
