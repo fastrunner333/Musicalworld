@@ -325,6 +325,38 @@ app.get("/getpost",async(req,res)=>{
     }
 })
 
+//dislikes
+
+app.post("/dislike",async(req,res)=>{
+    const id = Number(req.body.id)
+    const user = String(req.body.user)
+    let newdislikecount = 0
+    const olddislikecount = await useruploads.findById(id)
+    if(!olddislikecount.dislikes || olddislikecount.dislikes == undefined || olddislikecount==null){
+        newdislikecount = 0 
+    }
+    newdislikecount = olddislikecount.dislikes + 1
+    await useruploads.findByIdAndUpdate(id, {dislikes:newdislikecount})
+    await User.findOneAndUpdate({username:user},{dislikes:id})
+
+})
+
+//likes
+
+app.post("/like",async(req,res)=>{
+    const id = Number(req.body.id)
+    const user = String(req.body.user)
+    let newlikecount = 0
+    const oldlikecount = await useruploads.findById(id)
+    if(!oldlikecount.likes || oldlikecount.likes == undefined || oldlikecount==null){
+        newlikecount = 0 
+    }
+    newlikecount = oldlikecount.likes + 1
+    await useruploads.findByIdAndUpdate(id, {likes:newlikecount})
+    await User.findOneAndUpdate({username:user},{likes:id})
+
+})
+
 //global error middleware
 
 app.use((err, req, res, next)=>{

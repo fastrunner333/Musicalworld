@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import styles from "./Post.module.css"
+import {USER} from "../Context/Usercontext";
+
+
 
 export function Post({filter}){
     
@@ -7,12 +10,20 @@ export function Post({filter}){
     const [likes, setlikes] = useState(0)
     const [postid, setpostid] = useState("")
     const [dislikes, setdislikes] =useState(0)
+    const {userToken} = useContext(USER)
 
     function senddislike(){
-       /*  fetch(`https://musicalworld.onrender.com/likeordislike?type=dislike`),{
+        fetch(`https://musicalworld.onrender.com/dislike`),{
             method:"POST",
-            body
-        } */
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                id:id,
+                user:userToken,
+            })
+        }
+        .then(res=>res.json())
+        .then(txt=>console.log(txt))
+        .catch(err=>console.log(err)) 
     }
 
     function sendlike(){
