@@ -30,7 +30,9 @@ export function Post({filter}){
         })
         .then(res=>res.json())
         .then(txt=>console.log(txt))
-        .catch(err=>console.log(err))  
+        .catch(err=>console.log(err)) 
+        
+        arr[index].props.className = styles.likebuttongrey 
     }
     
     const sendlike = (e, index)=>{
@@ -46,8 +48,7 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))  
-        //arr[index]
-
+        arr[index].props.className = styles.dislikebuttongrey
     }
 
     function setdata(data){
