@@ -88,16 +88,17 @@
     background-position: center;
     height:5vh;
     width:3vw;
-    border: 2px dashed #45462a;
+    border: 5px dashed #45462a;
 }
 .dislikebutton:active{
     background-image: url("https://musicalworld.onrender.com/assets/like.png");
-    filter:saturate(300%);
+    filter:saturate(150%);
     display: inline-block;
     background-size: contain;
     background-position: center;
     height:5vh;
     width:3vw; 
+    border: 0px;
 }
 .likebutton:hover{
     background-image: url("https://musicalworld.onrender.com/assets/like.png");
@@ -106,14 +107,15 @@
     background-position: center;
     height:5vh;
     width:3vw;
-    border: 2px dashed #45462a;
+    border: 5px dashed #45462a;
 }
 .likebutton:active{
     background-image: url("https://musicalworld.onrender.com/assets/like.png");
-    filter:saturate(300%);
+    filter:saturate(150%);
     display: inline-block;
     background-size: contain;
     background-position: center;
     height:5vh;
     width:3vw; 
+    border: 0px;
 }
