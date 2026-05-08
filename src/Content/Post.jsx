@@ -27,7 +27,17 @@ export function Post({filter}){
     }
 
     function sendlike(){
-
+        fetch(`https://musicalworld.onrender.com/like`),{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                id:id,
+                user:userToken,
+            })
+        }
+        .then(res=>res.json())
+        .then(txt=>console.log(txt))
+        .catch(err=>console.log(err)) 
     }
    
     useEffect(()=>{

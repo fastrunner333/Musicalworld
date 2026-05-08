@@ -270,7 +270,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
             type="video"
         }
         try{
-            await useruploads.create({username:String(username), musictype:String(musictype), uploaddate:Number(date), posttitle:String(title), mediatype:String(mediatype), medialink:String(reqmedialink)})
+            await useruploads.create({username:String(username), musictype:String(musictype), uploaddate:Number(date), posttitle:String(title), mediatype:String(mediatype), medialink:String(reqmedialink),likes:Number(0),dislikes:Number(0)})
             const upstream = cloudinary.uploader.upload_stream({
                 folder:"useruploads",
                 public_id:`${username}-${date}`,
@@ -296,7 +296,7 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
     }
     else{
         try{
-            await useruploads.create({username:String(username), musictype:String(musictype), uploaddate:Number(date), posttitle:String(title)})
+            await useruploads.create({username:String(username), musictype:String(musictype), uploaddate:Number(date), posttitle:String(title),likes:Number(0),dislikes:Number(0)})
             res.status(200).send()
             return
         }
