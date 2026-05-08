@@ -343,6 +343,8 @@ app.post("/dislike",async(req,res)=>{
     const user = String(req.body.user)
     let newdislikecount = 0
     const olddislikecount = await useruploads.findById(id)
+    const userdata = await User.findOne(({username:user}))
+    //fixing old data
     if(!olddislikecount.dislikes || olddislikecount.dislikes == undefined || olddislikecount==null){
         newdislikecount = 0 
     }

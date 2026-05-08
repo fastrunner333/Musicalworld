@@ -142,7 +142,7 @@
     height:5vh;
     width:3vw;
     border: 0px;
-    filter:grayscale(10%);
+    filter:grayscale(20%);
 }
 .dislikebuttongrey{
     background-image: url("https://musicalworld.onrender.com/assets/dislike.png");
@@ -154,5 +154,5 @@
     height:5vh;
     width:3vw;
     border: 0px;
-    filter:grayscale(10%);
+    filter:grayscale(20%);
 }
