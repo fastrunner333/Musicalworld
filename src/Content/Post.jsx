@@ -12,7 +12,7 @@ export function Post({filter}){
     const {userToken} = useContext(USER)
 
     const senddislike = (e)=>{
-            const id = e.currentTarget.dataset.myValue
+            const id = e.currentTarget.dataset.id
             fetch("https://musicalworld.onrender.com/dislike",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -27,7 +27,7 @@ export function Post({filter}){
     }
     
     const sendlike = (e)=>{
-        const id = e.currentTarget.dataset.myValue
+        const id = e.currentTarget.dataset.id
         fetch("https://musicalworld.onrender.com/like",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -94,9 +94,9 @@ export function Post({filter}){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
-                                                                    <button data-my-value={post._id} className={styles.likebutton} onClick={()=>sendlike(e)}></button>
+                                                                    <button data-id={post._id} className={styles.likebutton} onClick={sendlike}></button>
                                                                     <span className={styles.count}>{likes}</span>
-                                                                    <button data-my-value={post._id} className={styles.dislikebutton} onClick={()=>senddislike(e)}></button>
+                                                                    <button data-id={post._id} className={styles.dislikebutton} onClick={senddislike}></button>
                                                                     <span className={styles.count}>{dislikes}</span>
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
