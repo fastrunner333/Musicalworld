@@ -338,6 +338,7 @@ app.post("/dislike",async(req,res)=>{
     newdislikecount = olddislikecount.dislikes + 1
     await useruploads.findByIdAndUpdate(id, {dislikes:newdislikecount})
     await User.findOneAndUpdate({username:user},{dislikes:id})
+    res.status(200).json({msg:disliked})
 
 })
 
@@ -354,6 +355,7 @@ app.post("/like",async(req,res)=>{
     newlikecount = oldlikecount.likes + 1
     await useruploads.findByIdAndUpdate(id, {likes:newlikecount})
     await User.findOneAndUpdate({username:user},{likes:id})
+    res.status(200).json({msg:liked})
 
 })
 
