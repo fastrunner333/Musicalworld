@@ -12,7 +12,35 @@ export function Post({filter}){
     const [dislikes, setdislikes] =useState(0)
     const {userToken} = useContext(USER)
 
-    function senddislike(id){
+    const senddislike = (id)=>{
+            fetch(`https://musicalworld.onrender.com/dislike`,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                id:id,
+                user:userToken,
+            })
+        })
+        .then(res=>res.json())
+        .then(txt=>console.log(txt))
+        .catch(err=>console.log(err))  
+    }
+    
+    const sendlike = (id)=>{
+        fetch(`https://musicalworld.onrender.com/like`,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                id:id,
+                user:userToken,
+            })
+        })
+        .then(res=>res.json())
+        .then(txt=>console.log(txt))
+        .catch(err=>console.log(err))  
+    }
+
+ /*    function senddislike(id){
         fetch(`https://musicalworld.onrender.com/dislike`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -38,7 +66,7 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))  
-    }
+    } */
    
     useEffect(()=>{
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}`,{
