@@ -44,11 +44,11 @@ export function Post({filter}){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
-                                                                    <button onClick={()=>sendlike(post.id)}>
+                                                                    <button style={"display:none"} onClick={()=>sendlike(post.id)}>
                                                                         <img className={styles.handimage} src="https://musicalworld.onrender.com/assets/like.png"/>
                                                                     </button>
                                                                     <span>{likes}</span>
-                                                                    <button onClick={()=>senddislike(post.id)}>
+                                                                    <button style={"display:none"} onClick={()=>senddislike(post.id)}>
                                                                         <img className={styles.handimage} src="https://musicalworld.onrender.com/assets/dislike.png"/>
                                                                     </button>
                                                                     <span>{dislikes}</span>
