@@ -73,7 +73,7 @@
     border: 0px;
 }
 .dislikebutton{
-    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    background-image: url("https://musicalworld.onrender.com/assets/dislike.png");
     display: inline-block;
     background-size: contain;
     background-position: center;
@@ -88,7 +88,7 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 .dislikebutton:hover{
-    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    background-image: url("https://musicalworld.onrender.com/assets/dislike.png");
     display: inline-block;
     background-size: contain;
     background-position: center;
@@ -99,7 +99,7 @@
     border: 5px dashed #45462a;
 }
 .dislikebutton:active{
-    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    background-image: url("https://musicalworld.onrender.com/assets/dislike.png");
     filter:saturate(150%);
     display: inline-block;
     background-size: contain;
