@@ -349,8 +349,8 @@ app.post("/dislike",async(req,res)=>{
     newdislikecount = olddislikecount.dislikes + 1
     console.log(newdislikecount)
     await useruploads.findByIdAndUpdate(id, {dislikes:Number(newdislikecount)})
-    const user = await User.findOne(({username:user}))
-    const dislikes = user.dislikes + " " + id
+    const userdata = await User.findOne(({username:user}))
+    const dislikes = userdata.dislikes + " " + id
     await User.findOneAndUpdate({username:user},{dislikes:dislikes})
     res.status(200).json({msg:disliked})
 
@@ -374,8 +374,8 @@ app.post("/like",async(req,res)=>{
     newlikecount = olddatacount + 1
     console.log(newlikecount)
     await useruploads.findByIdAndUpdate(id, {likes:Number(newlikecount)})
-    const user = await User.findOne(({username:user}))
-    const likes = user.likes + " " + id
+    const userdata = await User.findOne(({username:user}))
+    const likes = userdata.likes + " " + id
     await User.findOneAndUpdate({username:user},{likes:likes})
     res.status(200).json({msg:"liked"})
 
