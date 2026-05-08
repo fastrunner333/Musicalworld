@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext} from "react"
 import styles from "./Post.module.css"
 import {USER} from "../Context/Usercontext"
 
@@ -10,7 +10,7 @@ export function Post({filter}){
     const [likes, setlikes] = useState(0)
     const [postid, setpostid] = useState("")
     const [dislikes, setdislikes] =useState(0)
-    //const {userToken, setuserToken} = useContext(USER)
+    const {userToken} = useContext(USER)
 
     function senddislike(){
         fetch(`https://musicalworld.onrender.com/dislike`),{
