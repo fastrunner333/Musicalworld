@@ -44,13 +44,9 @@ export function Post({filter}){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
-                                                                    <button className={styles.hiddenbuttton} onClick={()=>sendlike(post.id)}>
-                                                                        <img className={styles.handimage} src="https://musicalworld.onrender.com/assets/like.png"/>
-                                                                    </button>
+                                                                    <button className={styles.likebutton} onClick={()=>sendlike(post.id)}></button>
                                                                     <span className={styles.count}>{likes}</span>
-                                                                    <button className={styles.hiddenbuttton} onClick={()=>senddislike(post.id)}>
-                                                                        <img className={styles.handimage} src="https://musicalworld.onrender.com/assets/dislike.png"/>
-                                                                    </button>
+                                                                    <button className={styles.dislikebutton} onClick={()=>senddislike(post.id)}></button>
                                                                     <span className={styles.count}>{dislikes}</span>
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
