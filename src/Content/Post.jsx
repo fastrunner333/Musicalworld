@@ -89,9 +89,7 @@ export function Post({filter}){
                     setresult(data.map((post, index)=>{  
                                                         setlikes(post.likes)
                                                         setdislikes(post.dislikes)
-                                                        console.log(post._id)
-                                                        console.log(" space    ")
-                                                        console.log(postid)
+                                                        
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
