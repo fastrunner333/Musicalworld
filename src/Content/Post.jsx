@@ -10,7 +10,7 @@ export function Post({filter}){
     const [likes, setlikes] = useState(0)
     const [postid, setpostid] = useState("")
     const [dislikes, setdislikes] =useState(0)
-    const userToken = useContext(USER)
+    //const {userToken, setuserToken} = useContext(USER)
 
     function senddislike(){
         fetch(`https://musicalworld.onrender.com/dislike`),{
