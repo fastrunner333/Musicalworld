@@ -90,15 +90,15 @@ export function Post({filter}){
                                                         
                                                         setlikes(post.likes)
                                                         setdislikes(post.dislikes)
-                    console.log("l,",likes,"d", dislikes, "post . after this  l", post.likes,"d", post.dislikes)
+                                                        console.log(likes)
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
                                                                     <button data-id={post._id} className={styles.likebutton} onClick={sendlike}></button>
-                                                                    <span className={styles.count}>{likes}</span>
+                                                                    <span className={styles.count}>{post.likes}</span>
                                                                     <button data-id={post._id} className={styles.dislikebutton} onClick={senddislike}></button>
-                                                                    <span className={styles.count}>{dislikes}</span>
+                                                                    <span className={styles.count}>{post.dislikes}</span>
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
                                                                 </div>
