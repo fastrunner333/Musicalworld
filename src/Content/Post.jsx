@@ -10,6 +10,7 @@ export function Post({filter}){
     const [likes, setlikes] = useState(0)
     const [dislikes, setdislikes] =useState(0)
     const {userToken} = useContext(USER)
+    let updater=0
 
     const senddislike = (e)=>{
             const id = e.currentTarget.dataset.id
@@ -40,34 +41,6 @@ export function Post({filter}){
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))  
     }
-
- /*    function senddislike(id){
-        fetch(`https://musicalworld.onrender.com/dislike`,{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({
-                id:id,
-                user:userToken,
-            })
-        })
-        .then(res=>res.json())
-        .then(txt=>console.log(txt))
-        .catch(err=>console.log(err))  
-    }
-
-    function sendlike(id){
-            fetch(`https://musicalworld.onrender.com/like`,{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({
-                id:id,
-                user:userToken,
-            })
-        })
-        .then(res=>res.json())
-        .then(txt=>console.log(txt))
-        .catch(err=>console.log(err))  
-    } */
    
     useEffect(()=>{
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}`,{
@@ -88,17 +61,19 @@ export function Post({filter}){
             if(data!=[]){
                     setresult(data.map((post, index)=>{  
                                                         
-                                                        setlikes(post.likes)
                                                         setdislikes(post.dislikes)
-                                                        console.log(likes)
+                                                        setlikes(post.likes)
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
+
                                                                     <button data-id={post._id} className={styles.likebutton} onClick={sendlike}></button>
-                                                                    <span className={styles.count}>{post.likes}</span>
+                                                                    <span className={styles.count}>{likes}</span>
+
                                                                     <button data-id={post._id} className={styles.dislikebutton} onClick={senddislike}></button>
-                                                                    <span className={styles.count}>{post.dislikes}</span>
+                                                                    <span className={styles.count}>{dislikes}</span>
+
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
                                                                 </div>
@@ -140,7 +115,7 @@ export function Post({filter}){
                     }
             )
             .catch(err=>console.log(err))
-            },[filter])        
+            },[filter, likes, dislikes])        
    
     
     
