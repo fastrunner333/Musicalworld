@@ -63,6 +63,8 @@
 }
 .likebutton{
     background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    background-size: contain;
+    background-position: center;
     display: inline-block;
     height:5vh;
     width:3vw;
@@ -70,10 +72,48 @@
 .dislikebutton{
     background-image: url("https://musicalworld.onrender.com/assets/like.png");
     display: inline-block;
+    background-size: contain;
+    background-position: center;
     height:5vh;
     width:3vw;
 }
 .count{
     color:#74070e;
     font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.dislikebutton:hover{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    height:5vh;
+    width:3vw;
+    border: 2px dashed #45462a;
+}
+.dislikebutton:active{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    filter:saturate(300%);
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    height:5vh;
+    width:3vw; 
+}
+.likebutton:hover{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    height:5vh;
+    width:3vw;
+    border: 2px dashed #45462a;
+}
+.likebutton:active{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    filter:saturate(300%);
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    height:5vh;
+    width:3vw; 
 }
