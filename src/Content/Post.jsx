@@ -13,28 +13,28 @@ export function Post({filter}){
     const {userToken} = useContext(USER)
 
     function senddislike(){
-        fetch(`https://musicalworld.onrender.com/dislike`),{
+        fetch(`https://musicalworld.onrender.com/dislike`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({
                 id:id,
                 user:userToken,
             })
-        }
+        })
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))  
     }
 
     function sendlike(){
-            fetch(`https://musicalworld.onrender.com/like`),{
+            fetch(`https://musicalworld.onrender.com/like`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({
                 id:id,
                 user:userToken,
             })
-        }
+        })
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))  
