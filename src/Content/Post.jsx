@@ -90,7 +90,7 @@ export function Post({filter}){
                                                         setdislikes(post.dislikes)
                                                         setpostid(post._id)
                                                         console.log(post._id)
-                                                        console.log("     ")
+                                                        console.log(" space    ")
                                                         console.log(postid)
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
