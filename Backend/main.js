@@ -328,7 +328,7 @@ app.get("/getpost",async(req,res)=>{
 //dislikes
 
 app.post("/dislike",async(req,res)=>{
-    const id = Number(req.body.id)
+    const id = String(req.body.id)
     const user = String(req.body.user)
     let newdislikecount = 0
     const olddislikecount = await useruploads.findById(id)
@@ -346,7 +346,7 @@ app.post("/dislike",async(req,res)=>{
 
 app.post("/like",async(req,res)=>{
     console.log("liked")
-    const id = Number(req.body.id)
+    const id = String(req.body.id)
     const user = String(req.body.user)
     let newlikecount = 0
     console.log(id,"    ",user)

@@ -8,7 +8,7 @@ export function Post({filter}){
     
     const [result, setresult] = useState([])
     const [likes, setlikes] = useState(0)
-    const [postid, setpostid] = useState("")
+    let postid = ""
     const [dislikes, setdislikes] =useState(0)
     const {userToken} = useContext(USER)
 
@@ -88,7 +88,7 @@ export function Post({filter}){
                     setresult(data.map((post, index)=>{  
                                                         setlikes(post.likes)
                                                         setdislikes(post.dislikes)
-                                                        setpostid(post._id)
+                                                        postid = post._id
                                                         console.log(post._id)
                                                         console.log(" space    ")
                                                         console.log(postid)
