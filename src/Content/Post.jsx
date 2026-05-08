@@ -18,7 +18,7 @@ export function Post({filter}){
     let buttoncssdislike = ""
     let clicklogicdislike = null
 
-    const senddislike = (index, e)=>{
+    const senddislike = (index)=>(e)=>{
             const id = e.currentTarget.dataset.id
             fetch("https://musicalworld.onrender.com/dislike",{
             method:"POST",
@@ -33,7 +33,7 @@ export function Post({filter}){
         .catch(err=>console.log(err))  
     }
     
-    const sendlike = (index, e)=>{
+    const sendlike = (index)=>(e)=>{
         const id = e.currentTarget.dataset.id
         fetch("https://musicalworld.onrender.com/like",{
             method:"POST",
@@ -77,10 +77,10 @@ export function Post({filter}){
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} onClick={clicklogiclike(i,e)}></button>
+                                                        <button data-id={post._id} className={buttoncsslike} onClick={clicklogiclike(i)}></button>
                                                         <span className={styles.count}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} onClick={clicklogicdislike(i,e)}></button>
+                                                        <button data-id={post._id} className={buttoncssdislike} onClick={clicklogicdislike(i)}></button>
                                                         <span className={styles.count}>{dislikes}</span>
 
                                                     </div>
