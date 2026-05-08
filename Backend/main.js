@@ -364,7 +364,7 @@ app.post("/dislike",async(req,res)=>{
     const dislikes = userdata.dislikes + " " + id
     await User.findOneAndUpdate({username:user},{dislikes:dislikes})
     
-    res.status(200).json({msg:disliked})
+    res.status(200).json({msg:"disliked"})
 
 })
 
