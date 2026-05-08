@@ -347,11 +347,22 @@ app.post("/dislike",async(req,res)=>{
         newdislikecount = 0 
     }
     newdislikecount = olddislikecount.dislikes + 1
-    console.log(newdislikecount)
+    //removing dislike from users and uploads
+    const isliked = userdata.likes.includes(id)
+    if(isliked){
+
+        const newlikestr = userdata.likes.replace(` ${id}`, "") 
+        await User.findOneAndUpdate({username:user},{likes:newlikestr})
+
+        const uploaddata = await useruploads.findById(id)
+        const dislikecount = uploaddata.likes - 1
+        await useruploads.findByIdAndUpdate(id, likecount)
+    }
     await useruploads.findByIdAndUpdate(id, {dislikes:Number(newdislikecount)})
     const userdata = await User.findOne(({username:user}))
     const dislikes = userdata.dislikes + " " + id
     await User.findOneAndUpdate({username:user},{dislikes:dislikes})
+    
     res.status(200).json({msg:disliked})
 
 })
@@ -364,7 +375,8 @@ app.post("/like",async(req,res)=>{
     let newlikecount = 0
     let olddatacount = 0
     const oldlikecount = await useruploads.findById(id)
-    console.log(oldlikecount.likes)
+    const userdata = await User.findOne(({username:user}))
+    //fixing old data
     if(!oldlikecount.likes || oldlikecount.likes == undefined || oldlikecount==null){
         olddatacount = 0 
     }
@@ -372,11 +384,25 @@ app.post("/like",async(req,res)=>{
         olddatacount = oldlikecount.likes
     }
     newlikecount = olddatacount + 1
-    console.log(newlikecount)
+    //removing dislike from users and uploads
+    const isdisliked = userdata.dislikes.includes(id)
+    if(isdisliked){
+
+        const newdislikestr = userdata.dislikes.replace(` ${id}`, "") 
+        await User.findOneAndUpdate({username:user},{dislikes:newdislikestr})
+
+        const uploaddata = await useruploads.findById(id)
+        const dislikecount = uploaddata.dislikes - 1
+        await useruploads.findByIdAndUpdate(id, dislikecount)
+    }
+
+    //updating in uploads
     await useruploads.findByIdAndUpdate(id, {likes:Number(newlikecount)})
-    const userdata = await User.findOne(({username:user}))
+    //updating in users
+   
     const likes = userdata.likes + " " + id
     await User.findOneAndUpdate({username:user},{likes:likes})
+
     res.status(200).json({msg:"liked"})
 
 })
