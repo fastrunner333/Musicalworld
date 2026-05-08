@@ -61,12 +61,19 @@
     font-size: small;
 
 }
-.handimage{
+.likebutton{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
     display: inline-block;
     height:5vh;
     width:3vw;
 }
-.hiddenbuttton{
-    display:none;
+.dislikebutton{
+    background-image: url("https://musicalworld.onrender.com/assets/like.png");
+    display: inline-block;
+    height:5vh;
+    width:3vw;
+}
+.count{
     color:#74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }

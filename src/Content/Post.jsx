@@ -47,11 +47,11 @@ export function Post({filter}){
                                                                     <button className={styles.hiddenbuttton} onClick={()=>sendlike(post.id)}>
                                                                         <img className={styles.handimage} src="https://musicalworld.onrender.com/assets/like.png"/>
                                                                     </button>
-                                                                    <span>{likes}</span>
+                                                                    <span className={styles.count}>{likes}</span>
                                                                     <button className={styles.hiddenbuttton} onClick={()=>senddislike(post.id)}>
                                                                         <img className={styles.handimage} src="https://musicalworld.onrender.com/assets/dislike.png"/>
                                                                     </button>
-                                                                    <span>{dislikes}</span>
+                                                                    <span className={styles.count}>{dislikes}</span>
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
                                                                 </div>
