@@ -352,13 +352,14 @@ app.post("/like",async(req,res)=>{
     let newlikecount = 0
     console.log(id,"    ",user)
     const oldlikecount = await useruploads.findById(id)
+    console.log(oldlikecount)
     if(!oldlikecount.likes || oldlikecount.likes == undefined || oldlikecount==null){
         newlikecount = 0 
     }
     newlikecount = oldlikecount.likes + 1
     console.log(newlikecount)
     await useruploads.findByIdAndUpdate(id, {likes:Number(newlikecount)})
-    await User.findOneAndUpdate({username:user},{likes:id})
+    //await User.findOneAndUpdate({username:user},{likes:id})
     res.status(200).json({msg:liked})
 
 })
