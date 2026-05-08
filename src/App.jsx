@@ -19,7 +19,7 @@ export default function App(){
 
     <USER.Provider value={{userToken, setuserToken}}>
       <Routes>
-        <Route path="/" element={<Loginsignup/>} />
+        <Route path="/" element={<ProtectedRoute><Loginsignup/></ProtectedRoute>} />
         <Route path="/mainpage" element={<ProtectedRoute><Mainpage/></ProtectedRoute>} />
         <Route path="/upload" element={<ProtectedRoute><Upload/></ProtectedRoute>} />
         <Route path="/userinfo" element={<ProtectedRoute><Userpage/></ProtectedRoute>}/>

@@ -52,3 +52,16 @@
     height: 25vh;
     width: fit-content;
 }
+.likedislike{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    color:#f4e3b2;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+
+}
+.handimage{
+    height:7vh;
+    width:4vw;
+}

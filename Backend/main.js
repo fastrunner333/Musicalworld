@@ -104,7 +104,7 @@ app.post("/Login",async(req, res)=>{
                             sameSite : "None",
                             secure:true,
                             path:"/",
-                            maxAge:1000*60*30
+                            MaxAge:1000*60*30
                             }
                         )
                         return res.status(200).send()

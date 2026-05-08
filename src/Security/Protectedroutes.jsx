@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router"
 import{USER} from "../Context/Usercontext"
 import { useContext } from "react"
+import { Mainpage } from "../Mainpage/Mainpage"
 
 export function ProtectedRoute({children}){
 
@@ -24,7 +25,7 @@ export function ProtectedRoute({children}){
             setuserToken(data)
         })
         
-    return children
+    return Mainpage
        
     
 }

@@ -4,6 +4,20 @@ import styles from "./Post.module.css"
 export function Post({filter}){
     
     const [result, setresult] = useState([])
+    const [likes, setlikes] = useState(0)
+    const [postid, setpostid] = useState("")
+    const [dislikes, setdislikes] =useState(0)
+
+    function senddislike(){
+       /*  fetch(`https://musicalworld.onrender.com/likeordislike?type=dislike`),{
+            method:"POST",
+            body
+        } */
+    }
+
+    function sendlike(){
+
+    }
    
     useEffect(()=>{
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}`,{
@@ -23,10 +37,22 @@ export function Post({filter}){
         .then((data)=>{
             if(data!=[]){
                     setresult(data.map((post, index)=>{  
-
+                                                        setlikes(post.likes)
+                                                        setdislikes(post.dislikes)
+                                                        setpostid(post._id)
                                                         if(!post.mediatype){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
+                                                                <div className={styles.likedislike}>
+                                                                    <button className={styles.handimage} onClick={()=>sendlike(post.id)}>
+                                                                        <img src="https://musicalworld.onrender.com/assets/like.png"/>
+                                                                    </button>
+                                                                    <span>{likes}</span>
+                                                                    <button className={styles.handimage} onClick={()=>senddislike(post.id)}>
+                                                                        <img src="https://musicalworld.onrender.com/assets/dislike.png"/>
+                                                                    </button>
+                                                                    <span>{dislikes}</span>
+                                                                </div>
                                                                 <div className={styles.user}>{post.username}</div>
                                                                 </div>
                                                             }

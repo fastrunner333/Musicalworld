@@ -25,6 +25,12 @@ const Musicalworlduploads = new mongoose.Schema({
     medialink:{
         type:String,
         required:false
+    },
+    likes:{
+        type:Number
+    },
+    dislikes:{
+        type:Number
     }
 
 },{timestamps:true})

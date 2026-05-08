@@ -9,6 +9,12 @@ const Musicalworlduser = new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    likes:{
+        type:Number
+    },
+    dislikes:{
+        type:Number
     }
 
 },{timestamps:true})
