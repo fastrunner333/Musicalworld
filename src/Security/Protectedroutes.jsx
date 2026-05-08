@@ -14,7 +14,7 @@ export function ProtectedRoute({children}){
         })
         .then((res)=>{
             if(res.status != 200){
-                navigate("/")
+                navigate("/login")
             }
             else{
                 return res.text()
