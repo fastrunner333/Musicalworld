@@ -318,9 +318,9 @@ app.get("/getpost",async(req,res)=>{
     const user = req.query.user
     if(posttype === "all"){
         const alldata = await useruploads.find().lean()
-        const user = await User.findOne({username:user})
-        const userlikes = user.likes
-        const userdislikes = user.dislikes
+        const userdata = await User.findOne({username:user})
+        const userlikes = userdata.likes
+        const userdislikes = userdata.dislikes
         alldata.map((obj)=>{
            const liked = userlikes.includes(obj._id)
            const disliked = userdislikes.includes(obj._id)
