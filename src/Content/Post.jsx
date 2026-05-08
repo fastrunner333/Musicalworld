@@ -12,7 +12,7 @@ export function Post({filter}){
     const [dislikes, setdislikes] =useState(0)
     const {userToken} = useContext(USER)
 
-    function senddislike(){
+    function senddislike(id){
         fetch(`https://musicalworld.onrender.com/dislike`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -26,7 +26,7 @@ export function Post({filter}){
         .catch(err=>console.log(err))  
     }
 
-    function sendlike(){
+    function sendlike(id){
             fetch(`https://musicalworld.onrender.com/like`,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
