@@ -353,7 +353,7 @@ app.post("/like",async(req,res)=>{
     const oldlikecount = await useruploads.findById(id)
     console.log(oldlikecount.likes)
     if(!oldlikecount.likes || oldlikecount.likes == undefined || oldlikecount==null){
-        olddatacountt = 0 
+        olddatacount = 0 
     }
     else{
         olddatacount = oldlikecount.likes
