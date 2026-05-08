@@ -346,18 +346,19 @@ app.post("/dislike",async(req,res)=>{
 //likes
 
 app.post("/like",async(req,res)=>{
-    console.log("liked")
     const id = String(req.body.id)
     const user = String(req.body.user)
     let newlikecount = 0
-    console.log(id,"    ",user)
+    let olddatacount = 0
     const oldlikecount = await useruploads.findById(id)
-    console.log(oldlikecount)
+    console.log(oldlikecount.likes)
     if(!oldlikecount.likes || oldlikecount.likes == undefined || oldlikecount==null){
-        newlikecount = 0 
-        console.log("ifran")
+        olddatacountt = 0 
     }
-    newlikecount = oldlikecount.likes + 1
+    else{
+        olddatacount = oldlikecount.likes
+    }
+    newlikecount = olddatacount + 1
     console.log(newlikecount)
     await useruploads.findByIdAndUpdate(id, {likes:Number(newlikecount)})
     await User.findOneAndUpdate({username:user},{likes:id})
