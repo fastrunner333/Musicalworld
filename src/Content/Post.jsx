@@ -66,6 +66,7 @@ export function Post({filter}){
                                                         let buttoncss = ""
                                                         let clicklogic = null
                                                         if(!post.mediatype){
+                                                            console.log(post.liked)
                                                             if(post.liked){
                                                                 buttoncss = styles.likebuttongrey
                                                                 clicklogic = null
@@ -74,7 +75,11 @@ export function Post({filter}){
                                                                 buttoncss = styles.likebutton
                                                                 clicklogic = sendlike
                                                             }
-
+                                                            console.log(buttoncss)
+                                                            console.log(clicklogic)
+                                                            console.log(post.disliked)
+                                                            
+                                    
                                                             if(post.disliked){
                                                                 buttoncss = styles.dislikebuttongrey
                                                                 clicklogic = null
@@ -83,6 +88,8 @@ export function Post({filter}){
                                                                 buttoncss = styles.dislikebutton
                                                                 clicklogic = senddislike
                                                             }
+                                                             console.log(buttoncss)
+                                                            console.log(clicklogic)
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
