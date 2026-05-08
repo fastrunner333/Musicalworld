@@ -94,9 +94,9 @@ export function Post({filter}){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
-                                                                    <button data-my-value={post._id} className={styles.likebutton} onClick={()=>sendlike()}></button>
+                                                                    <button data-my-value={post._id} className={styles.likebutton} onClick={()=>sendlike(e)}></button>
                                                                     <span className={styles.count}>{likes}</span>
-                                                                    <button data-my-value={post._id} className={styles.dislikebutton} onClick={()=>senddislike()}></button>
+                                                                    <button data-my-value={post._id} className={styles.dislikebutton} onClick={()=>senddislike(e)}></button>
                                                                     <span className={styles.count}>{dislikes}</span>
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
