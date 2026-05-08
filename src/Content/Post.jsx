@@ -8,11 +8,11 @@ export function Post({filter}){
     
     const [result, setresult] = useState([])
     const [likes, setlikes] = useState(0)
-    let postid = ""
     const [dislikes, setdislikes] =useState(0)
     const {userToken} = useContext(USER)
 
-    const senddislike = (id)=>{
+    const senddislike = (e)=>{
+            const id = e.currentTarget.dataset.myValue
             fetch("https://musicalworld.onrender.com/dislike",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -26,7 +26,8 @@ export function Post({filter}){
         .catch(err=>console.log(err))  
     }
     
-    const sendlike = (id)=>{
+    const sendlike = (e)=>{
+        const id = e.currentTarget.dataset.myValue
         fetch("https://musicalworld.onrender.com/like",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -88,7 +89,6 @@ export function Post({filter}){
                     setresult(data.map((post, index)=>{  
                                                         setlikes(post.likes)
                                                         setdislikes(post.dislikes)
-                                                        postid = post._id
                                                         console.log(post._id)
                                                         console.log(" space    ")
                                                         console.log(postid)
@@ -96,9 +96,9 @@ export function Post({filter}){
                                                         return  <div key={index} className={styles.userpostnomedia}>
                                                                 <div className={styles.title}>{post.posttitle}</div>
                                                                 <div className={styles.likedislike}>
-                                                                    <button className={styles.likebutton} onClick={()=>sendlike(postid)}></button>
+                                                                    <button data-my-value={post._id} className={styles.likebutton} onClick={()=>sendlike()}></button>
                                                                     <span className={styles.count}>{likes}</span>
-                                                                    <button className={styles.dislikebutton} onClick={()=>senddislike(postid)}></button>
+                                                                    <button data-my-value={post._id} className={styles.dislikebutton} onClick={()=>senddislike()}></button>
                                                                     <span className={styles.count}>{dislikes}</span>
                                                                 </div>
                                                                 <div className={styles.user}>{post.username}</div>
