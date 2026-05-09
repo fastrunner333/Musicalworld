@@ -28,8 +28,8 @@ export function Post({filter}){
             const buttondislike = dislikeref.current.get(index)
             const spanlike = spanlikeref.current.get(index)
             const spandislike = spandislikeref.current.get(index)
-            spandislike.textContent = spandislike.textContent + 1
-            spanlike.textContent = spanlike.textContent - 1
+            spandislike.textContent = Number(spandislike.textContent) + 1
+            spanlike.textContent = Number(spanlike.textContent) - 1
             buttonlike.disabled = false
             buttondislike.disabled = true
             buttonlike.className = styles.likebutton
