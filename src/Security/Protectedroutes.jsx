@@ -17,7 +17,6 @@ export function ProtectedRoute({children}){
                 navigate("/login")
             }
             else{
-                navigate("/mainpage")
                 return res.text()
   
             }
@@ -25,6 +24,7 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
+            navigate("/mainpage")
         })  
     
         return children
