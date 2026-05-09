@@ -75,13 +75,15 @@ export function Changepass(){
         }
         else{
             numvalidated = false
-            setnewplaceholder("")
-            setconfirmplaceholder("")
+            setnewplaceholder("Must have atleast 1 number")
+            setconfirmplaceholder("Must have atleast 1 number")
             return
         }
 
         if(charapresent == true && spacevalidated === true){
             charvalidated = true
+            setnewplaceholder("")
+            setconfirmplaceholder("")
         }
         else{
             charvalidated = false
