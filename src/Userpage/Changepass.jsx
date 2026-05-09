@@ -18,7 +18,7 @@ export function Changepass(){
         e.preventDefault()
         const numpresent = /\d/.test(newPass)
         const spacepresent = /\s/.test(newPass)
-        const charapresent = /[`~!@#$%^&*()_+={}\]\[:";'<>?,\\.\/-]/.test()
+        const charapresent = /[`~!@#$%^&*()_+={}\]\[:";'<>?,\\.\/-]/.test(newPass)
         let validated = false
         let samevalidated = false
         let lenvalidated = false
@@ -27,7 +27,6 @@ export function Changepass(){
         let spacevalidated = false
         setnewPass("")
         setconfirmPass("")
-        console.log(charapresent)
         if(newPass && confirmPass != ""){
             validated = true
         }
@@ -59,7 +58,6 @@ export function Changepass(){
         }
 
         if(spacepresent == false && lenvalidated === true){
-            console.log("space found")
             spacevalidated = true
         }
         else{
