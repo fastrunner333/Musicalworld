@@ -20,6 +20,7 @@ export function Userinfo(){
                 method:"POST",
                 body:imageformdata
         })
+        .then(navigate("/mainpage"))
         
     }
     

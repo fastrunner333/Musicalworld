@@ -329,8 +329,12 @@ app.get("/getpost",async(req,res)=>{
            
         })
         res.status(200).json({data:alldata})
+    }if(posttype === "onlyuser"){
+        const alldata = await useruploads.find($and[{musictype:posttype},{username:user}]).lean()
+        
+        res.status(200).json({data:alldata})
     }
-    if(posttype !== "all"){
+    if(posttype !== "all" && posttype !== "onlyuser"){
         const alldata = await useruploads.find({musictype:posttype}).lean()
         const userdata = await User.findOne({username:user})
         const userlikes = userdata.likes
@@ -344,11 +348,7 @@ app.get("/getpost",async(req,res)=>{
         })
         res.status(200).json({data:alldata})
     }
-    if(posttype !== "onlyuser"){
-        const alldata = await useruploads.find($and[{musictype:posttype},{username:user}]).lean()
-        
-        res.status(200).json({data:alldata})
-    }
+    
 })
 
 //dislikes
