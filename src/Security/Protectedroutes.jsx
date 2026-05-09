@@ -9,7 +9,7 @@ export function ProtectedRoute({children}){
     const {setuserToken} = useContext(USER)
     const {load,isload} = useState(true)
     
-    
+    useEffect(()=>{
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
             credentials:"include"
@@ -26,7 +26,8 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
-        })  
+        })
+    },[])    
     if(load){
         return <div>Loading, please wait....</div>
     }
