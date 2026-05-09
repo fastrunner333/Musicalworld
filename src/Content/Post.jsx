@@ -86,10 +86,8 @@ export function Post({filter}){
                                             let i = index
                                             
                                             if(post.liked){
-                                                    console.log("postlikes")
                                                     buttoncsslike = styles.likebuttongrey
                                                     clicklogiclike = empfunc
-                                                    console.log("clicklogic"+clicklogiclike)
                                                 }
                                             else{
                                                     buttoncsslike = styles.likebutton
@@ -108,10 +106,10 @@ export function Post({filter}){
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
                                                         
-                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                     </div>
@@ -124,10 +122,10 @@ export function Post({filter}){
                                                         <img className={styles.img} src={`https://res.cloudinary.com/dg9zjuhjn/image/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} />
                                                         <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                         </div>
@@ -140,10 +138,10 @@ export function Post({filter}){
                                                         <audio className={styles.audio} controls src={`https://res.cloudinary.com/dg9zjuhjn/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="audio/mpeg"></audio>
                                                         <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                         </div>
@@ -156,10 +154,10 @@ export function Post({filter}){
                                                         <audio className={styles.audio} controls src={`https://res.cloudinary.com/dg9zjuhjn/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="audio/x-m4a"></audio>
                                                         <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
+                                                        <button key={index} data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                         </div>
@@ -172,10 +170,10 @@ export function Post({filter}){
                                                         <video className={styles.video} controls src={`https://res.cloudinary.com/dg9zjuhjn/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="video/mp4"></video>
                                                         <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
+                                                        <button key={index}data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                         </div>
