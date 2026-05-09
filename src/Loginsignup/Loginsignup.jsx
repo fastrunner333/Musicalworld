@@ -20,11 +20,12 @@ export function Loginsignup(){
     }
     },[userToken])
   
-
+console.log(displaysetting)
     async function buttonClick(e){
 
         const submitter = e.nativeEvent.submitter.value
         displaysetting = "block"
+        console.log(displaysetting)
         e.preventDefault()
         if(submitter=="signup"){
            console.log("Not allowed")
@@ -54,7 +55,7 @@ export function Loginsignup(){
             .catch(e=>console.log(e))
         }
     }
-
+    console.log(displaysetting)
     return(
         <>
             <Spinnernodisc displaysetting={displaysetting}/>
