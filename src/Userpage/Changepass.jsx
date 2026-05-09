@@ -31,8 +31,9 @@ export function Changepass(){
         }
         else{
             validated = false
-            setnewPass("please fill both fields")
-            setconfirmPass("please fill both fields")
+            setnewPass("Please fill both fields")
+            setconfirmPass("Please fill both fields")
+            return
         }
 
         if(newPass === confirmPass){
@@ -42,6 +43,7 @@ export function Changepass(){
             samevalidated = false
             setnewPass("Both fields don't match")
             setconfirmPass("Both fields don't match")
+            return
         }
 
         if(newPass.length>=8){
@@ -51,6 +53,7 @@ export function Changepass(){
             lenvalidated = false
             setnewPass("Must be atlest 8 character long")
             setconfirmPass("Must be atlest 8 character long")
+            return
         }
 
         if(spacepresent == true){
@@ -58,8 +61,9 @@ export function Changepass(){
         }
         else{
             spacevalidated = false
-            setnewPass("Must have atleast 1 character")
-            setconfirmPass("Must have atleat 1 character")
+            setnewPass("Cannot have space")
+            setconfirmPass("Cannot have space")
+            return
         }
 
 
@@ -70,6 +74,7 @@ export function Changepass(){
             numvalidated = false
             setnewPass("Must have atleast 1 number")
             setconfirmPass("Must have atleast 1 number")
+            return
         }
 
         if(charapresent == true){
@@ -79,6 +84,7 @@ export function Changepass(){
             charvalidated = false
             setnewPass("Must have atleast 1 character")
             setconfirmPass("Must have atleat 1 character")
+            return
         }
 
         
