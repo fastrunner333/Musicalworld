@@ -330,7 +330,7 @@ app.get("/getpost",async(req,res)=>{
         })
         res.status(200).json({data:alldata})
     }if(posttype === "onlyuser"){
-        const alldata = await useruploads.find($and[{musictype:posttype},{username:user}]).lean()
+        const alldata = await useruploads.find({musictype:posttype ,username:user}).lean()
         
         res.status(200).json({data:alldata})
     }
