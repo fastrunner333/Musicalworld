@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router"
 import { useContext, useEffect, useState } from "react";
 import { USER } from "../Context/Usercontext";
+import { Spinnernodisc } from "../Spinner/spinnernodisc";
 
 import styles from "./Loginsignup.module.css"
 
@@ -11,7 +12,7 @@ export function Loginsignup(){
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
-   
+    let displaysetting = "none";
    useEffect(()=>{
     if(userToken){
         console.log(userToken)
@@ -23,6 +24,7 @@ export function Loginsignup(){
     async function buttonClick(e){
 
         const submitter = e.nativeEvent.submitter.value
+        displaysetting = "block"
         e.preventDefault()
         if(submitter=="signup"){
            console.log("Not allowed")
@@ -55,6 +57,7 @@ export function Loginsignup(){
 
     return(
         <>
+            <Spinnernodisc displaysetting={displaysetting}/>
             <div className={styles.header}>
                 <h1>Musical World</h1>
             </div>
