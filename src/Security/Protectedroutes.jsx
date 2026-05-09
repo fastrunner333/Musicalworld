@@ -18,7 +18,7 @@ export async function ProtectedRoute({children}){
                 navigate("/login")
             }
             else{
-                const name = await res.text()
+                const name = res.text()
                 setuserToken(name)
                 setload(false)
             }      
