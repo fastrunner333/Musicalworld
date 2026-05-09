@@ -56,12 +56,12 @@
 .likedislike{
     display:flex;
     flex-direction:row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color:#74070e;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: small;
     width:50%;
-    justify-self:left;
+    justify-self:flex-start
 
 }
 .likebutton{
