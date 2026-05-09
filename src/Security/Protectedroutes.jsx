@@ -6,7 +6,7 @@ import { Mainpage } from "../Mainpage/Mainpage"
 export function ProtectedRoute({children}){
 
     const navigate = useNavigate()
-    const {setuserToken} = useContext(USER)
+    const {userToken, setuserToken} = useContext(USER)
     const {load,isload} = useState(true)
     
     useEffect(()=>{
@@ -28,12 +28,10 @@ export function ProtectedRoute({children}){
             setuserToken(data)
         })
     },[])    
-    if(load){
-        return <div>Loading, please wait....</div>
-    }
-    else{
+        console.log(load)
+        console.log(userToken)
         return children
-    }
+    
        
     
 }
