@@ -332,6 +332,21 @@ app.get("/getpost",async(req,res)=>{
     }
     if(posttype !== "all"){
         const alldata = await useruploads.find({musictype:posttype}).lean()
+        const userdata = await User.findOne({username:user})
+        const userlikes = userdata.likes
+        const userdislikes = userdata.dislikes
+        alldata.map((obj)=>{
+           const liked = userlikes.includes(obj._id)
+           const disliked = userdislikes.includes(obj._id)
+           obj.liked = liked
+           obj.disliked = disliked
+           
+        })
+        res.status(200).json({data:alldata})
+    }
+    if(posttype !== "onlyuser"){
+        const alldata = await useruploads.find($and[{musictype:posttype},{username:user}]).lean()
+        
         res.status(200).json({data:alldata})
     }
 })
