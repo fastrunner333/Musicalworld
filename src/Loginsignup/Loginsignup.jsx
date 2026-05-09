@@ -12,7 +12,7 @@ export function Loginsignup(){
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
-    let displaysetting = "none";
+    const [displaysetting, setdisplaysetting] = useState("none")
    useEffect(()=>{
     if(userToken){
         console.log(userToken)
@@ -24,7 +24,7 @@ console.log(displaysetting)
     async function buttonClick(e){
 
         const submitter = e.nativeEvent.submitter.value
-        displaysetting = "block"
+        setdisplaysetting("block")
         console.log(displaysetting)
         e.preventDefault()
         if(submitter=="signup"){
