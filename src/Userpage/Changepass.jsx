@@ -13,8 +13,56 @@ export function Changepass(){
     function buttonclick(e){
 
         e.preventDefault()
+        const numpresent = /\d/.test(newPass)
+        const spacepresent = /\s/.test(newpass)
+        const charapresent = /[`~!@#$%^&*()_-+={}][:";'<>?,./]/.test()
+        let validated = false
+
         if(newPass && confirmPass != ""){
-            if(newPass === confirmPass){
+            validated = true
+        }
+        else{
+            validated = false
+            setnewPass("please fill both fields")
+            setconfirmPass("please fill both fields")
+        }
+        if(newPass === confirmPass){
+            validated = true
+        }else{
+            validated = false
+            setnewPass("Both fields don't match")
+            setconfirmPass("Both fields don't match")
+        }
+        if(newPass.length()>=8){
+            validated = true
+        }else{
+            validated = false
+            setnewPass("Password must be atlest 8 character long")
+            setconfirmPass("Password must be atlest 8 character long")
+        }
+        if(numpresent == true){
+            validated = true
+        }else{
+            validated = false
+            setnewPass("Password must have atleast 1 number")
+            setconfirmPass("Password must have atleast 1 number")
+        }
+        if(charapresent == true){
+            validated = true
+        }else{
+            validated = false
+            setnewPass("Password must be at 1 character")
+            setconfirmPass("Password must be at 1 character")
+        }
+        if(spacepresent == false){
+            validated = true
+        }else{
+            validated = false
+            setnewPass("Password can not have space")
+            setconfirmPass("Password can not have space")
+        }
+
+        if(validated == true){
                 fetch("https://musicalworld.onrender.com/changepass",{
                     method:"POST",
                     credentials:"include",
@@ -29,15 +77,9 @@ export function Changepass(){
                 })
                 
             }
-            else{
-
-                setnewPass("Both fields don't match")
-                setconfirmPass("Both fields don't match")
-            }
-        }
+           
         else{
-            setnewPass("please fill both fields")
-            setconfirmPass("please fill both fields")
+            console.log("error")
         }
 
         
