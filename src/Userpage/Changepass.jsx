@@ -14,7 +14,7 @@ export function Changepass(){
 
         e.preventDefault()
         const numpresent = /\d/.test(newPass)
-        const spacepresent = /\s/.test(newpass)
+        const spacepresent = /\s/.test(newPass)
         const charapresent = /[`~!@#$%^&*()_+={}\]\[:";'<>?,\\.\/-]/.test()
         let validated = false
 
