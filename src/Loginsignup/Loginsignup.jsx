@@ -57,8 +57,11 @@ console.log(displaysetting)
             .catch((e)=>{
                         console.log(e)
                         setdisplaysetting("none")
+                        setUsername("")
+                        setPassword("")
                         setpassplace("Incorrect")
                         setuserplace("Incorrect")
+
                     })
         }
     }
