@@ -30,6 +30,7 @@ export function Changepass(){
 
         console.log("["+newPass+"]")
         console.log(newPass.split("").map(c=>c.charCodeAt(0)))
+        console.log(spacepresent)
 
         if(newPass && confirmPass != ""){
             validated = true
