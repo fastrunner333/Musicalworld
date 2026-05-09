@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useStat } from "react"
 import {useNavigate} from "react-router"
 import { Header } from "../Header/Header"
 import { Footer } from "../Footer/Footer"
@@ -9,6 +9,9 @@ export function Changepass(){
     const[newPass, setnewPass] = useState("")
     const[confirmPass, setconfirmPass] = useState("")
     const navigate = useNavigate();
+    const [newplaceholder, setnewplaceholder] = useState("")
+    const [confirmplaceholder, setconfirmplaceholder] = useState("")
+
 
     function buttonclick(e){
 
@@ -22,6 +25,8 @@ export function Changepass(){
         let numvalidated = false
         let charvalidated = false
         let spacevalidated = false
+        setnewPass("")
+        setconfirmPass("")
 
         console.log(newPass)
         console.log(confirmPass)
@@ -31,8 +36,8 @@ export function Changepass(){
         }
         else{
             validated = false
-            setnewPass("Please fill both fields")
-            setconfirmPass("Please fill both fields")
+            setnewplaceholder("Please fill both fields")
+            setconfirmplaceholder("Please fill both fields")
             return
         }
 
@@ -41,8 +46,8 @@ export function Changepass(){
         }
         else{
             samevalidated = false
-            setnewPass("Both fields don't match")
-            setconfirmPass("Both fields don't match")
+            setnewplaceholder("Both fields don't match")
+            setconfirmplaceholder("Both fields don't match")
             return
         }
 
@@ -51,18 +56,19 @@ export function Changepass(){
         }
         else{
             lenvalidated = false
-            setnewPass("Must be atlest 8 character long")
-            setconfirmPass("Must be atlest 8 character long")
+            setnewplaceholder("Must be atleast 8 character long")
+            setconfirmplaceholder("Must be atleast 8 character long")
             return
         }
 
         if(spacepresent == true && lenvalidated === true){
+            console.log("space found")
             spacevalidated = true
         }
         else{
             spacevalidated = false
-            setnewPass("Cannot have space")
-            setconfirmPass("Cannot have space")
+            setnewplaceholder("Cannot have space")
+            setconfirmplaceholder("Cannot have space")
             return
         }
 
@@ -72,8 +78,8 @@ export function Changepass(){
         }
         else{
             numvalidated = false
-            setnewPass("Must have atleast 1 number")
-            setconfirmPass("Must have atleast 1 number")
+            setnewplaceholder("Must have atleast 1 number")
+            setconfirmplaceholder("Must have atleast 1 number")
             return
         }
 
@@ -82,8 +88,8 @@ export function Changepass(){
         }
         else{
             charvalidated = false
-            setnewPass("Must have atleast 1 character")
-            setconfirmPass("Must have atleat 1 character")
+            setnewplaceholder("Must have atleast 1 character")
+            setconfirmplaceholder("Must have atleast 1 character")
             return
         }
 
@@ -118,11 +124,11 @@ export function Changepass(){
             <form className={styles.passwordform} onSubmit={buttonclick}>
                 <div className={styles.text}>
                     <label htmlFor="new">New Password</label>
-                    <input className={styles.newpass} type={"text"} id="new" value={newPass} onChange={(e)=>{setnewPass(e.target.value)}}></input>
+                    <input className={styles.newpass}placeholder={newplaceholder} type={"text"} id="new" value={newPass} onChange={(e)=>{setnewPass(e.target.value)}}></input>
                 </div>
                 <div className={styles.text}>
                     <label htmlFor="confirm">Confirm Password</label>
-                    <input className={styles.confpass} type={"text"} id="confirm" value={confirmPass} onChange={(e)=>{setconfirmPass(e.target.value)}}></input>
+                    <input className={styles.confpass} placeholder={confirmplaceholder} type={"text"} id="confirm" value={confirmPass} onChange={(e)=>{setconfirmPass(e.target.value)}}></input>
                 </div>
                 <button className={styles.button} type="submit">Update Password</button>
             </form>
