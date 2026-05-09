@@ -70,11 +70,13 @@ export function Changepass(){
 
         if(numpresent == true && spacevalidated === true){
             numvalidated = true
+            setnewplaceholder("")
+            setconfirmplaceholder("")
         }
         else{
             numvalidated = false
-            setnewplaceholder("Must have atleast 1 number")
-            setconfirmplaceholder("Must have atleast 1 number")
+            setnewplaceholder("")
+            setconfirmplaceholder("")
             return
         }
 
