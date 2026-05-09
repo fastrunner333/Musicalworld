@@ -8,11 +8,10 @@ export function ProtectedRoute({children}){
     const navigate = useNavigate()
     const {setuserToken} = useContext(USER)
     const {load,isload} = useState(true)
-    setTimeout(()=>{},60000)
+    
     useEffect(()=>{
         
-                setTimeout(()=>{},60000)
-        fetch("https://musicalworld.onrender.com/check",{   
+                setTimeout(()=>{fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
             credentials:"include"
         })
@@ -28,7 +27,8 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
-        })
+        })},60000)
+        
     },[])    
     if(load){
         return <div>Loading....</div>
