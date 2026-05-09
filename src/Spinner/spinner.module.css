@@ -13,6 +13,7 @@
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+                z-index: 8;
 
 }
 
@@ -34,6 +35,7 @@
                 font-weight: bold;
                 color:#74070e;
                 font-family:Georgia, 'Times New Roman', Times, serif;
+                z-index: 7;
 }
 
 .disclamer{
