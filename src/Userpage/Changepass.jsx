@@ -23,6 +23,9 @@ export function Changepass(){
         let charvalidated = false
         let spacevalidated = false
 
+        console.log(newPass)
+        console.log(confirmPass)
+
         if(newPass && confirmPass != ""){
             validated = true
         }
