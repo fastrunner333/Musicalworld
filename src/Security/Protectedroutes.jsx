@@ -6,7 +6,7 @@ import { Mainpage } from "../Mainpage/Mainpage"
 export function ProtectedRoute({children}){
 
     const navigate = useNavigate()
-    const {setuserToken} = useContext(USER)
+    const {userToken, setuserToken} = useContext(USER)
     
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
@@ -15,6 +15,7 @@ export function ProtectedRoute({children}){
         .then((res)=>{
             if(res.status != 200){
                 navigate("/login")
+                throw new Error("Not authorized")
             }
             else{
                 return res.text()
@@ -24,9 +25,13 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
-            navigate("/mainpage")
         })  
+        .catch(e=>console.log(e))
     
+        if(userToken!=200 && typeof(userToken)=="string"){
+            return <Mainpage/>
+        }
+
         return children
     
        
