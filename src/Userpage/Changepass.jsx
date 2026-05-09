@@ -28,8 +28,8 @@ export function Changepass(){
         setnewPass("")
         setconfirmPass("")
 
-        console.log(newPass)
-        console.log(confirmPass)
+        console.log("["+newPass+"]")
+        console.log(newPass.split("").map(c=>c.charCodeAt(0)))
 
         if(newPass && confirmPass != ""){
             validated = true
