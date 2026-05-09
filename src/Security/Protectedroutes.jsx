@@ -23,7 +23,7 @@ export async function ProtectedRoute({children}){
     .then((data)=>{
         setuserToken(data)
     })
-    .catch(()=>navigate("/login"))
+   // .catch(()=>navigate("/login"))
 
        
     return children
