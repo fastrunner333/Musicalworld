@@ -37,22 +37,22 @@ export function Changepass(){
             validated = true
         }else{
             validated = false
-            setnewPass("Password must be atlest 8 character long")
-            setconfirmPass("Password must be atlest 8 character long")
+            setnewPass("Must be atlest 8 character long")
+            setconfirmPass("Must be atlest 8 character long")
         }
         if(numpresent == true){
             validated = true
         }else{
             validated = false
-            setnewPass("Password must have atleast 1 number")
-            setconfirmPass("Password must have atleast 1 number")
+            setnewPass("Must have atleast 1 number")
+            setconfirmPass("Must have atleast 1 number")
         }
         if(charapresent == true){
             validated = true
         }else{
             validated = false
-            setnewPass("Password must be at 1 character")
-            setconfirmPass("Password must be at 1 character")
+            setnewPass("Must have atleast 1 character")
+            setconfirmPass("Must have atlea 1 character")
         }
         if(spacepresent == false){
             validated = true
@@ -63,7 +63,7 @@ export function Changepass(){
         }
 
         if(validated === true){
-                /* fetch("https://musicalworld.onrender.com/changepass",{
+                 fetch("https://musicalworld.onrender.com/changepass",{
                     method:"POST",
                     credentials:"include",
                     headers:{"Content-Type":"application/json"},
@@ -74,7 +74,7 @@ export function Changepass(){
                     console.log(err)
                     if(!err)navigate("/mainpage")
                     return
-                }) */
+                }) 
                console.log("sent")
                 
             }
