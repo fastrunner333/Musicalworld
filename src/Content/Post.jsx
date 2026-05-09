@@ -27,10 +27,10 @@ export function Post({filter}){
             const buttondislike = dislikeref.current.get(index)
             const spanlike = spanlikeref.current.get(index)
             const spandislike = spandislikeref.current.get(index)
-            if(Number(spanlike.textContent)>0){
-                spanlike.textContent = Number(spanlike.textContent) - 1 
+            if(parseInt(spanlike.textContent)>0){
+                spanlike.textContent = parseInt(spanlike.textContent) - 1 
             }
-            spandislike.textContent = Number(spandislike.textContent) + 1
+            spandislike.textContent = parseInt(spandislike.textContent) + 1
             buttonlike.disabled = false
             buttondislike.disabled = true
             buttonlike.className = styles.likebutton
@@ -54,14 +54,26 @@ export function Post({filter}){
         const buttondislike = dislikeref.current.get(index)
         const spanlike = spanlikeref.current.get(index)
         const spandislike = spandislikeref.current.get(index)
-        if(Number(spandislike.textContent)>0){
-            spandislike.textContent = Number(spandislike.textContent) - 1
+        if(parseInt(spandislike.textContent)>0){
+            spandislike.textContent = parseInt(spandislike.textContent) - 1 
         }
-        spanlike.textContent = Number(spanlike.textContent) + 1
+        spanlike.textContent = parseInt(spanlike.textContent) + 1
         buttonlike.disabled = true
         buttondislike.disabled = false
         buttonlike.className = styles.likebuttongrey
         buttondislike.className = styles.dislikebutton
+       /*  const buttonlike = likeref.current.get(index)
+        const buttondislike = dislikeref.current.get(index)
+        const spanlike = spanlikeref.current.get(index)
+        const spandislike = spandislikeref.current.get(index)
+        if(parseInt(spandislike.textContent)>0){
+            spandislike.textContent = parseInt(spandislike.textContent) - 1
+        }
+        spanlike.textContent = parseInt(spanlike.textContent) + 1
+        buttonlike.disabled = true
+        buttondislike.disabled = false
+        buttonlike.className = styles.likebuttongrey
+        buttondislike.className = styles.dislikebutton */
         fetch("https://musicalworld.onrender.com/like",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
