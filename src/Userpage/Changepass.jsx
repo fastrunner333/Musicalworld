@@ -27,7 +27,7 @@ export function Changepass(){
         let spacevalidated = false
         setnewPass("")
         setconfirmPass("")
-
+        console.log(charapresent)
         if(newPass && confirmPass != ""){
             validated = true
         }
