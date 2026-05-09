@@ -87,13 +87,13 @@ export function Post({filter}){
                                                     console.log("postlikes")
                                                     buttoncsslike = styles.likebuttongrey
                                                     clicklogiclike = empfunc
+                                                    console.log("clicklogic"+clicklogiclike)
                                                 }
                                             else{
                                                     buttoncsslike = styles.likebutton
                                                     clicklogiclike = sendlike
                                                 }
                                             if(post.disliked){
-                                                console.log("postdisliked")
                                                     buttoncssdislike = styles.dislikebuttongrey
                                                     clicklogicdislike = empfunc
                                                 }
@@ -101,11 +101,12 @@ export function Post({filter}){
                                                     buttoncssdislike = styles.dislikebutton
                                                     clicklogicdislike = senddislike
                                                 }
-                                            if(!post.mediatype){    
+                                            if(!post.mediatype){  
+                                                console.log( <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>)  
                                             return  <div key={index} className={styles.userpostnomedia}>
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
-
+                                                        
                                                         <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
