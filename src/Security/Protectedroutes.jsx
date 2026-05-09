@@ -24,7 +24,7 @@ export async function ProtectedRoute({children}){
             }      
         })
         .catch(navigate("/login"))
-    },[setuserToken])
+    },[])
 
     if(load){
         return <div>Loading please wait as free servers are slow......</div>
