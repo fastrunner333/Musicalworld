@@ -27,7 +27,12 @@ export function ProtectedRoute({children}){
             setuserToken(data)
         })
     },[])    
-    return children
+    if(load){
+        return <div>Loading....</div>
+    }
+    else{
+        return children
+    }
        
     
 }
