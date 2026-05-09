@@ -223,7 +223,7 @@ export function Post({filter}){
     
     return(
         <div id="parent" className={styles.post}>
-        <Spinnernodisc displaysetting={display} left={"6vw"} top={"0%"}/>
+        <Spinnernodisc displaysetting={display} left_spin={"6vw"} top_spin={"0%"} left_text={"6vw"} top_text={"51vh"} />
         {result}
         </div>
     )
