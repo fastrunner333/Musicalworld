@@ -222,7 +222,7 @@ export function Post({filter}){
                     }
             )
             .catch(err=>console.log(err))
-            },[filter, userToken])        
+            },[filter])        
    
     
     
