@@ -19,6 +19,7 @@ export function ProtectedRoute({children}){
             }
             else{
                 return res.text()
+                setTimeout(()=>{},6000)
                 isload(false)
             }
                 
