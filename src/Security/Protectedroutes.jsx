@@ -12,7 +12,7 @@ export async function ProtectedRoute({children}){
         method:"POST", 
         credentials:"include"
     })
-    .then((res)=>{
+    /* .then((res)=>{
         if(res.status != 200){
             navigate("/login")
         }
@@ -26,6 +26,20 @@ export async function ProtectedRoute({children}){
    // .catch(()=>navigate("/login"))
 
        
+    return children */
+    .then((res)=>{
+            if(res.status != 200){
+                navigate("/")
+            }
+            else{
+                return res.text()
+            }
+                
+        })
+        .then((data)=>{
+            setuserToken(data)
+        })
+        
     return children
 }
 
