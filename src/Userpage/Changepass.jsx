@@ -47,13 +47,7 @@ export function Changepass(){
             setnewPass("Must have atleast 1 number")
             setconfirmPass("Must have atleast 1 number")
         }
-        if(charapresent == true){
-            validated = true
-        }else{
-            validated = false
-            setnewPass("Must have atleast 1 character")
-            setconfirmPass("Must have atlea 1 character")
-        }
+       
         if(spacepresent == false){
             validated = true
         }else{
