@@ -1,4 +1,4 @@
-import { useStat } from "react"
+import { useState } from "react"
 import {useNavigate} from "react-router"
 import { Header } from "../Header/Header"
 import { Footer } from "../Footer/Footer"
