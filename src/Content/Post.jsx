@@ -14,7 +14,6 @@ export function Post({filter}){
     const spandislikeref = useRef(new Map())
     let dataarr = []
     let arr = []
-    let updater = 0
     let likes = 0
     let dislikes = 0 
     let buttoncsslike = ""
