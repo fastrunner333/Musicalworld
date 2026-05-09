@@ -33,7 +33,7 @@ export function Changepass(){
             setnewPass("Both fields don't match")
             setconfirmPass("Both fields don't match")
         }
-        if(newPass.length()>=8){
+        if(newPass.length>=8){
             validated = true
         }else{
             validated = false
