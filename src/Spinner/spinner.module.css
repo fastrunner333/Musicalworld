@@ -30,6 +30,10 @@
                 width:10vw;
                 left:calc(50vw - 5vw);
                 top:75vh;
+                font-size: large;
+                font-weight: bold;
+                color:#74070e;
+                font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .disclamer{
