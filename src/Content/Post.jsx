@@ -21,8 +21,9 @@ export function Post({filter}){
     let buttoncssdislike = ""
     let clicklogicdislike = null
 
+    const empfunc = ()=>{}
+
     const senddislike = (e, index)=>{
-        if(clicklogicdislike!=null){
             const id = e.currentTarget.dataset.id
             const buttonlike = likeref.current.get(index)
             const buttondislike = dislikeref.current.get(index)
@@ -47,11 +48,9 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err)) 
-        }
     }
     
     const sendlike = (e, index)=>{
-    if(clicklogiclike != null){
         const id = e.currentTarget.dataset.id
         const buttonlike = likeref.current.get(index)
         const buttondislike = dislikeref.current.get(index)
@@ -77,7 +76,6 @@ export function Post({filter}){
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))   
     }
-    }
 
     function setdata(data){
         arr = (data.map((post, index)=>{   
@@ -87,7 +85,7 @@ export function Post({filter}){
                                             
                                             if(post.liked){
                                                     buttoncsslike = styles.likebuttongrey
-                                                    clicklogiclike = null
+                                                    clicklogiclike = empfunc
                                                 }
                                             else{
                                                     buttoncsslike = styles.likebutton
@@ -95,7 +93,7 @@ export function Post({filter}){
                                                 }
                                             if(post.disliked){
                                                     buttoncssdislike = styles.dislikebuttongrey
-                                                    clicklogicdislike = null
+                                                    clicklogicdislike = empfunc
                                                 }
                                             else{
                                                     buttoncssdislike = styles.dislikebutton
@@ -108,10 +106,10 @@ export function Post({filter}){
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike && clicklogiclike(e,i)}></button>
+                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike && clicklogicdislike(e,i)}></button>
+                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                     </div>
