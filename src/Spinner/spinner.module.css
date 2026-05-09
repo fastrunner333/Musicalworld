@@ -27,8 +27,8 @@
 .loading{
                 display: none;
                 position:absolute;
-                width:10vw;
-                left:calc(50vw - 5vw);
+                left:50vw;
+                margin-left:calc(-50%);
                 top:75vh;
                 font-size: large;
                 font-weight: bold;
