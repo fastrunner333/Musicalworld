@@ -28,9 +28,9 @@ export function Post({filter}){
             const spanlike = spanlikeref.current.get(index)
             const spandislike = spandislikeref.current.get(index)
             if(Number(spanlike.textContent)>0){
-                spanlike.textContent = Number(spanlike.textContent) - 1 
+                spanlike.textContent = parseInt(spanlike.textContent,10) - 1 
             }
-            spandislike.textContent = Number(spandislike.textContent) + 1
+            spandislike.textContent = parseInt(spandislike.textContent, 10) + 1
             buttonlike.disabled = false
             buttondislike.disabled = true
             buttonlike.className = styles.likebutton
@@ -55,9 +55,9 @@ export function Post({filter}){
         const spanlike = spanlikeref.current.get(index)
         const spandislike = spandislikeref.current.get(index)
         if(Number(spandislike.textContent)>0){
-            spandislike.textContent = Number(spandislike.textContent) - 1
+            spandislike.textContent = parseInt(spandislike.textContent, 10) - 1
         }
-        spanlike.textContent = Number(spanlike.textContent) + 1
+        spanlike.textContent = parseInt(spanlike.textContent, 10) + 1
         buttonlike.disabled = true
         buttondislike.disabled = false
         buttonlike.className = styles.likebuttongrey
