@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {useNavigate} from "react-router"
 import { Header } from "../Header/Header"
 import { Footer } from "../Footer/Footer"
@@ -9,6 +9,7 @@ export function Changepass(){
     const[newPass, setnewPass] = useState("")
     const[confirmPass, setconfirmPass] = useState("")
     const navigate = useNavigate();
+    let updated = 0
 
     function buttonclick(e){
 
@@ -17,7 +18,8 @@ export function Changepass(){
         const spacepresent = /\s/.test(newPass)
         const charapresent = /[`~!@#$%^&*()_+={}\]\[:";'<>?,\\.\/-]/.test()
         let validated = false
-
+        updated++
+        useEffect(()=>{
         if(newPass && confirmPass != ""){
             validated = true
         }
@@ -26,35 +28,52 @@ export function Changepass(){
             setnewPass("please fill both fields")
             setconfirmPass("please fill both fields")
         }
+
         if(newPass === confirmPass){
             validated = true
-        }else{
+        }
+        else{
             validated = false
             setnewPass("Both fields don't match")
             setconfirmPass("Both fields don't match")
         }
+
         if(newPass.length>=8){
             validated = true
-        }else{
+        }
+        else{
             validated = false
             setnewPass("Must be atlest 8 character long")
             setconfirmPass("Must be atlest 8 character long")
         }
-        if(numpresent == true){
-            validated = true
-        }else{
-            validated = false
-            setnewPass("Must have atleast 1 number")
-            setconfirmPass("Must have atleast 1 number")
-        }
-       
+
         if(spacepresent == false){
             validated = true
-        }else{
+        }
+        else{
             validated = false
             setnewPass("Password can not have space")
             setconfirmPass("Password can not have space")
         }
+
+        if(numpresent == true){
+            validated = true
+        }
+        else{
+            validated = false
+            setnewPass("Must have atleast 1 number")
+            setconfirmPass("Must have atleast 1 number")
+        }
+
+        if(charapresent == true){
+            validated = true
+        }else{
+            validated = false
+            setnewPass("Must have atleast 1 character")
+            setconfirmPass("Must have atleat 1 character")
+        }
+
+        
 
         if(validated === true){
                 /*  fetch("https://musicalworld.onrender.com/changepass",{
@@ -77,7 +96,7 @@ export function Changepass(){
             console.log("error")
         }
 
-        
+    },[updated])
     }
     return(
         <div style={{display:"flex",flexDirection:"column",height:"100vh"}}>
