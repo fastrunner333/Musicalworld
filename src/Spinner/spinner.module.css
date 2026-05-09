@@ -9,7 +9,7 @@
                 height: 50vh;
                 width: 35vw;
                 overflow: hidden;
-                background-image: url("loadspinner.png");
+                background-image: url("https://musicalworld.onrender.com/assets/loadspinner.png");
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
