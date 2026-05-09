@@ -17,7 +17,6 @@ export async function ProtectedRoute({children}){
             navigate("/login")
         }
         else{
-            setload(false)
             return res.text()
         }      
     })
@@ -26,9 +25,6 @@ export async function ProtectedRoute({children}){
     })
     .catch(()=>navigate("/login"))
 
-    if(load){
-        return <div>Loading please wait as free servers are slow......</div>
-    }
        
     return children
 }
