@@ -84,6 +84,7 @@ export function Post({filter}){
                                             let i = index
                                             
                                             if(post.liked){
+                                                    console.log("postlikes")
                                                     buttoncsslike = styles.likebuttongrey
                                                     clicklogiclike = empfunc
                                                 }
@@ -92,6 +93,7 @@ export function Post({filter}){
                                                     clicklogiclike = sendlike
                                                 }
                                             if(post.disliked){
+                                                console.log("postdisliked")
                                                     buttoncssdislike = styles.dislikebuttongrey
                                                     clicklogicdislike = empfunc
                                                 }
@@ -99,8 +101,6 @@ export function Post({filter}){
                                                     buttoncssdislike = styles.dislikebutton
                                                     clicklogicdislike = senddislike
                                                 }
-                                            console.log(clicklogiclike)
-                                            console.log(clicklogicdislike)
                                             if(!post.mediatype){    
                                             return  <div key={index} className={styles.userpostnomedia}>
                                                     <div className={styles.title}>{post.posttitle}</div>
