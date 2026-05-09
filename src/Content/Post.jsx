@@ -22,6 +22,7 @@ export function Post({filter}){
     let clicklogicdislike = null
 
     const senddislike = (e, index)=>{
+        if(clicklogicdislike!=null){
             const id = e.currentTarget.dataset.id
             const buttonlike = likeref.current.get(index)
             const buttondislike = dislikeref.current.get(index)
@@ -46,9 +47,11 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err)) 
+        }
     }
     
     const sendlike = (e, index)=>{
+    if(clicklogicdislike != null){
         const id = e.currentTarget.dataset.id
         const buttonlike = likeref.current.get(index)
         const buttondislike = dislikeref.current.get(index)
@@ -62,18 +65,6 @@ export function Post({filter}){
         buttondislike.disabled = false
         buttonlike.className = styles.likebuttongrey
         buttondislike.className = styles.dislikebutton
-      /*const buttonlike = likeref.current.get(index)
-        const buttondislike = dislikeref.current.get(index)
-        const spanlike = spanlikeref.current.get(index)
-        const spandislike = spandislikeref.current.get(index)
-        if(parseInt(spandislike.textContent)>0){
-            spandislike.textContent = parseInt(spandislike.textContent) - 1
-        }
-        spanlike.textContent = parseInt(spanlike.textContent) + 1
-        buttonlike.disabled = true
-        buttondislike.disabled = false
-        buttonlike.className = styles.likebuttongrey
-        buttondislike.className = styles.dislikebutton */
         fetch("https://musicalworld.onrender.com/like",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -85,6 +76,7 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))   
+    }
     }
 
     function setdata(data){
