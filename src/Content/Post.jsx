@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext, useRef} from "react"
 import styles from "./Post.module.css"
 import {USER} from "../Context/Usercontext"
+import { Spinnernodisc } from "../Spinner/spinnernodisc";
 
 
 
@@ -12,6 +13,7 @@ export function Post({filter}){
     const dislikeref = useRef(new Map())
     const spanlikeref = useRef(new Map())
     const spandislikeref = useRef(new Map())
+    const [display, setdisplay] = useState("none")
     let dataarr = []
     let arr = []
     let likes = 0
@@ -189,6 +191,7 @@ export function Post({filter}){
     }
    
     useEffect(()=>{
+        setdisplay("block")
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
             method:"GET"
         })
@@ -210,13 +213,17 @@ export function Post({filter}){
             }  
                     }
             )
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                console.log(err)
+                setdisplay("none")
+            })
             },[filter, userToken])        
    
     
     
     return(
         <div id="parent" className={styles.post}>
+        <Spinnernodisc displaysetting={display}/>
         {result}
         </div>
     )
