@@ -15,7 +15,7 @@ export function Loginsignup(){
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
     const [displaysetting, setdisplaysetting] = useState("none")
-    const error = useRef(null)
+    const [errorstyle, seterrorstyle] = useState({display:"none"})
    useEffect(()=>{
     if(userToken){
         console.log(userToken)
@@ -25,9 +25,8 @@ export function Loginsignup(){
   
 console.log(displaysetting)
     async function buttonClick(e){
-
+        seterrorstyle({display:"none"})
         const submitter = e.nativeEvent.submitter.value
-        error.current.style={display:"block"}
         setdisplaysetting("block")
         console.log(displaysetting)
         e.preventDefault()
@@ -63,7 +62,7 @@ console.log(displaysetting)
                         setPassword("")
                         setpassplace("Incorrect")
                         setuserplace("Incorrect")
-                        error.current.style={display:"block"}
+                        seterrorstyle({display:"block"})
 
                     })
         }
@@ -90,7 +89,7 @@ console.log(displaysetting)
 
                     </input>
                 </div>
-                <div className={styles.error} ref={error}>Username or Password Incorrect or not given</div>
+                <div className={styles.error} style={errorstyle}>Username or Password Incorrect or not given</div>
                 <div className={styles.password}>
                     <label htmlFor="pass">Password</label>
                     <input 
