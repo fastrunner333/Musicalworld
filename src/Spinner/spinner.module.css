@@ -27,8 +27,8 @@
 .loading{
                 display: none;
                 position:absolute;
-                left:50vw;
-                margin-left:calc(-50%);
+                left:50%;
+                transform: translateX(-50%);
                 top:75vh;
                 font-size: large;
                 font-weight: bold;
