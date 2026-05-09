@@ -12,6 +12,7 @@
     border: 6px dashed #74070e;
     display:flex;
     flex-direction: column;
+    align-items: center;
 }
 .userpostimage{
     border: 6px dashed #74070e;
