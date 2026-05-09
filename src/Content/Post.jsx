@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext} from "react"
+import { useEffect, useState, useContext, useRef} from "react"
 import styles from "./Post.module.css"
 import {USER} from "../Context/Usercontext"
 
@@ -8,6 +8,10 @@ export function Post({filter}){
     
     const [result, setresult] = useState([])
     const {userToken} = useContext(USER)
+    const likeref = useRef(new Map())
+    const dislikeref = useRef(new Map())
+    const spanlikeref = useRef(new Map())
+    const spandislikeref = useRef(new Map())
     let dataarr = []
     let arr = []
     let updater = 0
@@ -20,6 +24,16 @@ export function Post({filter}){
 
     const senddislike = (e, index)=>{
             const id = e.currentTarget.dataset.id
+            const buttonlike = likeref.current.get(index)
+            const buttondislike = dislikeref.current.get(index)
+            const spanlike = spanlikeref.current.get(index)
+            const spandislike = spandislikeref.current.get(index)
+            spandislike.textContent = spandislike.textContent + 1
+            spanlike.textContent = spanlike.textContent - 1
+            buttonlike.disabled = false
+            buttondislike.disabled = true
+            buttonlike.className = styles.likebutton
+            buttondislike.className = styles.dislikebuttongrey
             fetch("https://musicalworld.onrender.com/dislike",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -31,12 +45,20 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err)) 
-        
-        arr[index].props.className = styles.likebuttongrey 
     }
     
     const sendlike = (e, index)=>{
         const id = e.currentTarget.dataset.id
+        const buttonlike = likeref.current.get(index)
+        const buttondislike = dislikeref.current.get(index)
+        const spanlike = spanlikeref.current.get(index)
+        const spandislike = spandislikeref.current.get(index)
+        spandislike.textContent = spandislike.textContent - 1
+        spanlike.textContent = spanlike.textContent + 1
+        buttonlike.disabled = true
+        buttondislike.disabled = false
+        buttonlike.className = styles.likebuttongrey
+        buttondislike.className = styles.dislikebutton
         fetch("https://musicalworld.onrender.com/like",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
@@ -47,8 +69,7 @@ export function Post({filter}){
         })
         .then(res=>res.json())
         .then(txt=>console.log(txt))
-        .catch(err=>console.log(err))  
-        arr[index].props.className = styles.dislikebuttongrey
+        .catch(err=>console.log(err))   
     }
 
     function setdata(data){
@@ -78,11 +99,11 @@ export function Post({filter}){
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
 
-                                                        <button data-id={post._id} className={buttoncsslike} onClick={(e)=>clicklogiclike(e,i)}></button>
-                                                        <span className={styles.count}>{likes}</span>
+                                                        <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>
+                                                        <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
-                                                        <button data-id={post._id} className={buttoncssdislike} onClick={(e)=>clicklogicdislike(e,i)}></button>
-                                                        <span className={styles.count}>{dislikes}</span>
+                                                        <button data-id={post._id} className={buttoncssdislike} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>clicklogicdislike(e,i)}></button>
+                                                        <span className={styles.count} ref={(node)=>{node?spandislikeref.current.set(index,node):spandislikeref.current.delete(index)}}>{dislikes}</span>
 
                                                     </div>
                                                     <div className={styles.user}>{post.username}</div>
