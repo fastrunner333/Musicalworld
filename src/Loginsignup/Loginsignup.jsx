@@ -68,7 +68,7 @@ console.log(displaysetting)
     console.log(displaysetting)
     return(
         <>
-            <Spinnernodisc displaysetting={displaysetting}/>
+            <Spinnernodisc displaysetting={displaysetting} left={"calc(50vw - 17.5vw)"} top={"calc(50vh - 25vh)"}/>
             <div className={styles.header}>
                 <h1>Musical World</h1>
             </div>
