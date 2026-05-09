@@ -7,10 +7,7 @@ export function ProtectedRoute({children}){
 
     const navigate = useNavigate()
     const {setuserToken} = useContext(USER)
-    const {load,isload} = useState(true)
     
-    useEffect(()=>{
-        console.log("ineffect"+load)
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
             credentials:"include"
@@ -20,22 +17,17 @@ export function ProtectedRoute({children}){
                 navigate("/login")
             }
             else{
-                isload(false)
-                return res.text()  
+                return res.text()
+  
             }
                 
         })
         .then((data)=>{
             setuserToken(data)
-        })
-    },[])    
-    console.log("oustof effect"+load)
-    if(load){
-        return <div>Loading, please wait....</div>
-    }
-    else{
+        })  
+    
         return children
-    }
+    
        
     
 }
