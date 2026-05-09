@@ -32,22 +32,6 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-.username::placeholder{
-    display:inline;
-    position: relative;
-    margin-left:7%;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    opacity:1;
-    
-}
-.password::placeholder{
-    display:inline;
-    position: relative;
-    margin-left:7%;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    opacity:1;
-}
-
 .buttons{
     display:inline;
     position: relative;
@@ -86,6 +70,24 @@
     color:#f4e3b2;
     border: 3px dashed #f4e3b2;
 }
+
+.userinput::placeholder{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline:none;
+    background-color: #74070e;
+    color:#f4e3b2;
+    border: 3px dashed #f4e3b2;
+    opacity:1;
+}
+.passinput::placeholder{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline:none;
+    background-color: #74070e;
+    color:#f4e3b2;
+    border: 3px dashed #f4e3b2;
+    opacity:1;
+}
+
 .disclamer{
     position:absolute;
     right:35%;

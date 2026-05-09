@@ -7,6 +7,7 @@ import { Userpage } from "./Userpage/Userpage"
 import{Changepass} from "./Userpage/Changepass"
 import {USER} from "./Context/Usercontext"
 import { Spinner } from "./Spinner/spinner"
+import { ProtectedRoutenospinner } from "./Security/Protectedroutesnospinner"
 import { useEffect, useMemo, useState } from "react"
 import { memo } from "react"
 
@@ -22,10 +23,10 @@ export default function App(){
       <Routes>
         <Route path="/" element={<ProtectedRoute><Spinner/></ProtectedRoute>} />
         <Route path="/login" element={<Loginsignup/>}/>
-        <Route path="/mainpage" element={<ProtectedRoute><Mainpage/></ProtectedRoute>} />
-        <Route path="/upload" element={<ProtectedRoute><Upload/></ProtectedRoute>} />
-        <Route path="/userinfo" element={<ProtectedRoute><Userpage/></ProtectedRoute>}/>
-        <Route path="/userinfo/changepass" element={<ProtectedRoute><Changepass/></ProtectedRoute>} />
+        <Route path="/mainpage" element={<ProtectedRoutenospinner><Mainpage/></ProtectedRoutenospinner>} />
+        <Route path="/upload" element={<ProtectedRoutenospinner><Upload/></ProtectedRoutenospinner>} />
+        <Route path="/userinfo" element={<ProtectedRoutenospinner><Userpage/></ProtectedRoutenospinner>}/>
+        <Route path="/userinfo/changepass" element={<ProtectedRoutenospinner><Changepass/></ProtectedRoutenospinner>} />
       </Routes>
     </USER.Provider>
   )
