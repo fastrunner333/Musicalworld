@@ -19,8 +19,8 @@ export function ProtectedRoute({children}){
                 navigate("/login")
             }
             else{
-                return res.text()
                 isload(false)
+                return res.text()  
             }
                 
         })
