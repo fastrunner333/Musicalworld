@@ -62,8 +62,8 @@ export function Changepass(){
             setconfirmPass("Password can not have space")
         }
 
-        if(validated == true){
-                fetch("https://musicalworld.onrender.com/changepass",{
+        if(validated === true){
+                /* fetch("https://musicalworld.onrender.com/changepass",{
                     method:"POST",
                     credentials:"include",
                     headers:{"Content-Type":"application/json"},
@@ -74,7 +74,8 @@ export function Changepass(){
                     console.log(err)
                     if(!err)navigate("/mainpage")
                     return
-                })
+                }) */
+               console.log("sent")
                 
             }
            
