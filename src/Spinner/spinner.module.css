@@ -1,0 +1,50 @@
+.spinner{
+                display: none;
+                animation-name: ani;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                position:absolute;
+                left:calc(50vw - 17.5vw);
+                top:calc(50vh - 25vh);
+                height: 50vh;
+                width: 35vw;
+                overflow: hidden;
+                background-image: url("loadspinner.png");
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+}
+
+@keyframes ani {
+                0%{transform: rotate(0deg);}
+                25%{transform: rotate(35deg);}
+                50%{transform: rotate(0deg);}
+                75%{transform: rotate(-35deg);}
+                100%{transform: rotate(0deg);}
+            }
+
+.loading{
+                display: none;
+                position:absolute;
+                width:10vw;
+                left:calc(50vw - 5vw);
+                top:75vh;
+}
+
+.disclamer{
+    position:absolute;
+    right:35%;
+    top: 40%;
+    height:25vh;
+    width:15vw;
+    font-size: large;
+    font-weight: bold;
+    color:red;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.back{
+    background-color: #f4e3b2;
+    height:100%;
+    width:100%;
+}

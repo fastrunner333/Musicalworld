@@ -6,6 +6,7 @@ import { Upload } from "./Upload/Upload"
 import { Userpage } from "./Userpage/Userpage"
 import{Changepass} from "./Userpage/Changepass"
 import {USER} from "./Context/Usercontext"
+import { Spinner } from "./Spinner/spinner"
 import { useEffect, useMemo, useState } from "react"
 import { memo } from "react"
 
@@ -19,7 +20,7 @@ export default function App(){
 
     <USER.Provider value={{userToken, setuserToken}}>
       <Routes>
-        <Route path="/" element={<ProtectedRoute><Loginsignup/></ProtectedRoute>} />
+        <Route path="/" element={<ProtectedRoute><Spinner/></ProtectedRoute>} />
         <Route path="/login" element={<Loginsignup/>}/>
         <Route path="/mainpage" element={<ProtectedRoute><Mainpage/></ProtectedRoute>} />
         <Route path="/upload" element={<ProtectedRoute><Upload/></ProtectedRoute>} />
