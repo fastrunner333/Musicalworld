@@ -10,7 +10,7 @@ export function Userpost(){
        
        useEffect(()=>{
             console.log(userToken)
-           fetch(`https://musicalworld.onrender.com/getpost?type=onlyuser`,{
+           fetch(`https://musicalworld.onrender.com/getpost?type=onlyuser&user=${userToken}`,{
                method:"GET"
            })
             .then(res=>{
