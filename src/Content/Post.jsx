@@ -109,7 +109,8 @@ export function Post({filter}){
                                                     buttoncssdislike = styles.dislikebutton
                                                     clicklogicdislike = senddislike
                                                 }
-                                            
+                                            console.log(clicklogiclike)
+                                            console.log(clicklogicdislike)
                                             if(!post.mediatype){    
                                             return  <div key={index} className={styles.userpostnomedia}>
                                                     <div className={styles.title}>{post.posttitle}</div>
