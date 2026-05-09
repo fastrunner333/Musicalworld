@@ -28,10 +28,6 @@ export function Changepass(){
         setnewPass("")
         setconfirmPass("")
 
-        console.log("["+newPass+"]")
-        console.log(newPass.split("").map(c=>c.charCodeAt(0)))
-        console.log(spacepresent)
-
         if(newPass && confirmPass != ""){
             validated = true
         }
@@ -62,7 +58,7 @@ export function Changepass(){
             return
         }
 
-        if(spacepresent == true && lenvalidated === true){
+        if(spacepresent == false && lenvalidated === true){
             console.log("space found")
             spacevalidated = true
         }
