@@ -91,7 +91,7 @@ export function Changepass(){
         
 
         if(validated === true && charvalidated === true && spacevalidated === true && numvalidated === true && lenvalidated === true && samevalidated === true){
-                /*  fetch("https://musicalworld.onrender.com/changepass",{
+                 fetch("https://musicalworld.onrender.com/changepass",{
                     method:"POST",
                     credentials:"include",
                     headers:{"Content-Type":"application/json"},
@@ -102,8 +102,7 @@ export function Changepass(){
                     console.log(err)
                     if(!err)navigate("/mainpage")
                     return
-                })  */
-               console.log("sent")
+                })  
                 
             }
            
