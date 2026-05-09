@@ -7,7 +7,6 @@ export async function ProtectedRoute({children}){
 
     const navigate = useNavigate()
     const {setuserToken} = useContext(USER)
-    const {load, setload} = useState(true)
     fetch("https://musicalworld.onrender.com/check",{   
         method:"POST", 
         credentials:"include"
