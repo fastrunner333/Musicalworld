@@ -18,7 +18,7 @@ export function Changepass(){
         const spacepresent = /\s/.test(newPass)
         const charapresent = /[`~!@#$%^&*()_+={}\]\[:";'<>?,\\.\/-]/.test()
         let validated = false
-        updated++
+        updated = updated + 1
         useEffect(()=>{
         if(newPass && confirmPass != ""){
             validated = true
