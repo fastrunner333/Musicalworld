@@ -78,5 +78,6 @@
     width:15vw;
     font-size: large;
     font-weight: bold;
-    color:red
+    color:red;
+    z-index: 4;
 }
