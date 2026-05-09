@@ -20,6 +20,7 @@ export function Post({filter}){
     let clicklogiclike = null
     let buttoncssdislike = ""
     let clicklogicdislike = null
+    const a=0;
 
     const senddislike = (e, index)=>{
             const id = e.currentTarget.dataset.id
