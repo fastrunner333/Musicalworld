@@ -1,12 +1,13 @@
 import {useNavigate} from "react-router"
 import{USER} from "../Context/Usercontext"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Mainpage } from "../Mainpage/Mainpage"
 
 export function ProtectedRoute({children}){
 
     const navigate = useNavigate()
     const {setuserToken} = useContext(USER)
+    const {load,isload} = useState(true)
     useEffect(()=>{
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
@@ -18,6 +19,7 @@ export function ProtectedRoute({children}){
             }
             else{
                 return res.text()
+                isload(false)
             }
                 
         })
