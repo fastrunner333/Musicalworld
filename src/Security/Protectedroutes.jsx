@@ -19,7 +19,7 @@ export async function ProtectedRoute({children}){
             }
             else{
                 setload(false)
-                res.text()
+                return res.text()
             }      
         })
         .then((data)=>{
