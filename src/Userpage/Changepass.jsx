@@ -78,7 +78,7 @@ export function Changepass(){
             return
         }
 
-        if(charapresent == true && numvalidated === true){
+        if(charapresent == true && spacevalidated === true){
             charvalidated = true
         }
         else{
