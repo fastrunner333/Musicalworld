@@ -51,7 +51,7 @@ export function Post({filter}){
     }
     
     const sendlike = (e, index)=>{
-    if(clicklogicdislike != null){
+    if(clicklogiclike != null){
         const id = e.currentTarget.dataset.id
         const buttonlike = likeref.current.get(index)
         const buttondislike = dislikeref.current.get(index)
