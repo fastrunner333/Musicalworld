@@ -15,17 +15,15 @@ export function ProtectedRoute({children}){
         .then((res)=>{
             if(res.status != 200){
                 navigate("/login")
+                return
             }
             else{
-                return res.text()
-            }
-                
-        })
-        .then((data)=>{
-            setuserToken(data)
+                setuserToken(res.text())
+                return children
+            }      
         })
         
-    return children
+    
        
     
 }
