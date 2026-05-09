@@ -10,6 +10,8 @@ export function Loginsignup(){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const[userplace, setuserplace] = useState("")
+    const[passplace, setpassplace] = useState("")
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
     const [displaysetting, setdisplaysetting] = useState("none")
@@ -52,7 +54,12 @@ console.log(displaysetting)
                     }
                 throw new Error ("response not good")
                 })
-            .catch(e=>console.log(e))
+            .catch((e)=>{
+                        console.log(e)
+                        setdisplaysetting("none")
+                        setpassplace("Incorrect")
+                        setuserplace("Incorrect")
+                    })
         }
     }
     console.log(displaysetting)
@@ -70,6 +77,7 @@ console.log(displaysetting)
                     id="username"
                     className={styles.userinput} 
                     type={"text"} 
+                    placeholder={userplace}
                     value={username}
                     style={{position:"relative",left:"7%"}}
                     onChange={(e)=>setUsername(e.target.value)}>
@@ -82,6 +90,7 @@ console.log(displaysetting)
                     id="password"
                     className={styles.passinput}
                     type={"password"}
+                    placeholder={passplace}
                     value={password}
                     style={{position:"relative",left:"7%"}}
                     onChange={(e)=>setPassword(e.target.value)}>
