@@ -21,7 +21,9 @@ export function Post({filter}){
     let buttoncssdislike = ""
     let clicklogicdislike = null
 
-    const empfunc = ()=>{}
+    const empfunc = (e,i)=>{
+        return
+    }
 
     const senddislike = (e, index)=>{
             const id = e.currentTarget.dataset.id
@@ -102,8 +104,7 @@ export function Post({filter}){
                                                     clicklogicdislike = senddislike
                                                 }
                                             if(!post.mediatype){  
-                                                console.log( <button data-id={post._id} className={buttoncsslike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>clicklogiclike(e,i)}></button>)  
-                                            return  <div key={index} className={styles.userpostnomedia}>
+                                                    return  <div key={index} className={styles.userpostnomedia}>
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
                                                         
