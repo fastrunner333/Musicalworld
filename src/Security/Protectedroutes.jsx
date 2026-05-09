@@ -6,9 +6,11 @@ import { Mainpage } from "../Mainpage/Mainpage"
 export function ProtectedRoute({children}){
 
     const navigate = useNavigate()
-    const {userToken, setuserToken} = useContext(USER)
+    const {setuserToken} = useContext(USER)
     const {load,isload} = useState(true)
     
+    useEffect(()=>{
+        console.log("ineffect"+load)
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
             credentials:"include"
@@ -26,11 +28,14 @@ export function ProtectedRoute({children}){
         .then((data)=>{
             setuserToken(data)
         })
-  
-        console.log(load)
-        console.log(userToken)
+    },[])    
+    console.log("oustof effect"+load)
+    if(load){
+        return <div>Loading, please wait....</div>
+    }
+    else{
         return children
-    
+    }
        
     
 }
