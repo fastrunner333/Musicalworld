@@ -36,7 +36,7 @@ export function Changepass(){
             return
         }
 
-        if(newPass === confirmPass){
+        if(newPass === confirmPass && validated === true){
             samevalidated = true
         }
         else{
@@ -46,7 +46,7 @@ export function Changepass(){
             return
         }
 
-        if(newPass.length>=8){
+        if(newPass.length>=8  && samevalidated === true){
             lenvalidated = true
         }
         else{
@@ -56,7 +56,7 @@ export function Changepass(){
             return
         }
 
-        if(spacepresent == true){
+        if(spacepresent == true && lenvalidated === true){
             spacevalidated = true
         }
         else{
@@ -67,7 +67,7 @@ export function Changepass(){
         }
 
 
-        if(numpresent == true){
+        if(numpresent == true && spacevalidated === true){
             numvalidated = true
         }
         else{
@@ -77,7 +77,7 @@ export function Changepass(){
             return
         }
 
-        if(charapresent == true){
+        if(charapresent == true && numvalidated === true){
             charvalidated = true
         }
         else{
