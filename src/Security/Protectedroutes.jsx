@@ -17,6 +17,7 @@ export function ProtectedRoute({children}){
                 navigate("/login")
             }
             else{
+                navigate("/mainpage")
                 return res.text()
   
             }

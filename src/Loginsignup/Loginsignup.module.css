@@ -32,6 +32,22 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
+.username::placeholder{
+    display:inline;
+    position: relative;
+    margin-left:7%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    opacity:1;
+    
+}
+.password::placeholder{
+    display:inline;
+    position: relative;
+    margin-left:7%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    opacity:1;
+}
+
 .buttons{
     display:inline;
     position: relative;
