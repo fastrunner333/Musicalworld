@@ -75,14 +75,14 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
     background-color: #74070e;
-    color:#6846ff;
+    color:#c9bd97;
     opacity:1;
 }
 .passinput::placeholder{
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
     background-color: #74070e;
-    color:#6846ff;
+    color:#c9bd97;
     opacity:1;
 }
 
@@ -96,4 +96,12 @@
     font-weight: bold;
     color:red;
     z-index: 4;
+}
+.error{
+    position:absolute;
+    top: 37vh;
+    left: 6vw;
+    color:#74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    display: none;
 }
