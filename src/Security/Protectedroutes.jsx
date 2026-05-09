@@ -1,12 +1,13 @@
 import {useNavigate} from "react-router"
 import{USER} from "../Context/Usercontext"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Mainpage } from "../Mainpage/Mainpage"
 
-export function ProtectedRoute({children}){
+export async function ProtectedRoute({children}){
 
     const navigate = useNavigate()
     const {setuserToken} = useContext(USER)
+    const {load, setload} = useState(true)
     useEffect(()=>{
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
@@ -17,12 +18,18 @@ export function ProtectedRoute({children}){
                 navigate("/login")
             }
             else{
-                setuserToken(res.text())
-                return children
+                const name = await res.text()
+                setuserToken(name)
+                setload(false)
             }      
         })
-    },[])
+        .catch(navigate("/login"))
+    },[setuserToken])
+
+    if(load){
+        return <div>Loading please wait as free servers are slow......</div>
+    }
        
-    
+    return children
 }
 
