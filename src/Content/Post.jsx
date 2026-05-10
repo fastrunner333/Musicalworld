@@ -42,8 +42,8 @@ export function Post({filter}){
                 spanlike.textContent = parseInt(spanlike.textContent) - 1 
             }
             spandislike.textContent = parseInt(spandislike.textContent) + 1
-            setdislikedisabled(true)
-            setlikedisabled(false)
+           /*  setdislikedisabled(true)
+            setlikedisabled(false) */
             buttonlike.className = styles.likebutton
             buttondislike.className = styles.dislikebuttongrey
             fetch("https://musicalworld.onrender.com/dislike",{
@@ -70,8 +70,8 @@ export function Post({filter}){
             spandislike.textContent = parseInt(spandislike.textContent) - 1 
         }
         spanlike.textContent = parseInt(spanlike.textContent) + 1
-        setlikedisabled(true)
-        setdislikedisabled(false)
+       /*  setlikedisabled(index)
+        setdislikedisabled(false) */
         buttonlike.className = styles.likebuttongrey
         buttondislike.className = styles.dislikebutton
         fetch("https://musicalworld.onrender.com/like",{
@@ -94,20 +94,20 @@ export function Post({filter}){
                                             let i = index
                                             
                                             if(post.liked){
-                                                    setlikedisabled(true)
-                                                    likebuttonvar = <button disabled={likedisabled} data-id={post._id} className={styles.likebuttongrey} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
+                                                    setlikedisabled(index)
+                                                    likebuttonvar = <button disabled={likedisabled == index} data-id={post._id} className={styles.likebuttongrey} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
                                                 }
                                             else{
                                                     setlikedisabled(false)
-                                                    likebuttonvar =  <button disabled={likedisabled} data-id={post._id} className={styles.likebutton} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>        
+                                                    likebuttonvar =  <button disabled={likedisabled == index} data-id={post._id} className={styles.likebutton} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>        
                                                 }
                                             if(post.disliked){
-                                                    setdislikedisabled(true)
-                                                    dislikebuttonvar = <button disabled={dislikedisabled} data-id={post._id} className={styles.dislikebuttongrey} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}></button>
+                                                    setdislikedisabled(index)
+                                                    dislikebuttonvar = <button disabled={dislikedisabled == index} data-id={post._id} className={styles.dislikebuttongrey} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}></button>
                                                 }
                                             else{
                                                     setdislikedisabled(false)
-                                                    dislikebuttonvar = <button disabled={dislikedisabled} data-id={post._id} className={styles.dislikebutton} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}></button>    
+                                                    dislikebuttonvar = <button disabled={dislikedisabled == index} data-id={post._id} className={styles.dislikebutton} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}></button>    
                                                 }
                                             if(!post.mediatype){  
                                                     return  <div key={index} className={styles.userpostnomedia}>
