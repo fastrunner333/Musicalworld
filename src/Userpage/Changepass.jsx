@@ -35,6 +35,7 @@ export function Changepass(){
         }
         else{
             validated = false
+            setdisplaysetting("none")
             setnewplaceholder("Please fill both fields")
             setconfirmplaceholder("Please fill both fields")
             return
@@ -45,6 +46,7 @@ export function Changepass(){
         }
         else{
             samevalidated = false
+            setdisplaysetting("none")
             setnewplaceholder("Both fields don't match")
             setconfirmplaceholder("Both fields don't match")
             return
@@ -55,6 +57,7 @@ export function Changepass(){
         }
         else{
             lenvalidated = false
+            setdisplaysetting("none")
             setnewplaceholder("Must be atleast 8 character long")
             setconfirmplaceholder("Must be atleast 8 character long")
             return
@@ -65,6 +68,7 @@ export function Changepass(){
         }
         else{
             spacevalidated = false
+            setdisplaysetting("none")
             setnewplaceholder("Cannot have space")
             setconfirmplaceholder("Cannot have space")
             return
@@ -78,6 +82,7 @@ export function Changepass(){
         }
         else{
             numvalidated = false
+            setdisplaysetting("none")
             setnewplaceholder("Must have atleast 1 number")
             setconfirmplaceholder("Must have atleast 1 number")
             return
@@ -90,6 +95,7 @@ export function Changepass(){
         }
         else{
             charvalidated = false
+            setdisplaysetting("none")
             setnewplaceholder("Must have atleast 1 character")
             setconfirmplaceholder("Must have atleast 1 character")
             return

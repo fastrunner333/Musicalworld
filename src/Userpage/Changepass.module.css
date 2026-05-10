@@ -37,9 +37,10 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: large;
     font-weight: bold;
+    height:5vh;
 }
 .button:hover{
-    background-color:#272819; 
+    background-color:#323320; 
     border: 8px dotted #f4e3b2;
 }
 .button:active{
