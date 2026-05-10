@@ -5,9 +5,10 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: medium;
     background-color: #f4e3b2;
-    outline:3px dashed #74070e;
+    border:3px dashed #74070e;
     color:#74070e;
     outline:none;
+    box-sizing: border-box;
 }
 .textarea::placeholder{
    color:#421d1f;
@@ -25,18 +26,19 @@
     font-size: larger;
     background-color:#74070e;
     color: #f4e3b2;
-    outline:6px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
     align-self: center;
     justify-self: center;
     height: 70%;
     width:70%;
+    box-sizing: border-box;
 }
 .upload:hover{
     background-color:#510409;
-    outline:7px dotted #f4e3b2;
+    border:7px dotted #f4e3b2;
 }.upload:active{
     background-color:#74070e;
-    outline:6px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
 }
 .form{
     display: grid;
@@ -57,19 +59,20 @@
     text-align: center;
     align-self: end;
     position:relative;
-    outline:6px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
     width:15vw;
     justify-self: center;
+    box-sizing: border-box;
 }
 .dropdowndiv:hover{
     background-color:#510409;
-    outline:7px dotted #f4e3b2;
+    border:7px dotted #f4e3b2;
 }
 .dropdowndiv:active{
     background-color:#74070e;
-    outline:6px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
 }
 .dropdownlist{
     position: absolute;
@@ -93,25 +96,26 @@
     position:relative;
     top:0%;
     width:15vw;
-    outline:6px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
     display:block;
     text-align: center;
     justify-self: center;
+    box-sizing: border-box;
     
 }
 .medialabel:hover{
     background-color:#510409;
-    outline:7px dotted #f4e3b2;
+    border:7px dotted #f4e3b2;
 }
 .medialabel:active{
     background-color:#74070e;
-    outline:6px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
 }
 .dropdownbutton{
     font-family:Georgia, 'Times New Roman', Times, serif;
-    outline:1px dashed #74070e;
+    border:1px dashed #74070e;
     background-color: #f4e3b2;
 }
 .dropdownbutton:hover{
