@@ -64,13 +64,14 @@ export function Upload(){
                     
                     <div className={styles.dropdowndiv}>
                         Select Filter
-                    </div>
+                    
                     <div className={styles.dropdownlist}>
                         <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Classic")}>Classic</button>
                         <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Bollywood")}>Bollywood</button>
                         <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Western")}>Western</button>
                         <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Orchestra")}>Orchestra</button>
                         <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Nature Sounds")}>Nature Sounds</button>                    
+                    </div>
                     </div>
                     <div className={styles.attachmedia}>
                         <label  className={styles.medialabel} htmlFor="uploadmediabutton">Upload Media</label>

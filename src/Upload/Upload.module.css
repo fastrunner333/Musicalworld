@@ -41,20 +41,20 @@
     text-align: center;
     align-self: end;
     position:relative;
-    border:3px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
     width:30vw;
+    justify-self: center;
 }
 .dropdownlist{
     position: absolute;
     display:none;
     flex-direction: column;
     width:25vw;
-    top:37%;
-    right:11%;
+    
     font-family:Georgia, 'Times New Roman', Times, serif;
-    transform: translateY(8vh);
+    
 }
 .dropdowndiv:hover ~ .dropdownlist{
     display:flex;
@@ -69,7 +69,7 @@
     position:relative;
     top:44%;
     left:41%;
-    border:3px dotted #f4e3b2;
+    border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
     width:30vw;
