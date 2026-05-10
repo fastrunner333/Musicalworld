@@ -9,6 +9,18 @@
     overflow-x: hidden;
 
 }
+.post::-webkit-scrollbar-track{
+    color:#45462a
+}
+.post::-webkit-scrollbar-thumb{
+    color:#74070e
+}
+.post::-webkit-scrollbar-thumb:hover{
+    color:#942931
+}
+.post::-webkit-scrollbar-button{
+    display: none;
+}
 .userpostnomedia{
     border: 6px dashed #74070e;
     display:flex;
