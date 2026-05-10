@@ -42,8 +42,8 @@ export function Post({filter}){
                 spanlike.textContent = parseInt(spanlike.textContent) - 1 
             }
             spandislike.textContent = parseInt(spandislike.textContent) + 1
-           // setdislikedisabled(...dislikedisabled, index)
-          //  setlikedisabled(likedisabled.filter(id=>id!==index)) 
+            setdislikedisabled(...dislikedisabled, index)
+            setlikedisabled(likedisabled.filter(id=>id!==index)) 
             buttonlike.className = styles.likebutton
             buttondislike.className = styles.dislikebuttongrey
             fetch("https://musicalworld.onrender.com/dislike",{
@@ -70,8 +70,8 @@ export function Post({filter}){
             spandislike.textContent = parseInt(spandislike.textContent) - 1 
         }
         spanlike.textContent = parseInt(spanlike.textContent) + 1
-        //setlikedisabled(...likedisabled, index)
-       // setdislikedisabled(dislikedisabled.filter(id=>id!==index))
+        setlikedisabled(...likedisabled, index)
+        setdislikedisabled(dislikedisabled.filter(id=>id!==index))
         buttonlike.className = styles.likebuttongrey
         buttondislike.className = styles.dislikebutton
         fetch("https://musicalworld.onrender.com/like",{
@@ -218,6 +218,8 @@ export function Post({filter}){
         .then((data)=>{
             if(data!=[]){
                 setdata(data)
+                console.log(likedisabled)
+                console.log(dislikedisabled)
                 setdisplay("none")
             }  
                     }
