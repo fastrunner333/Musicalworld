@@ -19,38 +19,41 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     color:#74070e;
     font-size: large;
+    font-weight: bolder;
+    text-decoration: underline;
 }
 .changepass{
     font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: #45462a;
     color:#f4e3b2;
     outline: none;
-    border: 3px dashed #f4e3b2;
+    border: 3px dotted #f4e3b2;
     font-size: medium;
 }
 .changepass:hover{
     background-color: #272819;
-    border: 5px dashed #f4e3b2;
+    border: 5px dotted #f4e3b2;
 }
 .changepass:active{
     background-color: #45462a;
-    border: 3px dashed #f4e3b2;
+    border: 3px dotted #f4e3b2;
 }
 .profilepicbutton{
     display: none;
 }
 .profilepiclab{
-    border: 3px dashed #f4e3b2;
+    border: 3px dotted #f4e3b2;
     display: block;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: medium;
     background-color: #45462a;
+    color:#f4e3b2;
 }
 .profilepiclab:hover{
     background-color: #272819;
-    border: 5px dashed #f4e3b2;
+    border: 5px dotted #f4e3b2;
 }
 .profilepiclab:active{
     background-color: #45462a;
-    border: 3px dashed #f4e3b2;
+    border: 3px dotted #f4e3b2;
 }
