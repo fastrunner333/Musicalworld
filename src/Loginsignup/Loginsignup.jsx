@@ -29,7 +29,7 @@ console.log(displaysetting)
         seterrorstyle({display:"none"})
         const submitter = e.nativeEvent.submitter.value
         setdisplaysetting("block")
-        setdiscstyle({displau:"none"})
+        setdiscstyle({display:"none"})
         console.log(discstyle)
         e.preventDefault()
         if(submitter=="signup"){
