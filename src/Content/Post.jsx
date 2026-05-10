@@ -70,7 +70,7 @@ export function Post({filter}){
             spandislike.textContent = parseInt(spandislike.textContent) - 1 
         }
         spanlike.textContent = parseInt(spanlike.textContent) + 1
-        setlikedisabled(...likedislike, index)
+        setlikedisabled(...likedisabled, index)
         setdislikedisabled(dislikedisabled.filter(id=>id!==index))
         buttonlike.className = styles.likebuttongrey
         buttondislike.className = styles.dislikebutton
