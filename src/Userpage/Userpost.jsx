@@ -101,7 +101,7 @@ export function Userpost(){
        
        return(       <div id="parent" className={styles.post}>
                         <Spinnernodisc displaysetting={display} left_spin={"calc(33.5vw - 17.5vw)"} top_spin={"0%"} left_text={"calc(50vw - 17.5vw)"} top_text={"51vh"} />
-                        <div className={styles.title} style={{position:"sticky"}}>Only your posts under this</div>
+                        <div className={styles.sticky}>Only your posts under this</div>
                         {result}
                     </div>
        )

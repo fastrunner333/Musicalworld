@@ -52,7 +52,8 @@
     color: #74070e;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: 800;
-    align-self: baseline;  
+    align-self: baseline; 
+    overflow-wrap:anywhere; 
 }
 .title{
     color: #74070e;

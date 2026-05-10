@@ -27,10 +27,7 @@ export function Userinfo(){
     return(
         <div className={styles.userinfo}>
             <div className={styles.flexiblebox}>
-                <div style={{display:"flex", flexDirection:"row"}}>
-                    <div className={styles.name}>Username --</div>
-                    <div className={styles.name}>{userToken}</div>
-                </div>
+                <div className={styles.name}>Username -- {userToken}</div>
                 <div>
                     <label className={styles.profilepiclab} htmlFor="profilepicturebutton">Change profile picture, only png</label>
                     <input id="profilepicturebutton" type="file" className={styles.profilepicbutton} onChange={changeimage}></input>
