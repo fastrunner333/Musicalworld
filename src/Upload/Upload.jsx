@@ -19,7 +19,7 @@ export function Upload(){
     function uploadbutton(e){
         e.preventDefault()
         setdisplay("block")
-        if(text=="" || musictype==""){
+      /*   if(text=="" || musictype==""){
             document.getElementById("textarea").placeholder = "       Post Title and Filter necessary"
             console.log("no")
         }
@@ -50,13 +50,13 @@ export function Upload(){
                 
             })
         }
-       
+        */
     }
 
     return(
         <div style={{display:"flex",flexDirection:"column",height:"100vh"}}>
             <Header/>
-            <Spinnernodisc displaysetting={display} left_spin={"6vw"} top_spin={"0%"} left_text={"6vw"} top_text={"51vh"}/>
+            <Spinnernodisc displaysetting={display} left_spin={"calc(50vw - 17.5vw)"} top_spin={"calc(50vh - 25vh)"} left_text={"50%"} top_text={"75vh"}/>
             <div className={styles.div}>
                 <form onSubmit={uploadbutton} className={styles.form} >
                     <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title" style={{resize:"none"}}/>
