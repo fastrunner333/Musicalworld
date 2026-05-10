@@ -25,7 +25,11 @@
     font-size: larger;
     background-color:#74070e;
     color: #f4e3b2;
-    border:10px dashed #74070e;
+    border:6px dashed #f4e3b2;
+    align-self: center;
+    justify-self: center;
+    height: 70%;
+    width:70%;
 }
 .form{
     display: grid;
