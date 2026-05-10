@@ -6,7 +6,7 @@
     width:67%;
     background-color:#f4e3b2;
     overflow:scroll;
-    overflow-y: hidden;
+    overflow-x: hidden;
 
 }
 .post::-webkit-scrollbar{
