@@ -16,6 +16,7 @@ export function Loginsignup(){
     const {userToken, setuserToken} = useContext(USER)
     const [displaysetting, setdisplaysetting] = useState("none")
     const [errorstyle, seterrorstyle] = useState({display:"none"})
+    const [discstyle, setdiscstyle] = useState({display:"block"})
    useEffect(()=>{
     if(userToken){
         console.log(userToken)
@@ -28,6 +29,7 @@ console.log(displaysetting)
         seterrorstyle({display:"none"})
         const submitter = e.nativeEvent.submitter.value
         setdisplaysetting("block")
+        setdiscstyle({displau:"none"})
         console.log(displaysetting)
         e.preventDefault()
         if(submitter=="signup"){
@@ -58,6 +60,7 @@ console.log(displaysetting)
             .catch((e)=>{
                         console.log(e)
                         setdisplaysetting("none")
+                        setdiscstyle({display:"block"})
                         setUsername("")
                         setPassword("")
                         setpassplace("Incorrect")
@@ -120,7 +123,7 @@ console.log(displaysetting)
                     </button>
                 </div>
             </form>
-            <div className={styles.disclamer}>
+            <div className={styles.disclamer} style={discstyle}>
             <div style={{color:"blue"}}>Servers are slow please be patient, website is not crashing, first request usually takes long, <div style={{color:"black"}}>refresh</div> if taking too long</div>
             This website has option for making accounts disabled, to use the website use the provided username and password, this website is not for use, you are prohibited from making account on this website
             </div>

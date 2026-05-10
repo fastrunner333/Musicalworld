@@ -33,10 +33,11 @@
 }
 
 .buttons{
-    display:inline;
+    display:flex;
     position: relative;
     margin-left:7%;
-    
+    align-items: center;
+    flex-direction: row;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 .signupbutton{
@@ -88,7 +89,7 @@
 
 .disclamer{
     position:absolute;
-    right:35%;
+    right:30%;
     transform: translateX(50%);
     top: 40%;
     height:25vh;
