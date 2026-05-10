@@ -27,11 +27,14 @@ export function Userinfo(){
     return(
         <div className={styles.userinfo}>
             <div className={styles.flexiblebox}>
+                <div style={{display:"flex", flexDirection:"row"}}>
+                    <div className={styles.name}>Username --</div>
+                    <div className={styles.name}>{userToken}</div>
+                </div>
                 <div>
                     <label className={styles.profilepiclab} htmlFor="profilepicturebutton">Change profile picture, only png</label>
                     <input id="profilepicturebutton" type="file" className={styles.profilepicbutton} onChange={changeimage}></input>
                 </div>
-                <div className={styles.name}>{userToken}</div>
                 <button className={styles.changepass} onClick={()=>navigate("/userinfo/changepass")}>ChangePassword</button>
             </div>
         <Userpost/>

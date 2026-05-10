@@ -2,14 +2,16 @@ import { useState ,useEffect } from "react"
 import styles from "./Userpost.module.css"
 import { useContext } from "react"
 import {USER} from "../Context/Usercontext"
+import { Spinnernodisc } from "../Spinner/spinnernodisc"
 
 export function Userpost(){
        
        const [result, setresult] = useState("")
        const {userToken} = useContext(USER)
+       const [display, setdisplay] = useState("none")
        
        useEffect(()=>{
-            console.log(userToken)
+            setdisplay("block")
            fetch(`https://musicalworld.onrender.com/getpost?type=onlyuser&user=${userToken}`,{
                method:"GET"
            })
@@ -45,6 +47,7 @@ export function Userpost(){
                                 return post
                             }
                         })
+                        setdisplay("none")
                        setresult(newdata.map((post, index)=>{  
                                                         console.log("this is inside new data",post)
                                                            if(!post.mediatype){
@@ -88,15 +91,20 @@ export function Userpost(){
                                                            }))
                            }  
                        })
-               .catch(err=>console.log(err))
+               .catch(err=>{
+                        console.log(err)
+                        setdisplay("none")
+                    })
                },[userToken])        
       
        
        
-       return(
-           <div id="parent" className={styles.post}>
-                <div className={styles.title}>Only your posts under this</div>
-                {result}
-           </div>
+       return(<>
+                <Spinnernodisc displaysetting={display} left_spin={"calc(33.5vw - 17.5vw)"} top_spin={"0%"} left_text={"calc(50vw - 17.5vw)"} top_text={"51vh"} />
+                    <div id="parent" className={styles.post}>
+                        <div className={styles.title} style={{position:"sticky"}}>Only your posts under this</div>
+                        {result}
+                    </div>
+           </>
        )
    }
