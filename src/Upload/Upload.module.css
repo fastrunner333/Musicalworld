@@ -28,7 +28,7 @@
     border:6px dotted #f4e3b2;
     align-self: center;
     justify-self: center;
-    height: 70%;
+    height: 12vh;
     width:70%;
     box-sizing: border-box;
 }
@@ -62,6 +62,8 @@
     background-color:#74070e;
     color: #f4e3b2;
     width:15vw;
+    height:5vh;
+    line-height: 24px;
     justify-self: center;
     box-sizing: border-box;
 }
@@ -101,6 +103,8 @@
     text-align: center;
     justify-self: center;
     box-sizing: border-box;
+    line-height: 24px;
+    height:5vh;
     
 }
 .medialabel:hover{
