@@ -46,7 +46,7 @@
     background-color: #484843;
     color:#f0ecdd;
     height:4vh;
-    width: 10vw;
+    width: 13vw;
     
 }
 .loginbutton{
@@ -56,6 +56,15 @@
     color:#f4e3b2;
     height:4vh;
     width: 10vw;
+    border: 3px dotted;
+}
+.loginbutton:hover{
+    background-color: #353620;
+    border: 5px dotted;
+}
+.loginbutton:active{
+    border: 3px dotted;
+    background-color: #45462a;
 }
 .userinput{
     font-family:Georgia, 'Times New Roman', Times, serif;
