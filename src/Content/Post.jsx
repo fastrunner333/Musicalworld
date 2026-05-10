@@ -30,7 +30,7 @@ export function Post({filter}){
     }
 
     const senddislike = (e, index)=>{
-            
+            console.log("reactdislike")
             const id = e.currentTarget.dataset.id
             const buttonlike = likeref.current.get(index)
             const buttondislike = dislikeref.current.get(index)
@@ -58,6 +58,7 @@ export function Post({filter}){
     }
     
     const sendlike = (e, index)=>{
+        console.log("reactlike")
         const id = e.currentTarget.dataset.id
         const buttonlike = likeref.current.get(index)
         const buttondislike = dislikeref.current.get(index)
