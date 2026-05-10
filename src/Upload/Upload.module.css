@@ -60,7 +60,7 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     
 }
-.dropdowndiv:hover.dropdownlist{
+.dropdowndiv:hover > dropdownlist{
     display:flex;
     height: auto;
 }
@@ -72,7 +72,7 @@
 .medialabel{
     position:relative;
     top:44%;
-    left:41%;
+    width:30vh;
     border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
