@@ -25,7 +25,7 @@
     font-size: larger;
     background-color:#74070e;
     color: #f4e3b2;
-    border:6px dashed #f4e3b2;
+    border:6px dotted #f4e3b2;
     align-self: center;
     justify-self: center;
     height: 70%;
@@ -64,7 +64,7 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     
 }
-.dropdowndiv:hover > dropdownlist{
+.dropdowndiv:hover > .dropdownlist{
     display:flex;
     height: auto;
 }

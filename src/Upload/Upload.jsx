@@ -22,10 +22,12 @@ export function Upload(){
         if(text=="" || musictype==""){
             document.getElementById("textarea").placeholder = "       Post title and filter necessary"
             setdisplay("none")
+            settext("")
         }
         else if(text.length>50){
             document.getElementById("textarea").placeholder = "       Post title must less than 50 characters"
             setdisplay("none")
+            settext("")
         }
         else{
             const uploadformdata = new FormData()
