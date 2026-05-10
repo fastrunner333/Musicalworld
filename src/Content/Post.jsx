@@ -13,7 +13,7 @@ export function Post({filter}){
     const dislikeref = useRef(new Map())
     const spanlikeref = useRef(new Map())
     const spandislikeref = useRef(new Map())
-    const [display, setdisplay] = useState("block")
+    const [display, setdisplay] = useState("none")
     let dataarr = []
     let arr = []
     let likes = 0
@@ -191,6 +191,7 @@ export function Post({filter}){
     }
    
     useEffect(()=>{
+        setdisplay("block")
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
             method:"GET"
         })
