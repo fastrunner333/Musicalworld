@@ -9,6 +9,9 @@
     overflow-x: hidden;
 
 }
+.post::-webkit-scrollbar{
+    width: 0.5vw;;
+}
 .post::-webkit-scrollbar-track{
     background-color:#45462a;
 }
