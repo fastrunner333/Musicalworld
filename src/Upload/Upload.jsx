@@ -14,7 +14,7 @@ export function Upload(){
     const [file, setfile] = useState("")
     const [musictype, setmusictype] = useState("")
     const {userToken} = useContext(USER)
-    const {display, setdisplay} = useState("none")
+    const [display, setdisplay] = useState("none")
 
     function uploadbutton(e){
         e.preventDefault()
