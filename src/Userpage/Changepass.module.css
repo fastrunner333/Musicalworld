@@ -3,7 +3,7 @@
     background:#f4e3b2;
     display:flex;
     flex-direction:column;
-    width:50%;
+    width:53%;
     height:70%;
     justify-content:space-around;
     position:relative;
@@ -22,12 +22,14 @@
     border: 3px dashed #f4e3b2;
     color:#f4e3b2;
     background-color:#74070e;
+    width:25vw;
 }
 .confpass{
     outline:none;
     border: 3px dashed #f4e3b2;
     color:#f4e3b2;
     background-color:#74070e;
+    width:25vw;
 }
 .button{
     outline:none;
