@@ -5,6 +5,7 @@ import {Footer} from "../Footer/Footer"
 import styles from "./Upload.module.css"
 import { useContext } from "react"
 import {USER} from "../Context/Usercontext"
+import { Spinnernodisc } from "../Spinner/spinnernodisc"
 
 
 export function Upload(){
@@ -13,9 +14,11 @@ export function Upload(){
     const [file, setfile] = useState("")
     const [musictype, setmusictype] = useState("")
     const {userToken} = useContext(USER)
+    const {display, setdisplay} = useState({display:"none"})
 
     function uploadbutton(e){
         e.preventDefault()
+        setdisplay({display:"block"})
         if(text=="" || musictype==""){
             document.getElementById("textarea").placeholder = "       Post Title and Filter necessary"
             console.log("no")
@@ -43,6 +46,7 @@ export function Upload(){
             })
             .catch(err=>{
                 console.log(err)
+                setdisplay({display:"none"})
                 
             })
         }
@@ -52,6 +56,7 @@ export function Upload(){
     return(
         <div style={{display:"flex",flexDirection:"column",height:"100vh"}}>
             <Header/>
+            <Spinnernodisc displaysetting={display} left_spin={"6vw"} top_spin={"0%"} left_text={"6vw"} top_text={"51vh"}/>
             <div className={styles.div}>
                 <form onSubmit={uploadbutton} className={styles.form} >
                     <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title" style={{resize:"none"}}/>
