@@ -1,0 +1,17 @@
+.button{
+    align-self:center;
+    border:none;
+    color:#f4e3b2;
+    background-color:#45462a;
+    border:3px dotted #74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+.button:hover{
+    background-color:#272819;
+    border:5px dotted #74070e;
+}
+.button:active{
+    background-color:#45462a;
+    border:3px dotted #74070e;
+}

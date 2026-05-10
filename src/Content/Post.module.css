@@ -10,16 +10,16 @@
 
 }
 .post::-webkit-scrollbar{
-    width: 0.5vw;;
+    width: 1vw;;
 }
 .post::-webkit-scrollbar-track{
-    background-color:#45462a;
+    background-color:#3d4c31;
 }
 .post::-webkit-scrollbar-thumb{
-    background-color:#74070e;
+    background-color:#c1ba7a;
 }
 .post::-webkit-scrollbar-thumb:hover{
-   background-color:#942931;
+   background-color:#a6a06b;
 }
 .post::-webkit-scrollbar-button{
     display: none;

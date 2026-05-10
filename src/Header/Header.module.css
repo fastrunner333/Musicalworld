@@ -23,6 +23,15 @@
     border:none;
     color:#f4e3b2;
     background-color:#45462a;
+    border: 7px dotted #f4e3b2;
     font-family:Georgia, 'Times New Roman', Times, serif;
-
+    height: 10vh;
+}
+.mainpage:hover{
+    background-color:#272819;
+    border: 8px dotted #f4e3b2;
+}
+.mainpage:active{
+    background-color:#45462a;
+    border: 7px dotted #f4e3b2;
 }

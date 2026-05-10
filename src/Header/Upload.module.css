@@ -1,7 +1,15 @@
 .uploadbutton{
-    border:none;
+    border:3px dotted #74070e;
     color:#f4e3b2;
     background-color:#45462a;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: large;
+}
+.uploadbutton:hover{
+    background-color:#272819;
+    border:5px dotted #74070e;
+}
+.uploadbutton:active{
+    background-color:#45462a;
+    border:3px dotted #74070e;
 }
