@@ -79,9 +79,9 @@
     position: absolute;
     display:none;
     flex-direction: column;
-    width:15vw;
+    width:13vw;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    left:2.5vw;
+    right:4.5%;
     
 }
 .dropdowndiv:hover > .dropdownlist{
