@@ -21,6 +21,7 @@
     font-size: larger;
     background-color:#74070e;
     color: #f4e3b2;
+    border:10px dashed #74070e;
 }
 .form{
     display: grid;
@@ -52,7 +53,6 @@
     display:none;
     flex-direction: column;
     width:25vw;
-    
     font-family:Georgia, 'Times New Roman', Times, serif;
     
 }
@@ -73,9 +73,11 @@
     background-color:#74070e;
     color: #f4e3b2;
     width:30vw;
+    display:block;
     
 }
 .dropdownbutton{
+    display:inherit;
     font-family:Georgia, 'Times New Roman', Times, serif;
     border:1px dashed #74070e;
     background-color: #f4e3b2;
