@@ -80,7 +80,7 @@ console.log(displaysetting)
 
             <form className={styles.flex} onSubmit={buttonClick}>
                 <div className={styles.username}>
-                    <label htmlFor="username">Username</label>
+                    <label style={{color:"#74070e",fontFamily:"Georgia, 'Times New Roman', Times, serif",fontSize:"large"}} htmlFor="username">Username</label>
                     <input 
                     id="username"
                     className={styles.userinput} 
@@ -94,7 +94,7 @@ console.log(displaysetting)
                 </div>
                 <div className={styles.error} style={errorstyle}>Username or Password Incorrect or not given</div>
                 <div className={styles.password}>
-                    <label htmlFor="pass">Password</label>
+                    <label style={{color:"#74070e",fontFamily:"Georgia, 'Times New Roman', Times, serif",fontSize:"large"}} htmlFor="pass">Password</label>
                     <input 
                     id="password"
                     className={styles.passinput}

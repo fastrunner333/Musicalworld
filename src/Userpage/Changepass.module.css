@@ -19,22 +19,30 @@
 }
 .newpass{
     outline:none;
-    border: 3px dashed #45462a;
-    background:#f4e3b2;
-    color:#45462a;
+    border: 3px dashed #f4e3b2;
+    color:#f4e3b2;
+    background-color:#74070e;
 }
 .confpass{
     outline:none;
-    border: 3px dashed #45462a;
-    background:#f4e3b2;
-    color:#45462a;
+    border: 3px dashed #f4e3b2;
+    color:#f4e3b2;
+    background-color:#74070e;
 }
 .button{
     outline:none;
-    border: 3px dashed #45462a;
-    background:#f4e3b2;
-    color:#45462a; 
+    border: 7px dotted #f4e3b2;
+    color:#f4e3b2;
+    background-color:#45462a; 
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: large;
     font-weight: bold;
+}
+.button:hover{
+    background-color:#272819; 
+    border: 8px dotted #f4e3b2;
+}
+.button:active{
+    background-color:#45462a; 
+    border: 7px dotted #f4e3b2;
 }

@@ -33,6 +33,7 @@
     overflow-wrap:anywhere;
     position: sticky;
     top:0%;
+    background-color: #f4e3b2;
 }
 .userpostnomedia{
     border: 6px dashed #74070e;

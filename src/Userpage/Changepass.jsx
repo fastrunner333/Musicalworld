@@ -3,6 +3,7 @@ import {useNavigate} from "react-router"
 import { Header } from "../Header/Header"
 import { Footer } from "../Footer/Footer"
 import styles from "./Changepass.module.css"
+import { Spinnernodisc } from "../Spinner/spinnernodisc"
 
 export function Changepass(){
 
@@ -11,11 +12,13 @@ export function Changepass(){
     const navigate = useNavigate();
     const [newplaceholder, setnewplaceholder] = useState("")
     const [confirmplaceholder, setconfirmplaceholder] = useState("")
+    const [displaysetting, setdisplaysetting] = useState("none")
 
 
     function buttonclick(e){
 
         e.preventDefault()
+        setdisplaysetting("block")
         const numpresent = /\d/.test(newPass)
         const spacepresent = /\s/.test(newPass)
         const charapresent = /[`~!@#$%^&*()_+={}\]\[:";'<>?,\\.\/-]/.test(newPass)
@@ -104,6 +107,7 @@ export function Changepass(){
                 .then(res=>{if(res.status===200)navigate("/mainpage")})
                 .catch(err=>{
                     console.log(err)
+                    setdisplaysetting("none")
                     if(!err)navigate("/mainpage")
                     return
                 })  
@@ -112,21 +116,23 @@ export function Changepass(){
            
         else{
             console.log("error")
+            setdisplaysetting("none")
         }
 
         
     }
     return(
         <div style={{display:"flex",flexDirection:"column",height:"100vh"}}>
+        <Spinnernodisc displaysetting={displaysetting} left_spin={"calc(50vw - 17.5vw)"} top_spin={"calc(50vh - 25vh)"} left_text={"50%"} top_text={"75vh"}/>
             <Header/>
             <form className={styles.passwordform} onSubmit={buttonclick}>
                 <div className={styles.text}>
                     <label htmlFor="new">New Password</label>
-                    <input className={styles.newpass}placeholder={newplaceholder} type={"text"} id="new" value={newPass} onChange={(e)=>{setnewPass(e.target.value)}}></input>
+                    <input className={styles.newpass}placeholder={newplaceholder} type={"password"} id="new" value={newPass} onChange={(e)=>{setnewPass(e.target.value)}}></input>
                 </div>
                 <div className={styles.text}>
                     <label htmlFor="confirm">Confirm Password</label>
-                    <input className={styles.confpass} placeholder={confirmplaceholder} type={"text"} id="confirm" value={confirmPass} onChange={(e)=>{setconfirmPass(e.target.value)}}></input>
+                    <input className={styles.confpass} placeholder={confirmplaceholder} type={"password"} id="confirm" value={confirmPass} onChange={(e)=>{setconfirmPass(e.target.value)}}></input>
                 </div>
                 <button className={styles.button} type="submit">Update Password</button>
             </form>
