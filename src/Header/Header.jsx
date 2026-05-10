@@ -12,7 +12,7 @@ export function Header(){
     return(
         <>
             <div className={styles.header}>
-                <button className={styles.mainpage} onClick={mainpage}><h1>Musical World</h1></button>
+                <button className={styles.mainpage} onClick={mainpage}><h1>Musical World Homepage</h1></button>
                 <div  className={styles.lowerflex}>
                     <Todaydate/>
                     <Upload/>
