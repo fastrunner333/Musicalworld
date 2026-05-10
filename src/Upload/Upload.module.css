@@ -71,10 +71,6 @@
     background-color:#510409;
     border:7px dotted #f4e3b2;
 }
-.dropdowndiv:active{
-    background-color:#74070e;
-    border:6px dotted #f4e3b2;
-}
 .dropdownlist{
     position: absolute;
     display:none;
@@ -90,8 +86,6 @@
 }
 .dropdownlist:hover{
     display: flex;
-    width:25vw;
-    height: auto;
 }
 .medialabel{
     position:relative;
