@@ -31,6 +31,13 @@
     height: 70%;
     width:70%;
 }
+.upload:hover{
+    background-color:#510409;
+    border:7px dotted #f4e3b2;
+}.upload:active{
+    background-color:#74070e;
+    border:6px dotted #f4e3b2;
+}
 .form{
     display: grid;
     height:100%;
@@ -53,14 +60,22 @@
     border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
-    width:30vw;
+    width:15vw;
     justify-self: center;
+}
+.dropdowndiv:hover{
+    background-color:#510409;
+    border:7px dotted #f4e3b2;
+}
+.dropdowndiv:active{
+    background-color:#74070e;
+    border:6px dotted #f4e3b2;
 }
 .dropdownlist{
     position: absolute;
     display:none;
     flex-direction: column;
-    width:25vw;
+    width:15vw;
     font-family:Georgia, 'Times New Roman', Times, serif;
     left:2.5vw;
     
@@ -76,8 +91,8 @@
 }
 .medialabel{
     position:relative;
-    top:44%;
-    width:30vh;
+    top:0%;
+    width:15vw;
     border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
@@ -85,6 +100,14 @@
     text-align: center;
     justify-self: center;
     
+}
+.medialabel:hover{
+    background-color:#510409;
+    border:7px dotted #f4e3b2;
+}
+.medialabel:active{
+    background-color:#74070e;
+    border:6px dotted #f4e3b2;
 }
 .dropdownbutton{
     font-family:Georgia, 'Times New Roman', Times, serif;
