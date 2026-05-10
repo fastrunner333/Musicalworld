@@ -64,7 +64,7 @@ export function Upload(){
             <Header/>
             <div className={styles.div}>
                 <form onSubmit={uploadbutton} className={styles.form} >
-                    <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title" style={{resize:"none"}}/>
+                    <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title, must be under 50 characters" style={{resize:"none"}}/>
                     
                     <div className={styles.dropdowndiv}>
                         Select Filter
