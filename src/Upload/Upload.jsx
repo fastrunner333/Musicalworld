@@ -18,7 +18,7 @@ export function Upload(){
 
     function uploadbutton(e){
         e.preventDefault()
-        setdisplay({display:"block"})
+        setdisplay("block")
         if(text=="" || musictype==""){
             document.getElementById("textarea").placeholder = "       Post Title and Filter necessary"
             console.log("no")
@@ -46,7 +46,7 @@ export function Upload(){
             })
             .catch(err=>{
                 console.log(err)
-                setdisplay({display:"none"})
+                setdisplay("none")
                 
             })
         }

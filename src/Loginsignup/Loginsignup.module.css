@@ -89,6 +89,7 @@
 .disclamer{
     position:absolute;
     right:35%;
+    transform: translateX(50%);
     top: 40%;
     height:25vh;
     width:15vw;
@@ -100,7 +101,7 @@
 .error{
     position:absolute;
     top: 65vh;
-    left: 6vw;
+    left: 7vw;
     color:#74070e;
     font-family:Georgia, 'Times New Roman', Times, serif;
     display: none;
