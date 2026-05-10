@@ -44,6 +44,7 @@
     font-size: x-large;
     align-self: baseline;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    overflow-wrap:anywhere;
 }
 .img{
     height: 25vh;

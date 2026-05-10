@@ -19,9 +19,13 @@ export function Upload(){
     function uploadbutton(e){
         e.preventDefault()
         setdisplay("block")
-      /*   if(text=="" || musictype==""){
-            document.getElementById("textarea").placeholder = "       Post Title and Filter necessary"
-            console.log("no")
+        if(text=="" || musictype==""){
+            document.getElementById("textarea").placeholder = "       Post title and filter necessary"
+            setdisplay("none")
+        }
+        else if(text.length>50){
+            document.getElementById("textarea").placeholder = "       Post title must less than 50 characters"
+            setdisplay("none")
         }
         else{
             const uploadformdata = new FormData()
@@ -50,7 +54,7 @@ export function Upload(){
                 
             })
         }
-        */
+        
     }
 
     return(

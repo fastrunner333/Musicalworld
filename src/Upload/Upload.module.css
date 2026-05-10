@@ -6,7 +6,11 @@
     font-size: medium;
     background-color: #f4e3b2;
     border:3px dashed #74070e;
+    color:#74070e;
     outline:none;
+}
+.textarea::placeholder{
+   color:#421d1f;
 }
 .attachmedia{
     grid-area: mediabutton;
@@ -56,7 +60,7 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     
 }
-.dropdowndiv:hover ~ .dropdownlist{
+.dropdowndiv:hover.dropdownlist{
     display:flex;
     height: auto;
 }
@@ -72,12 +76,12 @@
     border:6px dotted #f4e3b2;
     background-color:#74070e;
     color: #f4e3b2;
-    width:30vw;
     display:block;
+    text-align: center;
+    justify-self: center;
     
 }
 .dropdownbutton{
-    display:inherit;
     font-family:Georgia, 'Times New Roman', Times, serif;
     border:1px dashed #74070e;
     background-color: #f4e3b2;
