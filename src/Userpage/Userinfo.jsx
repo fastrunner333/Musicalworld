@@ -29,7 +29,7 @@ export function Userinfo(){
             <div className={styles.flexiblebox}>
                 <div className={styles.name}>Username -- {userToken}</div>
                 <div>
-                    <label className={styles.profilepiclab} htmlFor="profilepicturebutton">Change profile picture, only png</label>
+                    <label className={styles.profilepiclab} htmlFor="profilepicturebutton">Change profile picture, only png<br/>&#40 Servers are slow so it can take from 10 to 60 seconds to show new profile image&#41 </label>
                     <input id="profilepicturebutton" type="file" className={styles.profilepicbutton} onChange={changeimage}></input>
                 </div>
                 <button className={styles.changepass} onClick={()=>navigate("/userinfo/changepass")}>ChangePassword</button>
