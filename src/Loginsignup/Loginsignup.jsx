@@ -30,7 +30,7 @@ console.log(displaysetting)
         const submitter = e.nativeEvent.submitter.value
         setdisplaysetting("block")
         setdiscstyle({displau:"none"})
-        console.log(displaysetting)
+        console.log(discstyle)
         e.preventDefault()
         if(submitter=="signup"){
            console.log("Not allowed")
@@ -70,7 +70,7 @@ console.log(displaysetting)
                     })
         }
     }
-    console.log(displaysetting)
+    console.log(discstyle)
     return(
         <>
             <Spinnernodisc displaysetting={displaysetting} left_spin={"calc(50vw - 17.5vw)"} top_spin={"calc(50vh - 25vh)"} left_text={"50%"} top_text={"75vh"}/>
