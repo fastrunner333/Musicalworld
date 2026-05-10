@@ -191,8 +191,8 @@ export function Post({filter}){
     }
    
     useEffect(()=>{
+        setresult([])
         setdisplay("block")
-        console.log(display)
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
             method:"GET"
         })
@@ -212,7 +212,6 @@ export function Post({filter}){
             if(data!=[]){
                 setdata(data)
                 setdisplay("none")
-                console.log(display)
             }  
                     }
             )
