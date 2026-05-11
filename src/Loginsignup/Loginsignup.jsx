@@ -116,6 +116,7 @@ console.log(displaysetting)
                     </button>
                     
                     <button 
+                        disabled={true}
                         type="submit"
                         className={styles.signupbutton}
                         value="signup">

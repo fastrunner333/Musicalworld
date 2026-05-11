@@ -361,10 +361,6 @@ app.post("/dislike",async(req,res)=>{
     let newdislikecount = 0
     const olddislikecount = await useruploads.findById(id)
     const userdata = await User.findOne(({username:user}))
-    //fixing old data
-    if(!olddislikecount.dislikes || olddislikecount.dislikes == undefined || olddislikecount==null){
-        newdislikecount = 0 
-    }
     newdislikecount = olddislikecount.dislikes + 1
     //removing dislike from users and uploads
     const isliked = userdata.likes.includes(id)
@@ -394,13 +390,7 @@ app.post("/like",async(req,res)=>{
     let olddatacount = 0
     const oldlikecount = await useruploads.findById(id)
     const userdata = await User.findOne(({username:user}))
-    //fixing old data
-    if(!oldlikecount.likes || oldlikecount.likes == undefined || oldlikecount==null){
-        olddatacount = 0 
-    }
-    else{
-        olddatacount = oldlikecount.likes
-    }
+    olddatacount = oldlikecount.likes
     newlikecount = olddatacount + 1
     //removing dislike from users and uploads
     const isdisliked = userdata.dislikes.includes(id)
