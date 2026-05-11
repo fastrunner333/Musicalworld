@@ -350,7 +350,12 @@ app.get("/getpost",async(req,res)=>{
 app.post("/dislike",async(req,res)=>{
     const id = String(req.body.id)
     const user = String(req.body.user)
-    let newdislikecount = 0
+    const uploadres = await useruploads.updateOne({_id:id},[{$set:{
+                                                                dislikes:{$add:["$dislikes",1]},
+                                                                likes:{$max:[0,{$subtract:["$likes",1]}]}
+                                                            }}])
+    const userres = await User.findOneAndUpdate({username:user},{$pull:{likes:id},$addtToSet:{dislikes:id}})
+    /* let newdislikecount = 0
     const olddislikecount = await useruploads.findById(id)
     const userdata = await User.findOne(({username:user}))
     newdislikecount = olddislikecount.dislikes + 1
@@ -373,7 +378,7 @@ app.post("/dislike",async(req,res)=>{
     console.log("adding dislike to upload table")
     await User.findOneAndUpdate({username:user},{dislikes:dislikes})
     
-    res.status(200).json({msg:"disliked"})
+    res.status(200).json({msg:"disliked"}) */
 
 })
 
@@ -382,7 +387,12 @@ app.post("/dislike",async(req,res)=>{
 app.post("/like",async(req,res)=>{
     const id = String(req.body.id)
     const user = String(req.body.user)
-    let newlikecount = 0
+    const uploadres = await useruploads.updateOne({_id:id},[{$set:{
+                                                                likes:{$add:["$likes",1]},
+                                                                dislikes:{$max:[0,{$subtract:["$dislikes",1]}]}
+                                                            }}])
+    const userres = await User.findOneAndUpdate({username:user},{$pull:{dislikes:id},$addtToSet:{likes:id}})
+   /*  let newlikecount = 0
     let olddatacount = 0
     const oldlikecount = await useruploads.findById(id)
     const userdata = await User.findOne(({username:user}))
@@ -412,7 +422,7 @@ app.post("/like",async(req,res)=>{
     await User.findOneAndUpdate({username:user},{likes:likes})
 
     res.status(200).json({msg:"liked"})
-
+ */
 })
 
 //global error middleware

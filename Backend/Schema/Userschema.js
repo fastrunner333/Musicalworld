@@ -10,12 +10,8 @@ const Musicalworlduser = new mongoose.Schema({
         type:String,
         required:true
     },
-    likes:{
-        type:String
-    },
-    dislikes:{
-        type:String
-    }
+    likes:[String],
+    dislikes:[String]
 
 },{timestamps:true})
 
