@@ -377,8 +377,8 @@ app.post("/dislike",async(req,res)=>{
     const dislikes = userdata.dislikes + " " + id
     console.log("adding dislike to upload table")
     await User.findOneAndUpdate({username:user},{dislikes:dislikes})
-    
-    res.status(200).json({msg:"disliked"}) */
+    */
+    res.status(200).json({msg:"disliked"}) 
 
 })
 
@@ -420,9 +420,9 @@ app.post("/like",async(req,res)=>{
     const likes = userdata.likes + " " + id
     console.log("adding like to user table")
     await User.findOneAndUpdate({username:user},{likes:likes})
-
+*/
     res.status(200).json({msg:"liked"})
- */
+ 
 })
 
 //global error middleware
