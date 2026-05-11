@@ -89,6 +89,8 @@ export function Post({filter}){
 
     function setdata(data){
         arr = (data.map((post, index)=>{   
+                console.log(likedisabled)
+                console.log(dislikedisabled)
                                             likes = post.likes
                                             dislikes = post.dislikes
                                             let i = index
@@ -218,8 +220,6 @@ export function Post({filter}){
         .then((data)=>{
             if(data!=[]){
                 setdata(data)
-                console.log(likedisabled)
-                console.log(dislikedisabled)
                 setdisplay("none")
             }  
                     }
