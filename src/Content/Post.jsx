@@ -31,7 +31,6 @@ export function Post({filter}){
          
                 console.log("like",likedisabled)
                 console.log("dislike",dislikedisabled)
-                const disvar = likedisabled.includes(index)
     },[likedisabled,dislikedisabled])
 
     const empfunc = (e,i)=>{
@@ -111,7 +110,7 @@ export function Post({filter}){
                                                 }
                                             if(post.disliked){
                                                     setdislikedisabled(dislikedisabled=>[...dislikedisabled, index])
-                                                    dislikebuttonvar = <button disabled={dislikedisabled.includes(Number(index))} checkarr={dislikedisabled} data-id={post._id} className={styles.dislikebuttongrey} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}>{disvar}</button>
+                                                    dislikebuttonvar = <button disabled={dislikedisabled.includes(Number(index))} checkarr={dislikedisabled} data-id={post._id} className={styles.dislikebuttongrey} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}>{dislikedisabled.includes(index)?"found":"missing"}</button>
                                                 }
                                             else{
                                                    // setdislikedisabled(...dislikedisabled, index)
