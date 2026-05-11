@@ -106,14 +106,14 @@ export function Post({filter}){
                                                 stylelike = styles.likebuttongrey
                                             }
                                             else{
-                                                stylelike = styles.likebutton
+                                                stylelike = styless.likebutton
                                             }
                                             if(post.disliked){
                                                 setdislikedisabled(dislikedisabled=>[...dislikedisabled, index])
-                                                styledislike = style.dislikebuttongrey
+                                                styledislike = styles.dislikebuttongrey
                                             }
                                             else{
-                                                styledislike = style.dislikebutton
+                                                styledislike = styles.dislikebutton
                                             }
                                             
                                             if(!post.mediatype){  
