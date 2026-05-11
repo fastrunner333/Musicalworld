@@ -107,7 +107,7 @@ export function Post({filter}){
     }
    
     useEffect(()=>{
-        setresult(null)
+        setpost([])
         setdisplay("block")
         fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
             method:"GET"

@@ -178,8 +178,7 @@ app.post("/changepass",async (req,res)=>{
 const userpicstore = multer.memoryStorage()
 
 const userpicfilter = (req,file,cb)=>{
-    console.log(req.file)
-    console.log(file.mimetype)
+   
     if(file.mimetype==="image/png"){
         return cb(null,true)
     }
@@ -195,12 +194,11 @@ const uploaduserpic = multer({
 
 app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
     const username = req.query.username
-    console.log(username)
+    
     if(!req.file){
         res.status(400).send()
     }
     else{
-        console.log("config", cloudinary.config())
         try{
             const upstream = cloudinary.uploader.upload_stream({
                 folder:"userpict",
@@ -215,7 +213,6 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
                     console.log("upload stream error")
                     res.status(500).send()
                 }
-                console.log("pic upload done")
                 res.status(200).send()
             })
             upstream.end(req.file.buffer)
@@ -235,7 +232,6 @@ app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
 const uploadpoststorage = multer.memoryStorage()
 
 const uploadfilter = (req,file,cb)=>{
-    console.log(file.mimetype)
     const type = file.mimetype
     if(type === "image/png"|| type==="image/jpeg" || type === "video/mp4" || type === "audio/mp4" || type === "audio/x-m4a" || type === "audio/mpeg"){
        return cb(null, true)
@@ -283,7 +279,6 @@ app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
                     console.log("upload stream error")
                     res.status(500).send()
                 }
-                console.log("pic upload done")
                 res.status(200).send()
             })
             upstream.end(req.file.buffer)
@@ -318,10 +313,7 @@ app.get("/getpost",async(req,res)=>{
     const user = req.query.user
     if(posttype === "all"){
         const alldata = await useruploads.find().lean()
-        console.log(user)
         const userdata = await User.findOne({username:user})
-        console.log(userdata)
-        console.log(userdata.likes)
         const userlikes = userdata.likes
         const userdislikes = userdata.dislikes
         alldata.map((obj)=>{
@@ -401,18 +393,22 @@ app.post("/like",async(req,res)=>{
     if(isdisliked){
 
         const newdislikestr = userdata.dislikes.replace(` ${id}`, "") 
+        console.log("deleting dislike from user table")
         await User.findOneAndUpdate({username:user},{dislikes:newdislikestr})
 
         const uploaddata = await useruploads.findById(id)
         const dislikecount = uploaddata.dislikes - 1
+        console.log("deleting dislike from upload table")
         await useruploads.findByIdAndUpdate(id, {dislikes:dislikecount})
     }
 
     //updating in uploads
+    console.log("adding like to upload table")
     await useruploads.findByIdAndUpdate(id, {likes:Number(newlikecount)})
     //updating in users
    
     const likes = userdata.likes + " " + id
+    console.log("adding like to user table")
     await User.findOneAndUpdate({username:user},{likes:likes})
 
     res.status(200).json({msg:"liked"})
