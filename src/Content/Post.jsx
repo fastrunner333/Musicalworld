@@ -100,7 +100,7 @@ export function Post({filter}){
                                             let i = index
                                             
                                             if(post.liked){
-                                                    setlikedisabled([...likedisabled, index])
+                                                    setlikedisabled(likedisabled=>[...likedisabled, index])
                                                     likebuttonvar = <button disabled={likedisabled.includes(index)} data-id={post._id} className={styles.likebuttongrey} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
                                                 }
                                             else{
@@ -108,7 +108,7 @@ export function Post({filter}){
                                                     likebuttonvar =  <button disabled={likedisabled.includes(index)} data-id={post._id} className={styles.likebutton} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>        
                                                 }
                                             if(post.disliked){
-                                                    setdislikedisabled([...dislikedisabled, index])
+                                                    setdislikedisabled(dislikedisabled=>[...dislikedisabled, index])
                                                     dislikebuttonvar = <button disabled={dislikedisabled.includes(index)} data-id={post._id} className={styles.dislikebuttongrey} ref={(node)=>{node?dislikeref.current.set(index,node):dislikeref.current.delete(index)}} onClick={(e)=>senddislike(e,i)}></button>
                                                 }
                                             else{

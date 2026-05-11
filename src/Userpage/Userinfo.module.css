@@ -21,6 +21,8 @@
     font-size: large;
     font-weight: bolder;
     text-decoration: underline;
+    height:6%
+
 }
 .changepass{
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -53,7 +55,7 @@
 .profilepiclab:hover{
     background-color: #272819;
     border: 5px dotted #f4e3b2;
-    margin: -5px;
+    margin: -2px;
 }
 .profilepiclab:active{
     background-color: #45462a;
