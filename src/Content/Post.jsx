@@ -94,6 +94,10 @@ export function Post({filter}){
     }
 
     function setdata(data){
+        const likearray = data.map((post,index)=>post.liked?index:null).filter(index=>index!==null)
+        const dislikearray = data.map((post,index)=>post.disliked?index:null).filter(index=>index!==null)
+        setlikedisabled(likearray)
+        setdislikedisabled(dislikearray)
         arr = (data.map((post, index)=>{  
                                             likes = post.likes
                                             dislikes = post.dislikes
@@ -102,14 +106,12 @@ export function Post({filter}){
                                             let styledislike;
                                             console.log(typeof(index))
                                             if(post.liked){
-                                                setlikedisabled(likedisabled=>[...likedisabled, index])
                                                 stylelike = styles.likebuttongrey
                                             }
                                             else{
                                                 stylelike = styles.likebutton
                                             }
                                             if(post.disliked){
-                                                setdislikedisabled(dislikedisabled=>[...dislikedisabled, index])
                                                 styledislike = styles.dislikebuttongrey
                                             }
                                             else{
@@ -134,7 +136,7 @@ export function Post({filter}){
                                             else if(post.mediatype == ".png" || post.mediatype == ".jpg" || post.mediatype == ".jpeg"){
                                                 return  <div key={index}  className={styles.userpostimage}>
                                                         <div className={styles.title}>{post.posttitle}</div>
-                                                        <img className={styles.img} src={`https://res.cloudinary.com/dg9zjuhjn/image/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} />
+                                                        <img className={styles.img} src={`https://res.cloudinary.com/ah75vno9/image/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} />
                                                         <div className={styles.likedislike}>
 
                                                         <button disabled={likedisabled.includes(Number(index))} checkarr={likedisabled} data-id={post._id} className={stylelike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
@@ -150,7 +152,7 @@ export function Post({filter}){
                                             else if(post.mediatype == ".mp3"){
                                                 return  <div key={index}  className={styles.userpostaudio}>
                                                         <div className={styles.title}>{post.posttitle}</div>
-                                                        <audio className={styles.audio} controls src={`https://res.cloudinary.com/dg9zjuhjn/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="audio/mpeg"></audio>
+                                                        <audio className={styles.audio} controls src={`https://res.cloudinary.com/ah75vno9/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="audio/mpeg"></audio>
                                                         <div className={styles.likedislike}>
 
                                                         <button disabled={likedisabled.includes(Number(index))} checkarr={likedisabled} data-id={post._id} className={stylelike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
@@ -166,7 +168,7 @@ export function Post({filter}){
                                             else if(post.mediatype == ".m4a"){
                                                 return  <div  key={index} className={styles.userpostaudio}>
                                                         <div className={styles.title}>{post.posttitle}</div>
-                                                        <audio className={styles.audio} controls src={`https://res.cloudinary.com/dg9zjuhjn/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="audio/x-m4a"></audio>
+                                                        <audio className={styles.audio} controls src={`https://res.cloudinary.com/ah75vno9/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="audio/x-m4a"></audio>
                                                         <div className={styles.likedislike}>
 
                                                         <button disabled={likedisabled.includes(Number(index))} checkarr={likedisabled} data-id={post._id} className={stylelike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
@@ -182,7 +184,7 @@ export function Post({filter}){
                                             else if(post.mediatype == ".mp4"){
                                                 return  <div  key={index} className={styles.userpostvideo}>
                                                         <div className={styles.title}>{post.posttitle}</div>
-                                                        <video className={styles.video} controls src={`https://res.cloudinary.com/dg9zjuhjn/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="video/mp4"></video>
+                                                        <video className={styles.video} controls src={`https://res.cloudinary.com/ah75vno9/video/upload/useruploads/${post.username}-${post.uploaddate}${post.mediatype}`} type="video/mp4"></video>
                                                         <div className={styles.likedislike}>
 
                                                         <button disabled={likedisabled.includes(Number(index))} checkarr={likedisabled} data-id={post._id} className={stylelike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>

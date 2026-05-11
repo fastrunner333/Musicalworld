@@ -19,7 +19,7 @@ export function User(){
     return(
         <div style={{display:"flex", width:"17%", justifyContent:"space-around"}}>
             
-            <img style={{width:"7vw",height:"stretch",maxHeight:"7vh",maxWidth:"5vw"}} alt="Image"src={`https://res.cloudinary.com/dg9zjuhjn/image/upload/userpict/${username}userpic.png?c=${date}`} />
+            <img style={{width:"7vw",height:"stretch",maxHeight:"7vh",maxWidth:"5vw"}} alt="Image"src={`https://res.cloudinary.com/ah75vno9/image/upload/userpict/${username}userpic.png?c=${date}`} />
             <button className={styles.button} onClick={()=>navigate("/userinfo")}>{userToken}</button>
         </div>
     )
