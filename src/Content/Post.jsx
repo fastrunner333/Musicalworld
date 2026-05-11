@@ -16,6 +16,7 @@ export function Post({filter}){
     const [display, setdisplay] = useState("none")
     const [likedisabled ,setlikedisabled] = useState([])
     const [dislikedisabled , setdislikedisabled] = useState([])
+    const [rerender, setrerender] = useState(0)
     let dataarr = []
     let arr = []
     let likes = 0
@@ -63,6 +64,7 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err)) 
+        setrerender(rerender=>rerender+1)
     }
     
     const sendlike = (e, index)=>{
@@ -91,6 +93,8 @@ export function Post({filter}){
         .then(res=>res.json())
         .then(txt=>console.log(txt))
         .catch(err=>console.log(err))   
+        
+        setrerender(rerender=>rerender+1)
     }
 
     function setdata(data){
