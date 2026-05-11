@@ -27,6 +27,12 @@ export function Post({filter}){
     let likebuttonvar
     let dislikebuttonvar
 
+    useEffect(()=>{
+         
+                console.log("like",likedisabled)
+                console.log("dislike",dislikedisabled)
+    },[likedisabled,dislikedisabled])
+
     const empfunc = (e,i)=>{
         return
     }
@@ -88,9 +94,7 @@ export function Post({filter}){
     }
 
     function setdata(data){
-        arr = (data.map((post, index)=>{   
-                console.log(likedisabled)
-                console.log(dislikedisabled)
+        arr = (data.map((post, index)=>{  
                                             likes = post.likes
                                             dislikes = post.dislikes
                                             let i = index
