@@ -123,10 +123,13 @@ export function Post({filter}){
                                             }
                                             
                                             if(!post.mediatype){  
+                                                    console.log("array",likedisabled)
+                                                    console.log("index", index)
+                                                    console.log("array item at index",likedisabled.index)
                                                     return  <div key={index} className={styles.userpostnomedia}>
                                                     <div className={styles.title}>{post.posttitle}</div>
                                                     <div className={styles.likedislike}>
-                                                        
+                                                    
                                                         <button disabled={post.liked || likedisabled.includes(Number(index))} checkarr={likedisabled} data-id={post._id} className={stylelike} ref={(node)=>{node?likeref.current.set(index,node):likeref.current.delete(index)}} onClick={(e)=>sendlike(e,i)}></button>
                                                         <span className={styles.count} ref={(node)=>{node?spanlikeref.current.set(index,node):spanlikeref.current.delete(index)}}>{likes}</span>
 
