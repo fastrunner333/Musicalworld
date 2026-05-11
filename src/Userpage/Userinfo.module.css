@@ -29,6 +29,7 @@
     outline: none;
     border: 3px dotted #f4e3b2;
     font-size: medium;
+    height:9%;
 }
 .changepass:hover{
     background-color: #272819;
@@ -52,6 +53,7 @@
 .profilepiclab:hover{
     background-color: #272819;
     border: 5px dotted #f4e3b2;
+    margin: -5px;
 }
 .profilepiclab:active{
     background-color: #45462a;
