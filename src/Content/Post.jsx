@@ -103,10 +103,10 @@ export function Post({filter}){
                                             console.log(typeof(index))
                                             if(post.liked){
                                                 setlikedisabled(likedisabled=>[...likedisabled, index])
-                                                stylelike = style.likebuttongrey
+                                                stylelike = styles.likebuttongrey
                                             }
                                             else{
-                                                stylelike = style.likebutton
+                                                stylelike = styles.likebutton
                                             }
                                             if(post.disliked){
                                                 setdislikedisabled(dislikedisabled=>[...dislikedisabled, index])
