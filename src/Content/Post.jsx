@@ -106,7 +106,7 @@ export function Post({filter}){
                                                 stylelike = styles.likebuttongrey
                                             }
                                             else{
-                                                stylelike = styless.likebutton
+                                                stylelike = styles.likebutton
                                             }
                                             if(post.disliked){
                                                 setdislikedisabled(dislikedisabled=>[...dislikedisabled, index])
