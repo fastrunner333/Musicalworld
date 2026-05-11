@@ -17,6 +17,7 @@ export function Post({filter}){
     const [likedisabled ,setlikedisabled] = useState([])
     const [dislikedisabled , setdislikedisabled] = useState([])
     const [rerender, setrerender] = useState(0)
+    const [postdata, setpost] = useState([])
     let dataarr = []
     let arr = []
     let likes = 0
@@ -102,9 +103,48 @@ export function Post({filter}){
         const dislikearray = data.map((post,index)=>post.disliked?index:null).filter(index=>index!==null)
         setlikedisabled(likearray)
         setdislikedisabled(dislikearray)
-        arr = (data.map((post, index)=>{  
-                                            likes = post.likes
-                                            dislikes = post.dislikes
+        setpost(data)
+    }
+   
+    useEffect(()=>{
+        setresult(null)
+        setdisplay("block")
+        fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
+            method:"GET"
+        })
+        .then(res=>res.json())
+        .then((unsorteddata)=>{
+                            let sorteddata = []
+                            if(unsorteddata.data && unsorteddata.data.length > 0){
+                                sorteddata = [...unsorteddata.data].sort((a,b)=>b.uploaddate - a.uploaddate)
+                                
+                            }
+                            console.log(sorteddata)
+                            dataarr = sorteddata
+                            return sorteddata
+                            }
+        )
+        .then((data)=>{
+            if(data!=[]){
+                setdata(data)
+                setdisplay("none")
+            }  
+                    }
+            )
+            .catch(err=>{
+                console.log(err)
+                setdisplay("none")
+            })
+            },[filter, userToken])        
+   
+    
+    
+    return(
+        <div id="parent" className={styles.post}>
+        <Spinnernodisc displaysetting={display} left_spin={"calc(33.5vw - 17.5vw)"} top_spin={"0%"} left_text={"calc(50vw - 17.5vw)"} top_text={"51vh"} />
+        {postdata.map((post, index)=>{  
+                                            const likes = post.likes
+                                            const dislikes = post.dislikes
                                             let i = index
                                             let stylelike;
                                             let styledislike;
@@ -208,48 +248,7 @@ export function Post({filter}){
                                                 return <div>Error</div>
                                                 }
                                                             
-                                            }))
-        console.log(arr)
-        setresult(arr)
-    }
-   
-    useEffect(()=>{
-        setresult(null)
-        setdisplay("block")
-        fetch(`https://musicalworld.onrender.com/getpost?type=${filter}&user=${userToken}`,{
-            method:"GET"
-        })
-        .then(res=>res.json())
-        .then((unsorteddata)=>{
-                            let sorteddata = []
-                            if(unsorteddata.data && unsorteddata.data.length > 0){
-                                sorteddata = [...unsorteddata.data].sort((a,b)=>b.uploaddate - a.uploaddate)
-                                
-                            }
-                            console.log(sorteddata)
-                            dataarr = sorteddata
-                            return sorteddata
-                            }
-        )
-        .then((data)=>{
-            if(data!=[]){
-                setdata(data)
-                setdisplay("none")
-            }  
-                    }
-            )
-            .catch(err=>{
-                console.log(err)
-                setdisplay("none")
-            })
-            },[filter, userToken])        
-   
-    
-    
-    return(
-        <div id="parent" className={styles.post}>
-        <Spinnernodisc displaysetting={display} left_spin={"calc(33.5vw - 17.5vw)"} top_spin={"0%"} left_text={"calc(50vw - 17.5vw)"} top_text={"51vh"} />
-        {result}
+                                            })}
         </div>
     )
 }
