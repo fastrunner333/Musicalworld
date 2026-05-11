@@ -354,7 +354,7 @@ app.post("/dislike",async(req,res)=>{
                                                                 dislikes:{$add:["$dislikes",1]},
                                                                 likes:{$max:[0,{$subtract:["$likes",1]}]}
                                                             }}],{updatePipeline:true})
-    const userres = await User.findOneAndUpdate({username:user},{$pull:{likes:id},$addtToSet:{dislikes:id}})
+    const userres = await User.findOneAndUpdate({username:user},{$pull:{likes:id},$addToSet:{dislikes:id}})
     /* let newdislikecount = 0
     const olddislikecount = await useruploads.findById(id)
     const userdata = await User.findOne(({username:user}))
@@ -391,7 +391,7 @@ app.post("/like",async(req,res)=>{
                                                                 likes:{$add:["$likes",1]},
                                                                 dislikes:{$max:[0,{$subtract:["$dislikes",1]}]}
                                                             }}],{updatePipeline:true})
-    const userres = await User.findOneAndUpdate({username:user},{$pull:{dislikes:id},$addtToSet:{likes:id}})
+    const userres = await User.findOneAndUpdate({username:user},{$pull:{dislikes:id},$addToSet:{likes:id}})
    /*  let newlikecount = 0
     let olddatacount = 0
     const oldlikecount = await useruploads.findById(id)
