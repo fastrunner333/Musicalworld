@@ -367,14 +367,18 @@ app.post("/dislike",async(req,res)=>{
     if(isliked){
 
         const newlikestr = userdata.likes.replace(` ${id}`, "") 
+        console.log("deleting like from user table")
         await User.findOneAndUpdate({username:user},{likes:newlikestr})
 
         const uploaddata = await useruploads.findById(id)
         const likecount = uploaddata.likes - 1
+        console.log("deleting like from upload table")
         const abc = await useruploads.findByIdAndUpdate(id,{likes:likecount})
     }
+    console.log("adding dislike to upload table")
     await useruploads.findByIdAndUpdate(id, {dislikes:Number(newdislikecount)})
     const dislikes = userdata.dislikes + " " + id
+    console.log("adding dislike to upload table")
     await User.findOneAndUpdate({username:user},{dislikes:dislikes})
     
     res.status(200).json({msg:"disliked"})
