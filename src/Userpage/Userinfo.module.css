@@ -21,7 +21,8 @@
     font-size: large;
     font-weight: bolder;
     text-decoration: underline;
-    height:6%
+    height:6%;
+    margin-left: 1vw;
 
 }
 .changepass{
@@ -32,6 +33,7 @@
     border: 3px dotted #f4e3b2;
     font-size: medium;
     height:9%;
+    margin-left: 1vw;
 }
 .changepass:hover{
     background-color: #272819;
@@ -46,11 +48,16 @@
 }
 .profilepiclab{
     border: 3px dotted #f4e3b2;
-    display: block;
+    display: grid;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: medium;
     background-color: #45462a;
     color:#f4e3b2;
+    height:12.5vh;
+    box-sizing: border-box;
+    margin-left: 1vw;
+    justify-content: center;
+    text-align: center;
 }
 .profilepiclab:hover{
     background-color: #272819;
