@@ -46,7 +46,7 @@ export function Upload(){
                     validated = false
                     settext("")
                     setdisplay("none")
-                    document.getElementById("textarea").placeholder = "       You can only upload text or audio or image or video and in formats png, jpg, mp4(audio), mp4(video), m4a, mp3 only"
+                    document.getElementById("textarea").placeholder = "You can only upload text or audio or image or video and in formats png, jpg, mp4(audio), mp4(video), m4a, mp3 only"
                 }
             }
         }

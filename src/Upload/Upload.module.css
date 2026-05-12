@@ -80,6 +80,9 @@
     right:4.5%;
     
 }
+.dropdownlist:has(.dropdownbutton:active){
+    display:none;
+}
 .dropdowndiv:hover > .dropdownlist{
     display:flex;
     height: auto;

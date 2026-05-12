@@ -70,11 +70,12 @@
 .error{
     position:absolute;
     display: none;
-    bottom:0%;
+    bottom:33vh;
     transform: translateY(-50%);
-    left:0%;
+    left:1vw;
+    width:30vw;
     color:#480409;
     font-size:large;
     font-weight: bolder;
-    font-family:Georgia, 'Times New Roman', Times, serif;;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
