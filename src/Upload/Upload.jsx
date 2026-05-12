@@ -15,7 +15,6 @@ export function Upload(){
     const [musictype, setmusictype] = useState("")
     const {userToken} = useContext(USER)
     const [display, setdisplay] = useState("none")
-    const [parentdisplay, setparentdisplay] = useState(null)
     let validated = false
 
     function uploadbutton(e){
