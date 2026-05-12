@@ -88,7 +88,7 @@ export function Upload(){
                     <div className={styles.dropdowndiv} >
                         Select Filter
                     
-                        <div style={parentdisplay} className={styles.dropdownlist}>
+                        <div style={parentdisplay} className={styles.dropdownlist} onMouseEnter={setparentdisplay({display:"flex"})}>
                             <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Classic") ;setparentdisplay({display:"none"});}}>Classic</button>
 
                             <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Bollywood") ;setparentdisplay({display:"none"});}}>Bollywood</button>
