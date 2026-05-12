@@ -80,9 +80,6 @@
     right:4.5%;
     
 }
-.dropdownlist:has(> .dropdownbutton:active){
-    display:none;
-}
 .dropdowndiv:hover > .dropdownlist{
     display:flex;
     height: auto;
@@ -122,6 +119,9 @@
 }
 .dropdownbutton:active{
     background-color: #f4e3b2;
+}
+.dropdownbutton:focus{
+    display:none;
 }
 
 
