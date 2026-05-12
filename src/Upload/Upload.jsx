@@ -15,29 +15,46 @@ export function Upload(){
     const [musictype, setmusictype] = useState("")
     const {userToken} = useContext(USER)
     const [display, setdisplay] = useState("none")
+    let validated = false
 
     function uploadbutton(e){
         e.preventDefault()
         setdisplay("block")
+        const uploadformdata = new FormData()
         if(text=="" || musictype==""){
             document.getElementById("textarea").placeholder = "       Post title and filter necessary"
             setdisplay("none")
             settext("")
+            validated = false
         }
         else if(text.length>50){
             document.getElementById("textarea").placeholder = "       Post title must less than 50 characters"
             setdisplay("none")
             settext("")
+            validated = false
         }
         else{
-            const uploadformdata = new FormData()
             uploadformdata.append("title", text)
             uploadformdata.append("musictype", musictype)
-            uploadformdata.append("mediafile", file)
+            validated = true
+            if(file){
+                if(file.type==="image/png" ||  file.type==="audio/mp4" ||  file.type==="image/jpeg" ||  file.type==="video/mp4" ||  file.type==="audio/x-m4a" ||  file.type==="audio/mpeg" ){
+                    uploadformdata.append("mediafile", file)
+                    validated = true
+                }
+                else{
+                    validated = false
+                    settext("")
+                    setdisplay("none")
+                    document.getElementById("textarea").placeholder = "       You can only upload text or audio or image or video and in formats png, jpg, mp4(audio), mp4(video), m4a, mp3 only"
+                }
+            }
+        }
 
+        if(validated){  
             fetch(`https://musicalworld.onrender.com/upload?username=${userToken}`,{
-                method:"POST",
-                body:uploadformdata,
+            method:"POST",
+            body:uploadformdata,
             })
             .then(res=>{
                 console.log(res.status)
@@ -53,10 +70,9 @@ export function Upload(){
             .catch(err=>{
                 console.log(err)
                 setdisplay("none")
-                
+                document.getElementById("textarea").placeholder = "       Error while uploading please try again later"    
             })
         }
-        
     }
 
     return(
@@ -66,7 +82,7 @@ export function Upload(){
             <Header/>
             <div className={styles.div}>
                 <form onSubmit={uploadbutton} className={styles.form} >
-                    <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title, must be under 50 characters" style={{resize:"none"}}/>
+                    <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title, must be under 50 characters, you can upload text or image or audio or video only" style={{resize:"none"}}/>
                     
                     <div className={styles.dropdowndiv}>
                         Select Filter

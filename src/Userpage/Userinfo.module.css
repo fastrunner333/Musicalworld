@@ -67,3 +67,14 @@
     background-color: #45462a;
     border: 3px dotted #f4e3b2;
 }
+.error{
+    position:absolute;
+    display: none;
+    bottom:0%;
+    transform: translateY(-50%);
+    left:0%;
+    color:#480409;
+    font-size:large;
+    font-weight: bolder;
+    font-family:Georgia, 'Times New Roman', Times, serif;;
+}
