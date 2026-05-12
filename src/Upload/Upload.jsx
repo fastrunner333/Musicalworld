@@ -89,11 +89,11 @@ export function Upload(){
                         Select Filter
                     
                         <div style={parentdisplay} className={styles.dropdownlist}>
-                            <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Classic") ;setparentdisplay({display:"none"});}}>Classic</button>
-                            <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Bollywood") ;setparentdisplay({display:"none"});}}>Bollywood</button>
-                            <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Western") ;setparentdisplay({display:"none"});}}>Western</button>
-                            <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Orchestra") ;setparentdisplay({display:"none"});}}>Orchestra</button>
-                            <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Nature Sounds") ;setparentdisplay({display:"none"});}}>Nature Sounds</button>                    
+                            <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Classic")}>Classic</button>
+                            <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Bollywood")}>Bollywood</button>
+                            <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Western")}>Western</button>
+                            <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Orchestra")}>Orchestra</button>
+                            <button className= {styles.dropdownbutton} type="button" onClick={()=>setmusictype("Nature Sounds")}>Nature Sounds</button>                    
                         </div>
                     </div>
                     <div className={styles.attachmedia}>
