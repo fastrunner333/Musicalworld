@@ -85,10 +85,10 @@ export function Upload(){
                 <form onSubmit={uploadbutton} className={styles.form} >
                     <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title, must be under 50 characters, you can upload text or image or audio or video only" style={{resize:"none"}}/>
                     
-                    <div className={styles.dropdowndiv} >
+                    <div className={styles.dropdowndiv}  onMouseEnter={()=>setparentdisplay({display:"flex"})} onMouseLeave={()=>{setparentdisplay({display:"none"})}} >
                         Select Filter
                     
-                        <div style={parentdisplay} className={styles.dropdownlist} onMouseEnter={()=>setparentdisplay({display:"flex"})} onMouseLeave={()=>{setparentdisplay({display:"none"})}}>
+                        <div style={parentdisplay} className={styles.dropdownlist}>
                             <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Classic") ;setparentdisplay({display:"none"});}}>Classic</button>
 
                             <button className= {styles.dropdownbutton} type="button" onClick={()=>{setmusictype("Bollywood") ;setparentdisplay({display:"none"});}}>Bollywood</button>
