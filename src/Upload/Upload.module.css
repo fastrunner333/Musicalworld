@@ -80,7 +80,7 @@
     right:4.5%;
     
 }
-.dropdownlist:has(.dropdownbutton:active){
+.dropdownlist:focus-within{
     display:none;
 }
 .dropdowndiv:hover > .dropdownlist{
