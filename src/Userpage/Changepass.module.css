@@ -24,6 +24,12 @@
     background-color:#74070e;
     width:25vw;
 }
+.newpass::placeholder{
+    color:#c9bd97;
+}
+.confpass::placeholder{
+    color: #c9bd97;
+}
 .confpass{
     outline:none;
     border: 3px dashed #f4e3b2;
