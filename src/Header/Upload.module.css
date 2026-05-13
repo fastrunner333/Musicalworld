@@ -5,6 +5,8 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: large;
     width: 16.5vw;
+    line-break: anywhere;
+
 }
 .uploadbutton:hover{
     background-color:#272819;
