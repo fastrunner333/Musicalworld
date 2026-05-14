@@ -96,8 +96,8 @@ export function Changepass(){
         else{
             charvalidated = false
             setdisplaysetting("none")
-            setnewplaceholder("Must have atleast 1 character")
-            setconfirmplaceholder("Must have atleast 1 character")
+            setnewplaceholder("Must have atleast 1 symbol")
+            setconfirmplaceholder("Must have atleast 1 symbol")
             return
         }
 
