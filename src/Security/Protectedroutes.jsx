@@ -28,7 +28,7 @@ export function ProtectedRoute({children}){
         })  
         .catch(e=>console.log(e))
     
-        if(userToken!=200 && typeof(userToken)=="string"){
+        if(userToken!=undefined && userToken!=200 && typeof(userToken)=="string"){
             return <Mainpage/>
         }
 
