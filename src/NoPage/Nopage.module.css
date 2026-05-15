@@ -16,10 +16,29 @@
     position:absolute;
     left:50%;
     transform: translate(-50%);
-    top:70%;
+    top:60%;
 }
 .back{
     height:100vh;
-    width:100vh;
+    width:100vw;
     background-color: #74070e;
+}
+.button{
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    top: 70%;
+    color:#f4e3b2;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    background-color:#484843;
+    border: 3px dotted #f4e3b2;
+}
+.button:hover{
+    background-color:#323320;
+    border: 5px dotted #f4e3b2;
+}
+.button:active{
+    background-color:#484843;
+    border: 3px dotted #f4e3b2;
 }
