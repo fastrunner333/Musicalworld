@@ -1,6 +1,8 @@
 <img src="header.png" width="100%" height="12%" alt="Header image">
 
-#**MucicalWorld - MERN stack application with social elements**
+## **MucicalWorld - MERN stack application with social elements**
+
+### **MucicalWorld - MERN stack application with social elements**
 
 This website is my project for my resume, This is a MERN applicaiton that **focuses on security while showcasing social elements** achievable with MERN stack
 
