@@ -12,7 +12,7 @@
 .textarea::placeholder{
    color:#421d1f;
 }
-.text:autofill{
+.text:-webkit-autofill{
     background-color: #f4e3b2;
     border:3px dashed #74070e;
     color:#74070e;

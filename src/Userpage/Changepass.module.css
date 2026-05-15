@@ -30,14 +30,14 @@
 .confpass::placeholder{
     color: #c9bd97;
 }
-.newpass:autofill{
+.newpass:-webkit-autofill{
     outline:none;
     border: 3px dashed #f4e3b2;
     color:#f4e3b2;
     background-color:#74070e;
     width:25vw;
 }
-.confpass:autofill{
+.confpass:-webkit-autofill{
     outline:none;
     border: 3px dashed #f4e3b2;
     color:#f4e3b2;
