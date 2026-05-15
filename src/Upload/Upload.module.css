@@ -12,10 +12,10 @@
 .textarea::placeholder{
    color:#421d1f;
 }
-.text:-webkit-autofill{
-    background-color: #f4e3b2;
-    border:3px dashed #74070e;
-    color:#74070e;
+.textarea:autofill,.textarea:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 10000px #f4e3b2 inset;
+    -webkit-text-fill-color:#74070e;
+    border: 3px dashed #74070e;
 }
 .attachmedia{
     grid-area: mediabutton;

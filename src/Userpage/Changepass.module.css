@@ -30,18 +30,18 @@
 .confpass::placeholder{
     color: #c9bd97;
 }
-.newpass:-webkit-autofill{
+.newpass:autofill,.newpass:-webkit-autofill{
     outline:none;
-    border: 3px dashed #f4e3b2;
-    color:#f4e3b2;
-    background-color:#74070e;
     width:25vw;
+    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    -webkit-text-fill-color:#f4e3b2;
+    border: 3px dashed #74070e;
 }
-.confpass:-webkit-autofill{
+.confpass:autofill,.confpass:-webkit-autofill{
     outline:none;
-    border: 3px dashed #f4e3b2;
-    color:#f4e3b2;
-    background-color:#74070e;
+    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    -webkit-text-fill-color:#f4e3b2;
+    border: 3px dashed #74070e;
     width:25vw;
 }
 .confpass{

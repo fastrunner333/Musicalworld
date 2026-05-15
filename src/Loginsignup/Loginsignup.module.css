@@ -100,14 +100,15 @@
     outline:none;
     -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
     -webkit-text-fill-color:#f4e3b2;
-    border: 3px dashed #f4e3b2;
+    border: 3px dashed #74070e;
 }
-.passinput:-webkit-autofill{
+.passinput:autofill,.passinput:-webkit-autofill{
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
     background-color: #74070e;
-    color:#f4e3b2;
-    border: 3px dashed #f4e3b2;
+    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    -webkit-text-fill-color:#f4e3b2;
+    border: 3px dashed #74070e;
 }
 .disclamer{
     position:absolute;
