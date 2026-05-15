@@ -98,8 +98,8 @@
 .userinput:autofill,.userinput:-webkit-autofill{
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
-    background-color: transparent !important;
-    transition: background-colour 600000s ease-in-out 0s;
+    background-color: #f4e3b2 !important;
+    
     -webkit-text-fill-color:#f4e3b2;
     border: 3px dashed #74070e;
 }
