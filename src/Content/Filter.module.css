@@ -21,6 +21,7 @@
     color:#f4e3b2;
     border:3px dotted #74070e;
     box-sizing: border-box;
+    line-break: anywhere;
 }
 .button:hover{
     background-color: #272819;
