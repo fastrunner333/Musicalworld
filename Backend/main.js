@@ -47,7 +47,7 @@ cloudinary.config({
 
 app.use(express.json({extended:true}))
 app.use(express.urlencoded())
-app.use(express.static(path.join(dir,"/dist")))
+app.use(express.static(path.join(dir,"./dist")))
 
 
 //public folders
@@ -427,7 +427,7 @@ app.post("/like",async(req,res)=>{
 })
 
 app.get("/*splat",(req, res)=>{
-    res.sendFile(path.join(dir,"/dist/index.html"))
+    res.sendFile(path.join(dir,"./dist/index.html"))
 })
 
 //global error middleware
