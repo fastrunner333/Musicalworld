@@ -7,7 +7,7 @@ import { Userpage } from "./Userpage/Userpage"
 import{Changepass} from "./Userpage/Changepass"
 import {USER} from "./Context/Usercontext"
 import { Spinner } from "./Spinner/spinner"
-import { ProtectedRoutenospinner } from "./Security/Protectedroutesnospinner"
+import { ProtectedRoutenoautolog } from "./Security/Protectedroutesnoautolog"
 import { Nopage } from "./NoPage/Nopage"
 import { useEffect, useMemo, useState } from "react"
 import { memo } from "react"
@@ -24,10 +24,10 @@ export default function App(){
       <Routes>
         <Route path="/" element={<ProtectedRoute><Spinner/></ProtectedRoute>} />
         <Route path="/login" element={<Loginsignup/>}/>
-        <Route path="/mainpage" element={<ProtectedRoutenospinner><Mainpage/></ProtectedRoutenospinner>} />
-        <Route path="/upload" element={<ProtectedRoutenospinner><Upload/></ProtectedRoutenospinner>} />
-        <Route path="/userinfo" element={<ProtectedRoutenospinner><Userpage/></ProtectedRoutenospinner>}/>
-        <Route path="/userinfo/changepass" element={<ProtectedRoutenospinner><Changepass/></ProtectedRoutenospinner>} />
+        <Route path="/mainpage" element={<ProtectedRoutenoautolog><Mainpage/></ProtectedRoutenoautolog>} />
+        <Route path="/upload" element={<ProtectedRoutenoautolog><Upload/></ProtectedRoutenoautolog>} />
+        <Route path="/userinfo" element={<ProtectedRoutenoautolog><Userpage/></ProtectedRoutenoautolog>}/>
+        <Route path="/userinfo/changepass" element={<ProtectedRoutenoautolog><Changepass/></ProtectedRoutenoautolog>} />
         <Route path="*" element={<Nopage/>} />
       </Routes>
     </USER.Provider>
