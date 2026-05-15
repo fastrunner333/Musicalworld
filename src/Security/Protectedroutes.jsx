@@ -2,11 +2,19 @@ import {useNavigate} from "react-router"
 import{USER} from "../Context/Usercontext"
 import { useContext, useEffect, useState } from "react"
 import { Mainpage } from "../Mainpage/Mainpage"
+import { Spinner } from "../Spinner/spinner"
 
 export function ProtectedRoute({children}){
 
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
+    const [nowredirect, setnowredirect] = useState(false)
+    let seprator = 0
+
+    //autologin code
+    if(userToken!=undefined && userToken!=200 && typeof(userToken)=="string" && seprator == 0){
+        return <Mainpage/>
+    }
     
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
@@ -25,14 +33,19 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
+            seprator = seprator + 1
         })  
         .catch(e=>console.log(e))
-    
-        if(userToken!=undefined && userToken!=200 && typeof(userToken)=="string"){
-            return <Mainpage/>
-        }
 
-        return children
+        useEffect(()=>{
+            if(userToken !== undefined && userToken !== 200 && seprator>0){
+                setnowredirect(true);
+            }
+        },[userToken, seprator])
+
+        
+
+        return nowredirect ? children : <Spinner/>
     
        
     
