@@ -27,12 +27,12 @@ cloudinary.config({
 
 
 //cors
-app.use(cors({
+/* app.use(cors({
     origin:"https://musicalworld-1.onrender.com",
     credentials:true,
     method:["POST","GET","OPTIONS","PUT","DELETE"],
     allowedHeaders:["Content-type","Autorization"],
-}))
+})) */
 //headers
 /* app.use((req, res, next)=>{
     res.setHeader("Access-Control-Allow-Origin","https://musicalworld-1.onrender.com");
@@ -47,6 +47,7 @@ app.use(cors({
 
 app.use(express.json({extended:true}))
 app.use(express.urlencoded())
+app.use(express.static(path.join(dir,"/dist")))
 
 
 //public folders
@@ -425,6 +426,10 @@ app.post("/like",async(req,res)=>{
  
 })
 
+app.get("*",(req, res)=>{
+    res.sendFile(path.join(dir,"/dist/index.html"))
+})
+
 //global error middleware
 
 app.use((err, req, res, next)=>{
@@ -435,5 +440,6 @@ app.use((err, req, res, next)=>{
     }
     next()
 }) 
+
 
 app.listen(PORT,()=>{})
