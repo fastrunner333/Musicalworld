@@ -33,7 +33,7 @@ This website is my project for my resume, this is a MERN applicaiton that <ins>*
 
 User can upload text, audio, image and video while using filters on homepage to filter post or see the latest posts, user can like or dislike on post, user can upload and change profile picture, use can change password
 
-####Libraries used:
+#### Libraries used:
 - bcrypt 
 - multer
 - jsonwebtoken
