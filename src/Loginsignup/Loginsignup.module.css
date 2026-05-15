@@ -67,6 +67,8 @@
     background-color: #45462a;
 }
 .userinput{
+    height:2.5vh;
+    width:15vw;
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
     background-color: #74070e;
@@ -74,6 +76,8 @@
     border: 3px dashed #f4e3b2;
 }
 .passinput{
+    height:2.5vh;
+    width:15vw;
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
     background-color: #74070e;
@@ -97,11 +101,12 @@
 }
 .userinput:autofill,.userinput:-webkit-autofill{
     font-family:Georgia, 'Times New Roman', Times, serif;
-    height:calc(100% - 3px);
-    width: calc(100% - 3px);
+    height:calc(2.5vh - 4px);
+    width: calc(15vw - 4px);
     -webkit-box-shadow: 0 0 0px 6000px #74070e inset ;
     -webkit-text-fill-color:#f4e3b2;
     outline:3px dashed #74070e;
+    border:1px solid #74070e
    
 }
 .passinput:autofill,.passinput:-webkit-autofill{
