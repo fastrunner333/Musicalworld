@@ -98,9 +98,9 @@
 .userinput:autofill,.userinput:-webkit-autofill{
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
-    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    -webkit-box-shadow: 0 0 0px 60px #74070e ;
     -webkit-text-fill-color:#f4e3b2;
-    border:6px solid #74070e, 3px dashed #f4e3b2;
+    border:3px dashed #f4e3b2;
     background-color: #74070e !important;
 }
 .passinput:autofill,.passinput:-webkit-autofill{
