@@ -95,11 +95,11 @@
     color:#c9bd97;
     opacity:1;
 }
-.userinput:-webkit-autofill{
+.userinput:autofill,.userinput:-webkit-autofill{
     font-family:Georgia, 'Times New Roman', Times, serif;
     outline:none;
-    background-color: #74070e;
-    color:#f4e3b2;
+    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    -webkit-text-fill-color:#f4e3b2;
     border: 3px dashed #f4e3b2;
 }
 .passinput:-webkit-autofill{
