@@ -2,7 +2,7 @@ This website is my project for my resume, This is a MERN applicaiton that focuse
 
 User can upload text, audio, image and video while using filters on homepage to filter post or see the latest ones, user can like or dislike on post, user can also upload and change profile picture and change password
 
-![flowchart](/flow.png)
+![flowchart](/flowchart.png)
 
 Libraries used:
 bcrypt /n
