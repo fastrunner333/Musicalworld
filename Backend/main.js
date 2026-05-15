@@ -426,7 +426,7 @@ app.post("/like",async(req,res)=>{
  
 })
 
-app.get("/:spalt*",(req, res)=>{
+app.get(/^((?!|?api.)*$/,(req, res)=>{
     res.sendFile(path.join(dir,"./dist/index.html"))
 })
 
