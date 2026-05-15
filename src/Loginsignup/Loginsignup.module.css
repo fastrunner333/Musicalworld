@@ -101,8 +101,8 @@
 }
 .userinput:autofill,.userinput:-webkit-autofill{
     font-family:Georgia, 'Times New Roman', Times, serif;
-    height:calc(2.5vh - 1px);
-    width: calc(15vw - 1px);
+    height:calc(2.5vh - 2px);
+    width: calc(15vw - 2px);
     -webkit-box-shadow: 0 0 0px 6000px #74070e inset ;
     -webkit-text-fill-color:#f4e3b2;
     outline:3px dashed #74070e;
