@@ -13,9 +13,12 @@
    color:#421d1f;
 }
 .textarea:autofill,.textarea:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0px 10000px #f4e3b2 inset;
-    -webkit-text-fill-color:#74070e;
-    border: 3px dashed #74070e;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    -webkit-box-shadow: 0 0 0px 600000px #74070e inset ;
+    -webkit-text-fill-color:#f4e3b2;
+    outline:3px dashed #f4e3b2;
+    outline-offset: -3px;
+    border:3px solid #74070e
 }
 .attachmedia{
     grid-area: mediabutton;

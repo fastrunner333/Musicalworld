@@ -31,18 +31,20 @@
     color: #c9bd97;
 }
 .newpass:autofill,.newpass:-webkit-autofill{
-    outline:none;
-    width:25vw;
-    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    -webkit-box-shadow: 0 0 0px 60000px #74070e inset ;
     -webkit-text-fill-color:#f4e3b2;
-    border: 3px dashed #74070e;
+    outline:3px dashed #f4e3b2;
+    outline-offset: -3px;
+    border:3px solid #74070e
 }
 .confpass:autofill,.confpass:-webkit-autofill{
-    outline:none;
-    -webkit-box-shadow: 0 0 0px 10000px #74070e inset;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    -webkit-box-shadow: 0 0 0px 60000px #74070e inset ;
     -webkit-text-fill-color:#f4e3b2;
-    border: 3px dashed #74070e;
-    width:25vw;
+    outline:3px dashed #f4e3b2;
+    outline-offset: -3px;
+    border:3px solid #74070e
 }
 .confpass{
     outline:none;
