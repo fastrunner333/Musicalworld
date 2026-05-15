@@ -8,6 +8,7 @@ import{Changepass} from "./Userpage/Changepass"
 import {USER} from "./Context/Usercontext"
 import { Spinner } from "./Spinner/spinner"
 import { ProtectedRoutenospinner } from "./Security/Protectedroutesnospinner"
+import { Nopage } from "./NoPage/Nopage"
 import { useEffect, useMemo, useState } from "react"
 import { memo } from "react"
 
@@ -27,6 +28,7 @@ export default function App(){
         <Route path="/upload" element={<ProtectedRoutenospinner><Upload/></ProtectedRoutenospinner>} />
         <Route path="/userinfo" element={<ProtectedRoutenospinner><Userpage/></ProtectedRoutenospinner>}/>
         <Route path="/userinfo/changepass" element={<ProtectedRoutenospinner><Changepass/></ProtectedRoutenospinner>} />
+        <Route path="*" element={<Nopage/>} />
       </Routes>
     </USER.Provider>
   )
