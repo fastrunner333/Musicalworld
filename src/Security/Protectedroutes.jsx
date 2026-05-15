@@ -33,7 +33,7 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
-            setnowredirect(seprator + 1)
+            setseprator(seprator + 1)
         })  
         .catch(e=>console.log(e))
 
