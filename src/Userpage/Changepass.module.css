@@ -30,6 +30,20 @@
 .confpass::placeholder{
     color: #c9bd97;
 }
+.newpass:autofill{
+    outline:none;
+    border: 3px dashed #f4e3b2;
+    color:#f4e3b2;
+    background-color:#74070e;
+    width:25vw;
+}
+.confpass:autofill{
+    outline:none;
+    border: 3px dashed #f4e3b2;
+    color:#f4e3b2;
+    background-color:#74070e;
+    width:25vw;
+}
 .confpass{
     outline:none;
     border: 3px dashed #f4e3b2;

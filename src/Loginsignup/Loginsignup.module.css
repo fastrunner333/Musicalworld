@@ -95,7 +95,20 @@
     color:#c9bd97;
     opacity:1;
 }
-
+.userinput:autofill{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline:none;
+    background-color: #74070e;
+    color:#f4e3b2;
+    border: 3px dashed #f4e3b2;
+}
+.passinput:autofill{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    outline:none;
+    background-color: #74070e;
+    color:#f4e3b2;
+    border: 3px dashed #f4e3b2;
+}
 .disclamer{
     position:absolute;
     right:30%;
