@@ -9,7 +9,7 @@ export function ProtectedRoute({children}){
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
     const [nowredirect, setnowredirect] = useState(false)
-    let seprator = 0
+    const [seprator, setseprator] = useState(0)
 
     //autologin code
     if(userToken!=undefined && userToken!=200 && typeof(userToken)=="string" && seprator == 0){
@@ -33,7 +33,7 @@ export function ProtectedRoute({children}){
         })
         .then((data)=>{
             setuserToken(data)
-            seprator = seprator + 1
+            setnowredirect(seprator + 1)
         })  
         .catch(e=>console.log(e))
 
@@ -41,7 +41,7 @@ export function ProtectedRoute({children}){
             if(userToken !== undefined && userToken !== 200 && seprator>0){
                 setnowredirect(true);
             }
-        },[userToken, seprator])
+        },[seprator])
 
         
 
