@@ -40,9 +40,18 @@ export function Upload(){
             validated = true
             if(file){
                 if(file.type==="image/png" ||  file.type==="audio/mp4" ||  file.type==="image/jpeg" ||  file.type==="video/mp4" ||  file.type==="audio/x-m4a" ||  file.type==="audio/mpeg" ){
-                    uploadformdata.append("mediafile", file)
-                    validated = true
+                    if(file.size <= 31457280){
+                        uploadformdata.append("mediafile", file)
+                        validated = true
+                    }
+                    else{
+                        validated = false
+                        settext("")
+                        setdisplay("none")
+                        document.getElementById("textarea").placeholder = "File must be smaller than or equal to 30 mb"
+                    }
                 }
+                
                 else{
                     validated = false
                     settext("")
@@ -83,7 +92,7 @@ export function Upload(){
             <Header/>
             <div className={styles.div}>
                 <form onSubmit={uploadbutton} className={styles.form} >
-                    <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title, must be under 50 characters, you can upload text or image or audio or video only" style={{resize:"none"}}/>
+                    <textarea id="textarea" value={text} onChange={(e)=>settext(e.target.value)} className={styles.textarea} placeholder="Type title, must be under 50 characters, you can upload text or image or audio or video only, file size must be under or equal to 30mb" style={{resize:"none"}}/>
                     
                     <div className={styles.dropdowndiv}  onMouseEnter={()=>setparentdisplay({display:"flex"})} onMouseLeave={()=>{setparentdisplay({display:"none"})}} >
                         Select Filter

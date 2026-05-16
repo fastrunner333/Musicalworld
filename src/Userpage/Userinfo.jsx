@@ -19,18 +19,24 @@ export function Userinfo(){
         const imageformdata = new FormData()
         if(picture!=undefined){
             if(picture.type === "image/png"){
-                imageformdata.append("userpic",picture)
-                imageformdata.append("username", userToken)
-                fetch(`https://musicalworld.onrender.com/changepic?username=${userToken}`,{
-                        method:"POST",
-                        body:imageformdata
-                })
-                .then(navigate("/mainpage"))
-                .catch((error)=>{
-                    console.log(error)
-                    seterror("Server Error while uploading image, please try again later")
+                if(picture.size <= 10 * 1024 * 1024){
+                    imageformdata.append("userpic",picture)
+                    imageformdata.append("username", userToken)
+                    fetch(`https://musicalworld.onrender.com/changepic?username=${userToken}`,{
+                            method:"POST",
+                            body:imageformdata
+                    })
+                    .then(navigate("/mainpage"))
+                    .catch((error)=>{
+                        console.log(error)
+                        seterror("Server Error while uploading image, please try again later")
+                        seterrorstyle({display:"block"})
+                    })
+                }
+                else{
+                    seterror("The image must be under or equal to 10 mb")
                     seterrorstyle({display:"block"})
-                })
+                }
             }
             else{
                 seterror("The uploaded image must be a png")

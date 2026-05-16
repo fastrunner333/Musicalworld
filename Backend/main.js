@@ -191,6 +191,9 @@ const userpicfilter = (req,file,cb)=>{
 const uploaduserpic = multer({
                         storage:userpicstore,
                         fileFilter:userpicfilter,
+                        limits:{
+                            fileSize: 11 * 1024 *1024
+                        },
                     })
 
 app.post("/changepic",uploaduserpic.single("userpic"),async (req,res)=>{
@@ -246,6 +249,9 @@ const uploadfilter = (req,file,cb)=>{
 const uploadpost = multer({
                         storage:uploadpoststorage,
                         fileFilter:uploadfilter,
+                        limits:{
+                            fileSize: 31 * 1024 *1024
+                        },
  })
 
 app.post("/upload",uploadpost.single("mediafile"),async (req,res)=>{
