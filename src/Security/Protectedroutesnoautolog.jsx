@@ -10,7 +10,7 @@ export function ProtectedRoutenoautolog({children}){
 
     const navigate = useNavigate()
     const {userToken, setuserToken} = useContext(USER)
-    const [nowredirect, setnowredirect] = useState(false)
+    let nowredirect =false
 
     
         fetch("https://musicalworld.onrender.com/check",{   
@@ -34,7 +34,7 @@ export function ProtectedRoutenoautolog({children}){
         .catch(e=>console.log(e))
     
         if(userToken !== undefined && userToken !== 200 && typeof(userToken)=="string"){
-            setnowredirect(true);
+            nowredirect = true;
         }
     
         return nowredirect ? children : <Spinner/>
