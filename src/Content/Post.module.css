@@ -70,6 +70,7 @@
 .video{
     height: 25vh;
     width: fit-content;
+    min-width:23%;
 }
 .likedislike{
     display:flex;
