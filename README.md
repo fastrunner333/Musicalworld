@@ -20,7 +20,7 @@ This website is my project for my resume, this is a MERN applicaiton that <ins>*
 4. Resisting nosql injection attacks
 5. JWT tokens in httponly cookie
 6. Loading states and graular loading states
-7. CORS
+7. Monolithic architecture
 8. Protected routes and secret environment variables
 9. Multi format upload pipeline and MIME type filtering on fontend and backend
 10. Autologin using JWT

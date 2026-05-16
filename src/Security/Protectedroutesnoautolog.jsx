@@ -13,10 +13,6 @@ export function ProtectedRoutenoautolog({children}){
     const [nowredirect, setnowredirect] = useState(false)
     const [seprator, setseprator] = useState(0)
 
-    //autologin code
-    if(userToken!=undefined && userToken!=200 && typeof(userToken)=="string" && seprator == 0){
-        return <Mainpage/>
-    }
     
         fetch("https://musicalworld.onrender.com/check",{   
             method:"POST", 
@@ -40,10 +36,10 @@ export function ProtectedRoutenoautolog({children}){
         .catch(e=>console.log(e))
 
         useEffect(()=>{
-            if(userToken !== undefined && userToken !== 200 && seprator>0){
+            if(userToken !== undefined && userToken !== 200 && typeof(userToken)=="string" && seprator>0){
                 setnowredirect(true);
             }
-        },[seprator])
+        },[userToken])
 
         
 
